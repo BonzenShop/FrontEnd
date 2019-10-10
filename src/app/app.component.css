@@ -1,12 +1,19 @@
+#globalwrapper {
+    background-color: rgb(30, 30, 31);
+    height: 100%;
+}
+
 .toolbar {
-    height: 10%;
-    box-shadow: 0px 5px 5px grey;
+    height: 12%;
+    box-shadow: 0px 5px 5px rgb(124, 94, 18);
     display: flex;
     flex-flow: column;
+    background: linear-gradient(180deg, rgb(30, 30, 30), rgb(40, 40, 40))
 }
 
 #logo {
     display: inline-block;
+    border: none;
 }
 
 #upperToolbar {
@@ -31,11 +38,19 @@ ul#navbar {
 ul#navbar li {
     height: 100%;
     width: 25%;
-    border: 2px dotted black;
+    border-left: rgb(124, 94, 18) solid 1px;
     display: inline-block;
+}
+
+ul#navbar li:first-child {
+    border-left: none;
 }
 
 ul#navbar li button {
     width: 100%;
     height: 100%;
+}
+
+#hallo {
+    width: 25%;
 }
