@@ -1,14 +1,17 @@
 #globalwrapper {
-    background-color: rgb(30, 30, 31);
+    background-color: rgb(25, 25, 25);
     height: 100%;
 }
 
 .toolbar {
-    height: 12%;
-    box-shadow: 0px 5px 5px rgb(124, 94, 18);
+    height: 13%;
+    box-shadow: 0px 1px 5px rgb(124, 94, 18);
     display: flex;
     flex-flow: column;
-    background: linear-gradient(180deg, rgb(30, 30, 30), rgb(40, 40, 40))
+    background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
+    border-bottom: 2px outset goldenrod;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #logo {
@@ -51,6 +54,50 @@ ul#navbar li button {
     height: 100%;
 }
 
-#hallo {
-    width: 25%;
-}
+/* Dropdown Button */
+.dropbtn {
+    transition: .3s ease;
+    border-radius: 5px;
+    background-color: transparent;
+    color: rgb(211, 179, 75);
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #202020;
+    min-width: 250px;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(218, 168, 30, 0.24);
+    z-index: 1;
+    top: 96%;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: rgb(224, 189, 75);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: rgb(35, 35, 35);}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: rgb(35, 35, 35);
+    }

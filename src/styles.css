@@ -5,6 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 * {
     box-sizing: border-box;
-    color: rgb(255, 206, 81);
+    font-family: 'Playfair Display', serif;
     
 }
+
