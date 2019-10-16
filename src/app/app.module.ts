@@ -4,7 +4,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,13 +18,13 @@ import { ProductListComponent } from './product-list/product-list.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatMenuModule,
     MatButtonModule,
-    MatListModule,
-    MatIconModule
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
