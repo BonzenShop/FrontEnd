@@ -3,6 +3,12 @@
     min-height: 100%;
 }
 
+/* same height as toolbar - for correct positioning of content-section */
+#mock-toolbar {
+    height: 13%;
+    min-height: 100px;
+}
+
 .toolbar {
     position: fixed;
     width: 100%;
@@ -17,20 +23,23 @@
     border-bottom-right-radius: 10px;
 }
 
+/* Logo on the toolbar */
 #logo {
     display: inline-block;
     border: none;
 }
-
+/* Upper half of the toolbar. Includes the logo */
 #upperToolbar {
     text-align: center;
 }
 
+/* Lower half of the toolbar. Includes the navbar*/
 #lowerToolbar {
     flex-grow: 1;
     bottom: 0;
 }
 
+/* Category Menu */
 ul#navbar {
     width: 100%;
     height: 100%;
@@ -40,6 +49,7 @@ ul#navbar {
     text-align: center;
 }
 
+/* Individual Category in the navbar */
 ul#navbar li {
     height: 100%;
     width: 25%;
@@ -50,6 +60,7 @@ ul#navbar li {
 ul#navbar li:first-child {
     border-left: none;
 }
+
 /*
 ul#navbar li button {
     width: 100%;
@@ -107,14 +118,15 @@ ul#navbar li button {
 background-color: rgb(41, 41, 41);
 }
 
+/* Add all actual content in this div */
 #content-section {
     position: static;
-    padding-top: 9%;
+    padding-top: 10px;
     width: 100%;
     height: 87%;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }
 
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from "@angular/flex-layout";
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     BrowserAnimationsModule,
     MatGridListModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
