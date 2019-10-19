@@ -4,11 +4,15 @@ import { ProductDetailComponent } from "./product-detail/product-detail.componen
 
 import { ProductListComponent } from './product-list/product-list.component';
 
+<<<<<<< HEAD
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: 'products', component: ProductListComponent },
-  { path: 'detail', component: ProductDetailComponent }
+  { path: 'products', component: ProductListComponent }
+=======
+const routes: Routes = [
+  {path: 'detail', component: ProductDetailComponent}
+>>>>>>> Nicolas
 ];
 
 @NgModule({

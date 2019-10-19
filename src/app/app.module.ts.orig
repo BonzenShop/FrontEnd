@@ -9,14 +9,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { ProductListComponent } from './product-list/product-list.component';
+=======
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+>>>>>>> Nicolas
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
+<<<<<<< HEAD
+    ProductListComponent
+=======
     ProductDetailComponent
+>>>>>>> Nicolas
   ],
   imports: [
     BrowserModule,
