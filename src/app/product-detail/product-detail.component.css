@@ -1,5 +1,47 @@
-#test {
-    height: 2000px;
-    width: 50px;
-    border: 2px solid greenyellow;
+.container-item {
+    color: blanchedalmond;
+}
+
+#item-img {
+    border: 2px ridge goldenrod;
+    /*border-image-source: linear-gradient(45deg, #BF953F, #FBF5B7, #B38728);
+    border-image-slice: 1;*/
+}
+
+#item-name {
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+#item-desc {
+    max-width: 100%;
+}
+
+.container-item-price {
+    margin-top: 35px;
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    color: goldenrod;
+}
+
+.container-item-price p {
+    font-family: 'Courgette', cursive;
+}
+
+#buildup {
+font-size: 20px;
+}
+
+#price {
+    font-size: calc(35px + 2.5vw);
+    margin-top: 0;
+}
+
+#buybtn {
+    border: 1px ridge goldenrod;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    color: blanchedalmond;
 }

@@ -1,2 +1,29 @@
-<p>product-detail works!</p>
-<div id="test">JO</div>
+<div class="container-item"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <img fxFlex="30%" id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Kamel Placeholder">
+  <div class="item" fxFlex="70%">
+    <div id="item-name">
+        {{ id }}
+    </div>
+    <div id ="item-desc">
+        <p>{{ item.desc}}</p>
+    </div>
+  </div> 
+</div>
+<div class="container-item-price">
+    <p id="buildup">Für nur:</p>
+    <p id="price">{{ displayPrice }}€</p>
+    <div
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="10px">
+  <div class="onStock"  fxFlexOffset.xs="0">Noch {{item.onStock}}<br>auf Lager</div>
+  <button (click)="addItem()" id="buybtn" mat-raised-button >Zum Warenkorb hinzufügen</button>
+</div>
+</div>

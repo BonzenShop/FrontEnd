@@ -4,6 +4,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from '@angular/common/http';
  
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     MatGridListModule,
     MatMenuModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
