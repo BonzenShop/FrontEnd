@@ -1,0 +1,9 @@
+mat-nav-list {
+    margin: 10px;
+}
+
+.mat-list-item {
+    height: auto;
+    margin: 10px 0 10px 0;
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+}

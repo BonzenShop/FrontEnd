@@ -1,0 +1,17 @@
+h1, p {
+    color: rgb(211, 179, 75);
+    text-align: center;
+}
+
+mat-grid-list {
+    max-width: 1000px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 50px;
+}
+
+mat-grid-tile {
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+    color: rgb(211, 179, 75);
+}

@@ -1,0 +1,8 @@
+<mat-nav-list>
+    <a mat-list-item href="#" *ngFor="let item of productList">
+        <!--<img matListAvatar style="width:150px; height: 150px; margin: 10px 0 10px 0;" alt="Picture"
+            src="http://www.kameldungen.de/wp-content/uploads/2017/03/cropped-kamele.jpg" />-->
+        <h4 matLine>{{item.name}}</h4>
+        <p>{{item.price}}€</p>
+    </a>
+</mat-nav-list>
