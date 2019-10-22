@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Item } from './item';
-import { environment } from '../environments/environment';
+import { Item } from '../_models/item';
+import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiUrl;
 
