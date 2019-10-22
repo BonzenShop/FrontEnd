@@ -13,11 +13,11 @@
         <div class="dropdown">
           <button class="dropbtn">Transport</button>
           <div class="dropdown-content">
-            <a href="item/Kamel">Tiere</a>
-            <a href="item/Fliegendes Kamel">Flugzeuge</a>
-            <a href="#">Autos</a>
-            <a href="#">Yachten</a>
-            <a href="#">Sänften</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Tiere'}">Tiere</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Flugzeuge'}">Flugzeuge</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Autos'}">Autos</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Yachten'}">Yachten</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Sänften'}">Sänften</a>
           </div>
         </div> 
       </li>
@@ -25,10 +25,10 @@
         <div class="dropdown">
           <button class="dropbtn">Immobilien</button>
           <div class="dropdown-content">
-            <a href="#">Bezirke</a>
-            <a href="#">Monumente</a>
-            <a href="#">Villen</a>
-            <a href="#">Straßen</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Bezirke'}">Bezirke</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Monumente'}">Monumente</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Villen'}">Villen</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Straßen'}">Straßen</a>
           </div>
         </div>
       </li>
@@ -36,9 +36,9 @@
         <div class="dropdown">
           <button class="dropbtn">Kleidung</button>
           <div class="dropdown-content">
-            <a href="#">Accessoires</a>
-            <a href="#">Iced out</a>
-            <a href="#">Klunker</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Accessoires'}">Accessoires</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Iced out'}">Iced out</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Klunker'}">Klunker</a>
           </div>
         </div>
       </li>
@@ -46,11 +46,11 @@
         <div class="dropdown">
           <button class="dropbtn">Sonstiges</button>
           <div class="dropdown-content">
-            <a href="#">Untertanen</a>
-            <a href="#">Gold</a>
-            <a href="#">Edelsteine</a>
-            <a href="#">Haustiere</a>
-            <a href="koks">Schnee</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Untertanen'}">Untertanen</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Gold'}">Gold</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Edelsteine'}">Edelsteine</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Haustiere'}">Haustiere</a>
+            <a routerLink="/products" [queryParams]="{cat: 'Schnee'}">Schnee</a>
           </div> 
         </div>
       </li>
