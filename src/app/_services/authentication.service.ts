@@ -6,6 +6,7 @@ import { Item } from '../_models/item';
 import { ApiServie, ApiService } from './api.service';
 
 import { User } from '../_models/user';
+import { SelectControlValueAccessor } from '@angular/forms';
 
 const API_URL = environment.apiUrl;
 
@@ -26,16 +27,19 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        console.log("login attempt");
         var body = { username, password };
         this.apiService.login(body)
-            .subscribe((user)=>{
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject.next(user);
-                }
-              })
+            .subscribe(
+                user => {
+                    if (user && user.token) {
+                        // store user details and jwt token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('currentUser', JSON.stringify(user));
+                        this.currentUserSubject.next(user);
+                    }
+                },
+                error => {
+                    console.error(error);
+                })
     }
 
     logout() {

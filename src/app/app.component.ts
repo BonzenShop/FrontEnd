@@ -26,13 +26,24 @@ export class AppComponent {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
+  get isLoggedIn() {
+    return this.currentUser ? true : false;
+  }
+
   get isAdmin() {
       return this.currentUser && this.currentUser.role === Role.Admin;
   }
 
   login(){
-    console.log("login "+ this.email+" with password "+this.password);
-    if(this.email != '' && this.password != '')
+    if(this.email != '' && this.password != ''){
       this.authenticationService.login(this.email, this.password);
+      
+    }
+    this.email = '';
+    this.password = '';
+  }
+
+  logout(){
+    this.authenticationService.logout();
   }
 }

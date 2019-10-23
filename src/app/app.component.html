@@ -6,15 +6,18 @@
       alt="Bonzenshop Logo"
       src="../assets/Logo long.svg"
     />
-    <div id="login">
-      <form (keyup.enter)="login()">
-          <input *ngIf="showLogin" type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
-          <input *ngIf="showLogin" type="text" placeholder="Passwort" [(ngModel)]="password" name="password"/>
+    <div id="login" *ngIf="!isLoggedIn">
+      <form *ngIf="showLogin" (keyup.enter)="login()">
+          <input type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
+          <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password"/>
       </form>
       <button mat-button *ngIf="!showLogin" (click)="showLogin = true;">Login</button>
       <button mat-icon-button *ngIf="showLogin" (click)="showLogin = false;">
         <mat-icon>close</mat-icon>
       </button>
+    </div>
+    <div id="logout" *ngIf="isLoggedIn">
+        <button mat-button (click)="logout(); showLogin = false;">Logout</button>
     </div>
   </div>
   <div id="lowerToolbar">
