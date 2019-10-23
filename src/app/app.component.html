@@ -3,9 +3,19 @@
   <div class="toolbar" role="banner">
   <div id="upperToolbar">
     <img id="logo"
-    alt="Bonzenshop Logo"
-    src="../assets/Logo long.svg"
-  />
+      alt="Bonzenshop Logo"
+      src="../assets/Logo long.svg"
+    />
+    <div id="login">
+      <form (keyup.enter)="login()">
+          <input *ngIf="showLogin" type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
+          <input *ngIf="showLogin" type="text" placeholder="Passwort" [(ngModel)]="password" name="password"/>
+      </form>
+      <button mat-button *ngIf="!showLogin" (click)="showLogin = true;">Login</button>
+      <button mat-icon-button *ngIf="showLogin" (click)="showLogin = false;">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
   </div>
   <div id="lowerToolbar">
     <ul id="navbar">
