@@ -33,7 +33,7 @@
     transform: translate(-50%);
 }
 /* Login/Logout on the toolbar */
-#login, #logout {
+#login, #logout, #loading {
     float: right;
     color: rgb(211, 179, 75);
 }
@@ -48,8 +48,9 @@
     border-radius: 10px;
     padding: 2px 5px;
     background: transparent;
-    border: 2px solid rgb(211, 179, 75);
+    border: 1px solid rgb(211, 179, 75);
     color: rgb(211, 179, 75);
+    margin-left: 2px;
 }
 #login > form > input:-webkit-autofill,
 #login > form > input:-webkit-autofill:hover, 
@@ -57,6 +58,17 @@
 #login > form > input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
     -webkit-text-fill-color: rgb(211, 179, 75) !important;
+}
+#loading {
+    position: relative;
+    height: 100%;
+}
+#loading > img {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 /* Upper half of the toolbar. Includes the logo */
 #upperToolbar {

@@ -46,4 +46,8 @@ export class AppComponent {
   logout(){
     this.authenticationService.logout();
   }
+
+  get loading(){
+    return this.authenticationService.loading;
+  }
 }

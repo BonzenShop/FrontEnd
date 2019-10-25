@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Item } from '../_models/item';
-import { ApiServie, ApiService } from './api.service';
+import { ApiService } from './api.service';
 
 import { User } from '../_models/user';
 import { SelectControlValueAccessor } from '@angular/forms';
@@ -16,6 +16,7 @@ const API_URL = environment.apiUrl;
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+    public loading = false;
 
     constructor(private apiService: ApiService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -28,6 +29,7 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
         var body = { username, password };
+        this.loading = true;
         this.apiService.login(body)
             .subscribe(
                 user => {
@@ -36,9 +38,11 @@ export class AuthenticationService {
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         this.currentUserSubject.next(user);
                     }
+                    this.loading = false;
                 },
                 error => {
                     console.error(error);
+                    this.loading = false;
                 })
     }
 
