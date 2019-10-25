@@ -13,8 +13,12 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(){
+  getProductList(){
     return this.httpClient.get<Item[]>(API_URL + '/productList');
+  }
+
+  getUserList(){
+    return this.httpClient.get<User[]>(API_URL + '/userList');
   }
 
   login(data){

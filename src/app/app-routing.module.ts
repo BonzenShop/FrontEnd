@@ -4,12 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { ProductListComponent } from './product-list/product-list.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { Role } from './_models/role';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'detail', component: ProductDetailComponent },
-  { path: 'item/:id', component: ProductDetailComponent }
+  { path: 'item/:id', component: ProductDetailComponent },
+  { path: 'user', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } }
 ];
 
 @NgModule({

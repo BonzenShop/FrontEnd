@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Item } from '../_models/item';
 import { ApiService } from './api.service';
 
 import { User } from '../_models/user';
-import { SelectControlValueAccessor } from '@angular/forms';
 
 const API_URL = environment.apiUrl;
 
