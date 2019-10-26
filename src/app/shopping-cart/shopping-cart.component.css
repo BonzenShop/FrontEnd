@@ -1,0 +1,85 @@
+/* adds margin when in desktop ...for the looks */
+@media (min-width:1000px){
+ #spacer {
+    margin-left: 60px;
+    margin-right: 60px;
+}}
+
+/* removes list item padding when in mobile*/
+@media (max-width:1000px) {
+    :host /deep/ .mat-list-item-content {
+    padding: 0!important;
+  }
+}
+
+:host /deep/ .mat-list-item :hover {
+    background-color: rgb(41, 41, 41);
+    box-shadow: 0 0 2px 2px rgb(25, 25, 25) inset;
+  }
+
+  :host /deep/ .mat-list-item-content :hover {
+    box-shadow: none;
+  }
+
+#cart-title {
+    font-family: 'Courgette', cursive;
+    font-size: 26px;
+    background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.list-box{
+    height: 140px !important;
+    color: blanchedalmond;
+}
+
+#item-img {
+    height: 90%;
+}
+
+.container-item {
+    margin-left: 10px;
+}
+
+#item-name {
+    font-size: 23px;
+    font-family: 'Courgette', cursive;
+    background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width:1000px) {
+    #item-desc {
+        display: none;
+    }
+}
+
+#item-price {
+    font-family: 'Courgette', cursive;
+    font-size: 20px;
+    background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#totalPriceText{
+    margin-bottom: 5px;
+    color: blanchedalmond;
+}
+
+#totalPrice {
+    font-family: 'Courgette', cursive;
+    font-size: 42px;
+    background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#buyBtn {
+    border: 1px ridge goldenrod;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    color: blanchedalmond;
+}

@@ -1,0 +1,41 @@
+<div id="spacer">
+    <mat-list>
+        <h1 id="cart-title" mat-subheader>Dein Einkaufswagen</h1>
+        <mat-list-item class="list-box" *ngFor="let item of shopping_cart">
+            <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Kamel Placeholder">
+            <div class="container-item"
+                fxLayout="column"
+                fxLayout.xs="column"
+                fxLayoutAlign
+                fxLayoutGap="10px"
+                fxLayoutGap.xs="0">
+                <div id="item-name" fxFlex="20%"> {{ item.item.name}}</div>
+                <div id="item-desc" fxFlex="50%"> {{item.item.desc}}</div>
+                <div class="price_quantity" fxFlex="30%"
+                    fxLayout
+                    fxLayout.xs="column"
+                    fxLayoutAlign="start"
+                    fxLayoutGap="10px"
+                    fxLayoutGap.xs="0">
+                    <div id="item-price"> {{ item.item.price }}€</div>
+                    <div id="item-quantity"> Anzahl: {{item.quantity}}</div>
+                </div>
+            </div>
+            <mat-divider  *ngIf="!lastItem"></mat-divider>
+        </mat-list-item>
+    </mat-list>
+    <div id="checkout-area">
+        <p id="totalPriceText"> Total: </p>
+        <div id="totalPrice">{{ totalPrice }}</div>
+        <div 
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="5px" >
+            <button id="buyBtn" mat-raised-button>Jetzt Kaufen</button>
+            <button id="buyBtn" (click)="moneyMaker()" mat-flat-button>Seh ich etwa aus wie ein Bettler?</button>
+        </div>
+    </div>
+    
+</div>

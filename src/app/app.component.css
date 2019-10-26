@@ -21,16 +21,39 @@
     border-bottom: 2px outset goldenrod;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    z-index: 100;
 }
 
 /* Logo on the toolbar */
 #logo {
     display: inline-block;
     border: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
+
+#cart-center{
+    margin: 0;
+    float: right;
+}
+
+/* shopping cart button */
+.material-icons {
+    padding: 4px;
+    font-size: 30px;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.material-icons:hover{
+    font-size: 32px;
+}
+
 /* Upper half of the toolbar. Includes the logo */
 #upperToolbar {
-    text-align: center;
+
 }
 
 /* Lower half of the toolbar. Includes the navbar*/
@@ -111,7 +134,7 @@ ul#navbar li button {
 .dropdown-content a:hover {background-color: rgb(41, 41, 41);}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {

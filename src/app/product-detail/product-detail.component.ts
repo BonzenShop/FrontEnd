@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { ShoppingCartService } from "../shopping-cart.service";
 import { Item } from "../item";
 
 @Component({
@@ -18,10 +19,11 @@ export class ProductDetailComponent implements OnInit {
     desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     category: "Transport",
     price: 10000000,
-    onStock: 2
+    onStock: 2,
+    image: "../assets/Kamel-Placeholder.jpg"
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private shopping_cart: ShoppingCartService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => this.update(params.get("id")) );
@@ -41,6 +43,7 @@ export class ProductDetailComponent implements OnInit {
 
   addItem() {
     if(this.item.onStock > 0) {
+      this.shopping_cart.addToCart(this.item,1);
       this.item.onStock--;
     }
   }
