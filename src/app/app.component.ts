@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+
 import { AuthenticationService } from './_services/authentication.service';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { User } from './_models/user';
 import { Role } from './_models/role';
 

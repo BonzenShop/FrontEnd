@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+
 import { ApiService } from './api.service';
-
 import { User } from '../_models/user';
-
-const API_URL = environment.apiUrl;
 
 @Injectable({
      providedIn: 'root'
