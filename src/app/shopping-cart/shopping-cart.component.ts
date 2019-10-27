@@ -63,11 +63,47 @@ export class ShoppingCartComponent implements OnInit {
     this.totalPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
   }
 
-  moneyMaker(){
-    this.totalPriceCalc = this.totalPriceCalc*1.2;
 
-    console.log(this.totalPrice);
-    
-    this.totalPrice = this.totalPriceCalc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
+  moneyMaker() {
+    var start:number = Math.round(this.totalPriceCalc);
+    this.totalPriceCalc = this.totalPriceCalc*1.2;
+    var end:number = Math.round(this.totalPriceCalc);
+    this.animateValue(start,end);
+    //document.getElementById("totalPrice").style.cssText = "background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
+    //this.totalPrice = this.totalPriceCalc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
   }
+
+  animateValue(start, end) {
+    // assumes integer values for start and end
+
+    var range = end - start;
+    // no timer shorter than 50ms (not really visible any way)
+    var minTimer = 50;
+    // calc step time to show all interediate values
+    var stepTime = Math.abs(Math.floor(1500 / range));
+    
+    // never go below minTimer
+    stepTime = Math.max(stepTime, minTimer);
+    
+    // get current time and calculate desired end time
+    var startTime = new Date().getTime();
+    var endTime = startTime + 1500;
+    var timer;
+    
+    let run = () => {
+        var now = new Date().getTime();
+        var remaining = Math.max((endTime - now) / 1500, 0);
+        var value = Math.round(end - (remaining * range));
+        
+        document.getElementById("totalPrice").style.cssText = "background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
+        this.totalPrice = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
+        
+        if (value >= end) {  
+          clearInterval(timer);
+        }
+    }
+    
+    timer = setInterval(run, stepTime);
+  }
+  
 }
