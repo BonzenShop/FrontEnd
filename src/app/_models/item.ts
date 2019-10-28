@@ -5,4 +5,5 @@ export class Item {
     category: string;
     price: number;
     onStock: number;
+    image: String;
 }

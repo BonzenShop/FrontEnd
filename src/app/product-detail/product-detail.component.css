@@ -3,9 +3,9 @@
 }
 
 #item-img {
+    max-width: 100%;
+    max-height: 100%;
     border: 2px ridge goldenrod;
-    /*border-image-source: linear-gradient(45deg, #BF953F, #FBF5B7, #B38728);
-    border-image-slice: 1;*/
 }
 
 #item-name {
@@ -17,13 +17,14 @@
 
 #item-desc {
     max-width: 100%;
+    padding: 15px;
 }
 
 .container-item-price {
     margin-top: 35px;
     font-family: 'Courgette', cursive;
     text-align: center;
-    color: goldenrod;
+    color: blanchedalmond;
 }
 
 .container-item-price p {
@@ -36,6 +37,9 @@ font-size: 20px;
 
 #price {
     font-size: calc(35px + 2.5vw);
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-top: 0;
 }
 

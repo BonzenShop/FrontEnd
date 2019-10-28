@@ -19,6 +19,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { RouterModule } from '@angular/router';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,15 @@ import { UserListComponent } from './user-list/user-list.component';
     ProductDetailComponent,
     HomeComponent,
     ItemCategoryFilterPipe,
-    UserListComponent
+    UserListComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    MatDividerModule,
     HttpClientModule,
+    RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
