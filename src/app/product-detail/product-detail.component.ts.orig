@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+<<<<<<< HEAD
 import { Item } from "../_models/item";
-import { ShoppingCartService } from "../_services/shopping-cart.service";
+=======
+import { ShoppingCartService } from "../shopping-cart.service";
+import { Item } from "../item";
+>>>>>>> Nicolas
 
 @Component({
   selector: 'app-product-detail',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../item';
-import { ApiService } from '../api.service';
+import { ActivatedRoute } from "@angular/router";
+import { Item } from '../_models/item';
+import { ApiService } from '../_services/api.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,12 +11,16 @@ import { ApiService } from '../api.service';
 export class ProductListComponent implements OnInit {
   
   productList: Item[]
+  category: String
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { 
+    this.route.queryParams.subscribe(params => {
+      this.category = params['cat'];
+  });
+  }
 
   ngOnInit() {
-    this.apiService.getProducts().subscribe((data)=>{
-      console.log(data);
+    this.apiService.getProductList().subscribe((data)=>{
       this.productList = data;
     })
   }
