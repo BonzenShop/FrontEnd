@@ -17,9 +17,9 @@
     box-shadow: 0 0 2px 2px rgb(25, 25, 25) inset;
   }
 
-  :host /deep/ .mat-list-item-content :hover {
+:host /deep/ .mat-list-item-content :hover {
     box-shadow: none;
-  }
+}
 
 #cart-title {
     font-family: 'Courgette', cursive;
