@@ -10,6 +10,8 @@ import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ItemCategoryFilterPipe } from './shared/item-category-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,8 +22,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { RouterModule } from '@angular/router';
-import { MatDividerModule } from '@angular/material/divider';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatDividerModule } from '@angular/material/divider';
     HomeComponent,
     ItemCategoryFilterPipe,
     UserListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

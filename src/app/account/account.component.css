@@ -1,0 +1,20 @@
+* {
+    color:  rgb(211, 179, 75);
+}
+
+td {
+    padding: 5px;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
