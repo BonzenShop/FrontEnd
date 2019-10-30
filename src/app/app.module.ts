@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
 
 import { ItemCategoryFilterPipe } from './shared/item-category-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AccountComponent } from './account/account.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,13 @@ import { AccountComponent } from './account/account.component';
     ItemCategoryFilterPipe,
     UserListComponent,
     ShoppingCartComponent,
-    AccountComponent
+    AccountComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     MatDividerModule,
     HttpClientModule,
     RouterModule,
@@ -49,6 +53,7 @@ import { AccountComponent } from './account/account.component';
     MatListModule,
     MatIconModule,
     MatTableModule,
+    MatInputModule,
     FlexLayoutModule
   ],
   providers: [

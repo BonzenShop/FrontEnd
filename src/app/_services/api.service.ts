@@ -24,4 +24,8 @@ export class ApiService {
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }
+
+  signup(data){
+    return this.httpClient.post<User>(API_URL + '/signup', data);
+  }
 }

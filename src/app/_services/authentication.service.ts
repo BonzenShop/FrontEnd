@@ -47,4 +47,22 @@ export class AuthenticationService {
         this.currentUserSubject.next(null);
         this.router.navigate(['/']);
     }
+
+    signup(user: User) {
+        var body = user;
+        this.apiService.signup(body)
+            .subscribe(
+                user => {
+                    if (user && user.token) {
+                        // store user details and jwt token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('currentUser', JSON.stringify(user));
+                        this.currentUserSubject.next(user);
+                    }
+                    this.loading = false;
+                },
+                error => {
+                    console.error(error);
+                    this.loading = false;
+                })
+    }
 }

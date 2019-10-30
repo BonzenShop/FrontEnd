@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthenticationService } from './_services/authentication.service';
 import { User } from './_models/user';
@@ -22,7 +23,7 @@ export class AppComponent {
   password = '';
   currentUser: User;
 
-  constructor(private authenticationService: AuthenticationService){
+  constructor(private authenticationService: AuthenticationService, private router: Router){
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -49,5 +50,9 @@ export class AppComponent {
 
   get loading(){
     return this.authenticationService.loading;
+  }
+
+  goToHome(){
+    this.router.navigate(['/']);
   }
 }

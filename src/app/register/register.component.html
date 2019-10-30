@@ -1,0 +1,25 @@
+<div id="contentWrapper">
+    <h2>Registrierung</h2>
+    <form [formGroup]="myForm">
+        <mat-form-field>
+            <input matInput placeholder="Vorname" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Nachname" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Geburtsdatum" formControlName="birthDate">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-Mail" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Passwort" formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Passwort wiederholen" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+        </mat-form-field>
+    </form>
+    <button [disabled]="myForm.invalid" id="registerbtn" (click)="register()" mat-raised-button >Registrieren</button>
+</div>
+
