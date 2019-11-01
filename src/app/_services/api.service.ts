@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+import { Order } from '../_models/order'
 import { Item } from '../_models/item';
 import { User } from '../_models/user';
 import { environment } from '../../environments/environment';
@@ -19,6 +21,10 @@ export class ApiService {
 
   getUserList(){
     return this.httpClient.get<User[]>(API_URL + '/userList');
+  }
+
+  getOrderList(){
+    return this.httpClient.get<Order[]>(API_URL + '/orderList');
   }
 
   login(data){

@@ -33,6 +33,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AccountComponent } from './account/account.component';
 import { RegisterComponent } from './register/register.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RegisterComponent } from './register/register.component';
     UserListComponent,
     ShoppingCartComponent,
     AccountComponent,
-    RegisterComponent
+    RegisterComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,

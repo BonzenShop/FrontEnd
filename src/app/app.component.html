@@ -23,7 +23,7 @@
     <div id="loading" *ngIf="loading">
         <img src="../assets/loading_spinner.svg"/>
     </div>
-    <a id="cart-center" routerLink="/cart" >
+    <a id="cart-center" routerLink="/Warenkorb" >
       <i class="material-icons">
         shopping_cart
       </i>
@@ -35,11 +35,11 @@
         <div class="dropdown">
           <button class="dropbtn">Transport</button>
           <div class="dropdown-content">
-            <a routerLink="/products" [queryParams]="{cat: 'Tiere'}">Tiere</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Flugzeuge'}">Flugzeuge</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Autos'}">Autos</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Yachten'}">Yachten</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Sänften'}">Sänften</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}">Tiere</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}">Flugzeuge</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}">Autos</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}">Yachten</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sänften'}">Sänften</a>
           </div>
         </div> 
       </li>
@@ -47,10 +47,10 @@
         <div class="dropdown">
           <button class="dropbtn">Immobilien</button>
           <div class="dropdown-content">
-            <a routerLink="/products" [queryParams]="{cat: 'Bezirke'}">Bezirke</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Monumente'}">Monumente</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Villen'}">Villen</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Straßen'}">Straßen</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Bezirke'}">Bezirke</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}">Monumente</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Villen'}">Villen</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}">Straßen</a>
           </div>
         </div>
       </li>
@@ -58,9 +58,9 @@
         <div class="dropdown">
           <button class="dropbtn">Kleidung</button>
           <div class="dropdown-content">
-            <a routerLink="/products" [queryParams]="{cat: 'Accessoires'}">Accessoires</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Iced out'}">Iced out</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Klunker'}">Klunker</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}">Accessoires</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Iced out'}">Iced out</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Klunker'}">Klunker</a>
           </div>
         </div>
       </li>
@@ -68,11 +68,11 @@
         <div class="dropdown">
           <button class="dropbtn">Sonstiges</button>
           <div class="dropdown-content">
-            <a routerLink="/products" [queryParams]="{cat: 'Untertanen'}">Untertanen</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Gold'}">Gold</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Edelsteine'}">Edelsteine</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Haustiere'}">Haustiere</a>
-            <a routerLink="/products" [queryParams]="{cat: 'Schnee'}">Schnee</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}">Untertanen</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}">Gold</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}">Edelsteine</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}">Haustiere</a>
+            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Schnee'}">Schnee</a>
           </div> 
         </div>
       </li>

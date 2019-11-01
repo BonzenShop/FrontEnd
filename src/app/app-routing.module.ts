@@ -10,15 +10,17 @@ import { AuthGuard } from './_guards/auth.guard';
 import { Role } from './_models/role';
 import { AccountComponent } from './account/account.component';
 import { RegisterComponent } from './register/register.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'item/:id', component: ProductDetailComponent },
-  { path: 'cart',  component: ShoppingCartComponent},
-  { path: 'user', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
-  { path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
-  { path: 'register', component: RegisterComponent}
+  { path: 'Produkte', component: ProductListComponent },
+  { path: 'Produkt/:id', component: ProductDetailComponent },
+  { path: 'Warenkorb',  component: ShoppingCartComponent},
+  { path: 'Kontoliste', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
+  { path: 'Konto', component: AccountComponent, canActivate: [AuthGuard]},
+  { path: 'Registrierung', component: RegisterComponent},
+  { path: 'Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
 ];
 
 @NgModule({
