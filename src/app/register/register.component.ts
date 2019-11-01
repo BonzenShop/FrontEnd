@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder} from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { DateAdapter } from '@angular/material';
+import { DatePipe } from '@angular/common';
 
+import { MyErrorStateMatcher } from '../_helpers/myErrorStateMatcher';
 import { AuthenticationService } from '../_services/authentication.service';
 import { User } from '../_models/user';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    return (control.parent.controls["password"].touched && control.parent.controls["password"].invalid) || control.parent.controls["password"].value != control.value;
-  }
-}
 
 @Component({
   selector: 'app-register',
@@ -24,7 +20,7 @@ export class RegisterComponent implements OnInit {
   myForm: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private authenticationService: AuthenticationService, private router: Router, private formBuilder: FormBuilder, private dateAdapter: DateAdapter<Date>, private datepipe: DatePipe) {
     this.myForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -33,7 +29,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required]],
       confirmPassword: [''],
     }, { validator: this.checkPasswords });
-
+    this.dateAdapter.setLocale('de');
   }
 
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
@@ -50,7 +46,8 @@ export class RegisterComponent implements OnInit {
     if(this.myForm.valid){
         this.user.firstName = this.myForm.controls.firstName.value;
         this.user.lastName = this.myForm.controls.lastName.value;
-        this.user.birthDate = this.myForm.controls.birthDate.value;
+        let birthDate = new Date(this.myForm.controls.birthDate.value);
+        this.user.birthDate = this.datepipe.transform(birthDate, 'dd.MM.yyyy');
         this.user.email = this.myForm.controls.email.value;
         this.user.password = this.myForm.controls.password.value;
         this.authenticationService.signup(this.user);
