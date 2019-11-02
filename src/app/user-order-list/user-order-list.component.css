@@ -1,0 +1,84 @@
+mat-list-item {
+    height: auto !important;
+    margin: 10px 0 10px 0;
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+}
+mat-list-item:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+/* adds margin when in desktop ...for the looks */
+@media (min-width:1000px){
+    #spacer {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+
+:host /deep/ .mat-list-item-content {
+    padding: 0!important;
+}
+
+.list-box{
+    height: auto !important;
+    color: blanchedalmond;
+}
+
+#item-img {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.container-item {
+    margin-left: 10px;
+}
+
+#item-name {
+    font-size: 23px;
+    font-family: 'Courgette', cursive;
+    background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#totalPrice {
+    padding-left: 5px;
+    float: right;
+}
+
+#orderDate {
+    padding-right: 5px;
+    float: left;
+}
+
+#order-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.05);
+}
+
+#product-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px
+}
+
+@media (max-width:500px){
+    #product-info {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-item {
+        margin-left: 0;
+    }
+}
+
+#orderWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

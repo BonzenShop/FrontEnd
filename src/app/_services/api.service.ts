@@ -27,6 +27,10 @@ export class ApiService {
     return this.httpClient.get<Order[]>(API_URL + '/orderList');
   }
 
+  getUserOrderList(){
+    return this.httpClient.get<Order[]>(API_URL + '/myOrderList');
+  }
+
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }

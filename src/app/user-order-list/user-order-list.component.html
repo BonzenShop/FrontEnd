@@ -1,0 +1,25 @@
+<div id="spacer">
+    <mat-list>
+        <mat-list-item class="list-box" *ngFor="let order of orderList">
+            <div id="orderWrapper">
+                <div id="order-info">
+                    <div id="orderDate"> Bestellt: {{order.orderDate}}</div>
+                    <div id="totalPrice"> Summe: {{order.totalPrice}}€</div>
+                </div>
+                <div id="product-info">
+                    <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Placeholder">
+                    <div class="container-item"
+                        fxLayout="column"
+                        fxLayout.xs="column"
+                        fxLayoutAlign
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                        <div id="item-name" fxFlex="20%"> {{order.name}}</div>
+                        <div id="item-price" fxFlex="20%"> Einzelpreis: {{order.price}}€</div>
+                        <div id="amount" fxFlex="20%"> Menge: {{order.amount}}</div>
+                    </div>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>
