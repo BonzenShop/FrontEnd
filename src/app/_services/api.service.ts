@@ -24,4 +24,10 @@ export class ApiService {
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }
+
+  order(data:String) {
+    console.log(data);
+    
+    return this.httpClient.post<String>(API_URL + '/order', data)
+  }
 }

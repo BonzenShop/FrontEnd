@@ -56,10 +56,23 @@
     }
 }
 
+#removeIcon {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 3px;
+    color: blanchedalmond;
+}
+
+#removeIcon:hover {
+    color: crimson;
+    cursor: pointer;
+}
+
 #item-price {
     font-family: 'Courgette', cursive;
     font-size: 20px;
-    background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -82,4 +95,64 @@
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
     color: blanchedalmond;
+}
+
+
+#item-quantity .material-icons:hover {
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: rgb(45, 45, 45);
+}
+
+#number-quantity {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+input:hover {
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+@media (min-width:1000px) {
+    #item-quantity .material-icons {
+        display: none;
+    }
+
+    input {
+        border: 1px solid transparent;
+        border-radius: 1px;
+        text-align: center;
+        font-size: 20px;
+        width: 40px;
+        color: blanchedalmond;
+        background-color: transparent;
+    }
+}
+
+@media (max-width:1000px) {
+    #item-quantity .material-icons {
+        border: 1px solid transparent;
+        border-radius: 2px;
+    }
+    input {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    text-align: center;
+    width: 25px;
+    font-size: 20px;
+    color: blanchedalmond;
+    background-color: transparent;
+}
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
 }

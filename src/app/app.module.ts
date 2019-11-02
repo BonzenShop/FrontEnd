@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ItemCategoryFilterPipe } from './shared/item-category-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { MatDividerModule } from '@angular/material/divider';
     HomeComponent,
     ItemCategoryFilterPipe,
     UserListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDividerModule,
     HttpClientModule,
     RouterModule,
+    MatFormFieldModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
