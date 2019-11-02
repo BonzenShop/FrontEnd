@@ -33,7 +33,7 @@
         <!-- Price Column -->
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef> Einzelpreis </th>
-            <td mat-cell *matCellDef="let order"> {{order.price}} </td>
+            <td mat-cell *matCellDef="let order"> {{order.price | number:'':'de-DE'}}€ </td>
         </ng-container>
 
         <!-- Amount Column -->
@@ -45,7 +45,7 @@
         <!-- TotalPrice Column -->
         <ng-container matColumnDef="totalPrice">
             <th mat-header-cell *matHeaderCellDef> Gesamtpreis </th>
-            <td mat-cell *matCellDef="let order"> {{order.totalPrice}} </td>
+            <td mat-cell *matCellDef="let order"> {{order.totalPrice | number:'':'de-DE'}}€ </td>
         </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -3,6 +3,6 @@
         <!--<img matListAvatar style="width:150px; height: 150px; margin: 10px 0 10px 0;" alt="Picture"
             src="http://www.kameldungen.de/wp-content/uploads/2017/03/cropped-kamele.jpg" />-->
         <h4 matLine>{{item.name}}</h4>
-        <p>{{item.price}}€</p>
+        <p>{{item.price | number:'':'de-DE'}}€</p>
     </a>
 </mat-nav-list>
