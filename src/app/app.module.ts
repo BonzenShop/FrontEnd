@@ -11,6 +11,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ItemCategoryFilterPipe } from './shared/item-category-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +41,7 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     BrowserModule,
     FormsModule,
     MatDividerModule,
+    MatSnackBarModule,
     HttpClientModule,
     RouterModule,
     MatFormFieldModule,

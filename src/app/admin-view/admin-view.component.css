@@ -1,0 +1,12 @@
+#wrapper div {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+#wrapper button {
+    color: blanchedalmond;
+    min-width: 200px;
+    height: 50px;
+    font-size: 26px;
+    margin: 0 auto;
+}

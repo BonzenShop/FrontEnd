@@ -5,6 +5,7 @@ import { AuthenticationService } from '../_services/authentication.service';
 import { User } from '../_models/user';
 import { Item } from "../_models/item";
 import { ApiService } from '../_services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class cart_item {
   item:Item;
@@ -35,7 +36,7 @@ export class ShoppingCartComponent implements OnInit {
   currentUser: User;
   order: order_item[] = [];
 
-  constructor(private shopping_cart_service: ShoppingCartService, private authenticationService: AuthenticationService, private apiService: ApiService) {
+  constructor(private shopping_cart_service: ShoppingCartService, private authenticationService: AuthenticationService, private apiService: ApiService, private _snackBar: MatSnackBar) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
    }
 
@@ -74,6 +75,12 @@ export class ShoppingCartComponent implements OnInit {
     return this.currentUser ? true : false;
   }
 
+  showLoginReminder(){
+    this._snackBar.open("Zum Fortfahren bitte einloggen", "OK", {
+      duration: 4000,
+    });
+  }
+
   quantityMinus(index:number) {
     if(this.shopping_cart[index].quantity>1){
       var start:number = Math.round(this.totalPriceCalc);
@@ -95,11 +102,16 @@ export class ShoppingCartComponent implements OnInit {
     this.animateValue(start,end, 500);
   }
 
-  submitQuantity(bla:any){
-    console.log(document.getElementById("0"));
-    console.log(bla);
+  submitQuantity(quantity:any, index:any){
+    console.log(quantity);
+    var start:number = Math.round(this.totalPriceCalc);
+    this.totalPriceCalc += Math.round((quantity - this.shopping_cart[index].quantity) * this.shopping_cart[index].item.price);
+    var end:number = this.totalPriceCalc;
+    this.shopping_cart[index].quantity = quantity;
+    console.log(start + " - " + end);
     
-    console.log("bla");
+    this.animateValue(start,end,500);
+    
     
   }
 
@@ -130,7 +142,7 @@ export class ShoppingCartComponent implements OnInit {
       for(let item of this.shopping_cart) {
         var orderItem:order_item = {
           user: this.currentUser.id,
-          orderDate: date.getDay.toString()+"."+ date.getMonth +"."+ date.getFullYear,
+          orderDate: date.getDay()+"."+ date.getMonth() +"."+ date.getFullYear(),
           name: item.item.name,
           category: item.item.category,
           price: item.item.price,
@@ -138,8 +150,13 @@ export class ShoppingCartComponent implements OnInit {
           totalPrice: this.totalPriceCalc
         }
         this.order.push(orderItem);
-        this.apiService.order(JSON.stringify(this.order));
       }
+      this.shopping_cart = [];
+      this.animateValue(this.totalPriceCalc, 0, 2000);
+      this.totalPriceCalc = 0;
+      this.apiService.order(JSON.stringify(this.order));
+    } else {
+      this.showLoginReminder();
     }
   }
 

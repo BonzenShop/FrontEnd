@@ -6,6 +6,7 @@ import { ProductDetailComponent } from "./product-detail/product-detail.componen
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AdminViewComponent } from "./admin-view/admin-view.component";
 import { AuthGuard } from './_guards/auth.guard';
 import { Role } from './_models/role';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'item/:id', component: ProductDetailComponent },
   { path: 'cart',  component: ShoppingCartComponent},
-  { path: 'user', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } }
+  { path: 'user', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
+  { path: "adminView", component: AdminViewComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
 ];
 
 @NgModule({

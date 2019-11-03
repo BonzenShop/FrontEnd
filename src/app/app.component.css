@@ -32,6 +32,11 @@
     left: 50%;
     transform: translate(-50%);
 }
+
+#btnPanel {
+    float: right;
+}
+
 /* Login/Logout on the toolbar */
 #login, #logout, #loading {
     float: right;
@@ -78,7 +83,8 @@
 
 /* shopping cart button */
 .material-icons {
-    padding: 4px;
+    padding: 2px;
+    margin-right: 2px;
     font-size: 30px;
     background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
     -webkit-background-clip: text;
