@@ -75,8 +75,8 @@ export class ShoppingCartComponent implements OnInit {
     return this.currentUser ? true : false;
   }
 
-  showLoginReminder(){
-    this._snackBar.open("Zum Fortfahren bitte einloggen", "OK", {
+  showPopup(message:string){
+    this._snackBar.open(message, "OK", {
       duration: 4000,
     });
   }
@@ -103,16 +103,12 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitQuantity(quantity:any, index:any){
-    console.log(quantity);
     var start:number = Math.round(this.totalPriceCalc);
     this.totalPriceCalc += Math.round((quantity - this.shopping_cart[index].quantity) * this.shopping_cart[index].item.price);
     var end:number = this.totalPriceCalc;
     this.shopping_cart[index].quantity = quantity;
-    console.log(start + " - " + end);
     
     this.animateValue(start,end,500);
-    
-    
   }
 
   removeItem(id:number) {
@@ -137,7 +133,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   createOrder() {
-    if(this.isLoggedIn) {
+    if(this.isLoggedIn && this.shopping_cart.length>0) {
       var date = new Date();
       for(let item of this.shopping_cart) {
         var orderItem:order_item = {
@@ -152,11 +148,13 @@ export class ShoppingCartComponent implements OnInit {
         this.order.push(orderItem);
       }
       this.shopping_cart = [];
-      this.animateValue(this.totalPriceCalc, 0, 2000);
+      this.animateValue(this.totalPriceCalc, 0, 150);
       this.totalPriceCalc = 0;
       this.apiService.order(JSON.stringify(this.order));
-    } else {
-      this.showLoginReminder();
+    } else if (!this.isLoggedIn) {
+      this.showPopup("Zum Fortfahren bitte einloggen");
+    } else  {
+      this.showPopup("Warenkorb ist leer");
     }
   }
 

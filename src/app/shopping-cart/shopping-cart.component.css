@@ -1,20 +1,62 @@
-/* adds margin when in desktop ...for the looks */
-@media (min-width:1000px){
- #spacer {
-    margin-left: 60px;
-    margin-right: 60px;
-}}
+@media (min-width:1000px) {
+    #item-quantity .material-icons {
+        display: none;
+    }
 
-/* removes list item padding when in mobile*/
+    input {
+        border: 1px solid transparent;
+        border-radius: 1px;
+        text-align: center;
+        font-size: 20px;
+        width: 40px;
+        color: blanchedalmond;
+        background-color: transparent;
+    }
+
+    #spacer {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+
 @media (max-width:1000px) {
     :host /deep/ .mat-list-item-content {
-    padding: 0!important;
-  }
+        padding: 0!important;
+      }
+
+    #item-desc {
+        display: none;
+    }
+
+    #item-quantity .material-icons {
+        border: 1px solid transparent;
+        border-radius: 2px;
+    }
+    input {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    text-align: center;
+    width: 25px;
+    font-size: 20px;
+    color: blanchedalmond;
+    background-color: transparent;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
 }
 
 :host /deep/ .mat-list-item :hover {
     background-color: rgb(41, 41, 41);
-    box-shadow: 0 0 2px 2px rgb(25, 25, 25) inset;
+    box-shadow: 0 0 2px 1px rgb(25, 25, 25) inset;
   }
 
 :host /deep/ .mat-list-item-content :hover {
@@ -50,12 +92,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width:1000px) {
-    #item-desc {
-        display: none;
-    }
-}
-
 #removeIcon {
     position: absolute;
     top: 2px;
@@ -71,6 +107,7 @@
 
 #item-price {
     font-family: 'Courgette', cursive;
+    padding-top: 4px;
     font-size: 20px;
     background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
     -webkit-background-clip: text;
@@ -112,47 +149,4 @@
 input:hover {
     cursor: pointer;
     border: 1px solid gray;
-}
-
-@media (min-width:1000px) {
-    #item-quantity .material-icons {
-        display: none;
-    }
-
-    input {
-        border: 1px solid transparent;
-        border-radius: 1px;
-        text-align: center;
-        font-size: 20px;
-        width: 40px;
-        color: blanchedalmond;
-        background-color: transparent;
-    }
-}
-
-@media (max-width:1000px) {
-    #item-quantity .material-icons {
-        border: 1px solid transparent;
-        border-radius: 2px;
-    }
-    input {
-    border: 1px solid transparent;
-    border-radius: 1px;
-    text-align: center;
-    width: 25px;
-    font-size: 20px;
-    color: blanchedalmond;
-    background-color: transparent;
-}
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        /* display: none; <- Crashes Chrome on hover */
-        -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-    }
-
-    input[type=number] {
-        -moz-appearance:textfield; /* Firefox */
-    }
 }
