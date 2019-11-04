@@ -1,7 +1,8 @@
 <div id="spacer">
     <mat-list>
-        <h1 id="cart-title" mat-subheader>Dein Einkaufswagen</h1>
-        <mat-list-item class="list-box" *ngFor="let item of shopping_cart">
+        <h1 id="cart-title" mat-subheader>Warenkorb</h1>
+        <mat-list-item class="list-box" *ngFor="let item of shopping_cart; let i = index" [attr.data-index]="i" >
+            <i class="material-icons" id="removeIcon" (click)="removeItem(i)"> clear </i>
             <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Kamel Placeholder">
             <div class="container-item"
                 fxLayout="column"
@@ -11,14 +12,18 @@
                 fxLayoutGap.xs="0">
                 <div id="item-name" fxFlex="20%"> {{ item.item.name}}</div>
                 <div id="item-desc" fxFlex="50%"> {{item.item.desc}}</div>
-                <div class="price_quantity" fxFlex="30%"
+                <div id="price_quantity" fxFlex="30%"
                     fxLayout
                     fxLayout.xs="column"
                     fxLayoutAlign="start"
                     fxLayoutGap="10px"
                     fxLayoutGap.xs="0">
                     <div id="item-price"> {{ item.item.price }}€</div>
-                    <div id="item-quantity"> Anzahl: {{item.quantity}}</div>
+                    <div id="item-quantity">
+                        <i class="material-icons" (click)="quantityMinus(i)">remove</i>
+                        <input id="inputField" #input type="number" min="1" name="fname" value={{item.quantity}} (focusout)="submitQuantity(input.value,i)" >
+                        <i class="material-icons" (click)="quantityPlus(i)"> add </i>
+                    </div>
                 </div>
             </div>
             <mat-divider  *ngIf="!lastItem"></mat-divider>
@@ -33,7 +38,7 @@
         fxLayoutAlign
         fxLayoutGap="10px"
         fxLayoutGap.xs="5px" >
-            <button id="buyBtn" mat-raised-button>Jetzt Kaufen</button>
+            <button id="buyBtn" mat-raised-button (click)="createOrder()">Jetzt Kaufen</button>
             <button id="buyBtn" (click)="moneyMaker()" mat-flat-button>Ich bin doch kein Straßenpenner</button>
         </div>
     </div>

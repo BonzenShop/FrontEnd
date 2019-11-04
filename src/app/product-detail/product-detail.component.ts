@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+
+import { ApiService } from '../_services/api.service';
 import { Item } from "../_models/item";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 
@@ -14,24 +16,38 @@ export class ProductDetailComponent implements OnInit {
   displayPrice:string;
   
   item:Item = {
-    id: 32,
-    name: "Kamel",
+    id: 999,
+    name: "Item not found",
     desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
     category: "Transport",
     price: 10000000,
     onStock: 2,
     image: "../assets/Kamel-Placeholder.jpg"
-  }
+  };
 
-  constructor(private route: ActivatedRoute, private shopping_cart: ShoppingCartService) { }
+  productList: Item[];
+
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private shopping_cart: ShoppingCartService) { }
 
   ngOnInit() {
+    this.apiService.getProductList().subscribe((data)=>{
+      console.log(data);
+      this.productList = data;
+      this.update(this.id);
+    })
     this.route.paramMap.subscribe(params => this.update(params.get("id")) );
     this.createDisplayPrice(this.item.price);
   }
 
-  update(id: string) {
-    this.id = id;
+  update(_id: string) {
+    this.id = _id;
+    if(_id && this.productList) {
+      var item:Item = this.productList.find(({name}) => name == _id);
+      if(item) {
+        this.item = item
+        this.createDisplayPrice(this.item.price);
+      }
+    }  
   }
 
   /**

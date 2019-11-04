@@ -16,6 +16,7 @@ import { UserOrderListComponent } from './user-order-list/user-order-list.compon
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+<<<<<<< HEAD
   { path: 'Produkte', component: ProductListComponent },
   { path: 'Produkt/:id', component: ProductDetailComponent },
   { path: 'Warenkorb',  component: ShoppingCartComponent},
@@ -23,8 +24,14 @@ const routes: Routes = [
   { path: 'Konto', component: AccountComponent, canActivate: [AuthGuard]},
   { path: 'Bestellungen', component: UserOrderListComponent, canActivate: [AuthGuard]},
   { path: 'Admin/Kontoliste', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
-  { path: 'Admin/Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
-  { path: "Admin", component: AdminViewComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
+  { path: 'Admin/Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
+=======
+  { path: 'products', component: ProductListComponent },
+  { path: 'item/:id', component: ProductDetailComponent },
+  { path: 'cart',  component: ShoppingCartComponent},
+  { path: 'user', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
+  { path: "adminView", component: AdminViewComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
+>>>>>>> Nicolas
 ];
 
 @NgModule({

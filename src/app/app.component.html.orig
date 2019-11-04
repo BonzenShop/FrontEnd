@@ -24,17 +24,31 @@
       <div id="loading" *ngIf="loading">
           <img src="../assets/loading_spinner.svg"/>
       </div>
-    <a id="cart-center" routerLink="/Warenkorb" >
+      <a id="cart-center" routerLink="/cart" >
         <i class="material-icons">
           shopping_cart
         </i>
       </a>
-      <a *ngIf="isAdmin" id="adminBtn" routerLink="/Admin" >
+      <a *ngIf="isAdmin" id="adminBtn" routerLink="/adminView" >
         <i class="material-icons">
           supervised_user_circle
         </i>
       </a>
     </div>
+<<<<<<< HEAD
+    <div id="logout" *ngIf="isLoggedIn && !loading">
+        <button mat-button (click)="logout(); showLogin = false;">Logout</button>
+    </div>
+    <div id="loading" *ngIf="loading">
+        <img src="../assets/loading_spinner.svg"/>
+    </div>
+    <a id="cart-center" routerLink="/Warenkorb" >
+      <i class="material-icons">
+        shopping_cart
+      </i>
+    </a>
+=======
+>>>>>>> Nicolas
   </div>
   <div id="lowerToolbar">
     <ul id="navbar">

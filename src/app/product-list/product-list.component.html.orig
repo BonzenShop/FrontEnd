@@ -1,5 +1,9 @@
 <mat-nav-list>
+<<<<<<< HEAD
+    <a mat-list-item href="#" *ngFor="let item of productList | itemCategory:category" routerLink="/Produkt/{{item.name}}">
+=======
     <a mat-list-item routerLink="/item/{{item.name}}" *ngFor="let item of productList | itemCategory:category">
+>>>>>>> Nicolas
         <!--<img matListAvatar style="width:150px; height: 150px; margin: 10px 0 10px 0;" alt="Picture"
             src="http://www.kameldungen.de/wp-content/uploads/2017/03/cropped-kamele.jpg" />-->
         <h4 matLine>{{item.name}}</h4>
