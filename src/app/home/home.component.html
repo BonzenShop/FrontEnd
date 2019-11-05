@@ -3,6 +3,10 @@
 <p>Denn hier werden Sie ihr Kleingeld los.</p>
 <p>Ob Kamel, Lamborghini, Rolex oder gar eine eigene Insel, hier finden Sie alles was ihr Herz begehrt.</p>
 <mat-grid-list cols="2" rowHeight="100px">
-    <mat-grid-tile>Bestseller anschauen</mat-grid-tile>
-    <mat-grid-tile>Jetzt registrieren</mat-grid-tile>
+    <mat-grid-tile>
+        <button class="gridButton" routerLink="/Registrierung"  [queryParams]="{ReturnURL: this.router.url}">Bestseller anschauen</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button class="gridButton" routerLink="/Registrierung"  [queryParams]="{ReturnURL: this.router.url}">Jetzt registrieren</button>
+    </mat-grid-tile>
 </mat-grid-list>

@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   constructor(private apiService: ApiService, private route: ActivatedRoute) { 
     this.route.queryParams.subscribe(params => {
       this.category = params['Kategorie'];
-  });
+    });
   }
 
   ngOnInit() {

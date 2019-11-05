@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { DateAdapter } from '@angular/material';
 import { DatePipe } from '@angular/common';
@@ -19,8 +19,18 @@ export class RegisterComponent implements OnInit {
   checkPassword = '';
   myForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  returnURL = '/';
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private formBuilder: FormBuilder, private dateAdapter: DateAdapter<Date>, private datepipe: DatePipe) {
+  constructor(private authenticationService: AuthenticationService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private dateAdapter: DateAdapter<Date>,
+    private datepipe: DatePipe) {
+
+    this.route.queryParams.subscribe(params => {
+      this.returnURL = params['ReturnURL'];
+    });
     this.myForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -51,7 +61,7 @@ export class RegisterComponent implements OnInit {
         this.user.email = this.myForm.controls.email.value;
         this.user.password = this.myForm.controls.password.value;
         this.authenticationService.signup(this.user);
-        this.router.navigate(['/']);
+        this.router.navigate([this.returnURL]);
     }
   }
 
