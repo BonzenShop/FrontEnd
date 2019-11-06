@@ -13,7 +13,6 @@ export class cart_item {
 }
 
 export class order_item {
-  user:number;
   orderDate:string;
   name:string;
   category:string;
@@ -37,8 +36,7 @@ export class ShoppingCartComponent implements OnInit {
   order: order_item[] = [];
 
   constructor(private shopping_cart_service: ShoppingCartService, private authenticationService: AuthenticationService, private apiService: ApiService, private _snackBar: MatSnackBar) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-   }
+  }
 
   shopping_cart:cart_item[] = [
     { quantity: 2,
@@ -72,7 +70,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   get isLoggedIn() {
-    return this.currentUser ? true : false;
+    return this.authenticationService.isLoggedIn();
   }
 
   showPopup(message:string){
@@ -137,7 +135,6 @@ export class ShoppingCartComponent implements OnInit {
       var date = new Date();
       for(let item of this.shopping_cart) {
         var orderItem:order_item = {
-          user: this.currentUser.id,
           orderDate: date.getDay()+"."+ date.getMonth() +"."+ date.getFullYear(),
           name: item.item.name,
           category: item.item.category,

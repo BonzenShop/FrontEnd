@@ -21,18 +21,12 @@ export class AppComponent {
   title = 'BonzenShop';
   email = '';
   password = '';
-  currentUser: User;
 
   constructor(private authenticationService: AuthenticationService, private router: Router){
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
-
-  get isLoggedIn() {
-    return this.currentUser ? true : false;
-  }
-
-  get isAdmin() {
-      return this.currentUser && this.currentUser.role === Role.Admin;
+  
+  pIsAdmin() {
+    return this.authenticationService.isAdmin();
   }
 
   login(){

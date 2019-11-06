@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { ApiService } from './api.service';
+import { Role } from '../_models/role';
 import { User } from '../_models/user';
 
 @Injectable({
@@ -20,6 +21,14 @@ export class AuthenticationService {
 
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
+    }
+
+    public isLoggedIn() {
+        return this.currentUserSubject.value ? true : false;
+      }
+    
+    public isAdmin() {
+        return this.currentUserSubject.value  && this.currentUserSubject.value.role === Role.Admin;
     }
 
     login(username: string, password: string) {
@@ -43,6 +52,8 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
+        console.log("logout blabla");
+        
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
         this.router.navigate(['/']);

@@ -93,7 +93,10 @@
 }
 
 .material-icons:hover{
-    font-size: 32px;
+    font-size: 31px;
+    background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Upper half of the toolbar. Includes the logo */

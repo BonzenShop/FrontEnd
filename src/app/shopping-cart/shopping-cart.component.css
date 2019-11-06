@@ -122,7 +122,7 @@
 #totalPrice {
     font-family: 'Courgette', cursive;
     font-size: 42px;
-    background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    background:linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
