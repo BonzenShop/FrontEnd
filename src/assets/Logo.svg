@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1721px" height="202px" viewBox="-0.5 -0.5 1721 202">
+    <defs/>
+    <linearGradient id="gradient1">
+        <stop id="stop1" offset="0%" stop-color="#BF953F" />
+        <stop id="stop2" offset="25%" stop-color="#FCF6BA"/>
+        <stop id="stop3" offset="50%" stop-color="#B38728"/>
+        <stop id="stop4" offset="100%" stop-color="#FBF5B7"/>
+    </linearGradient>
+    <linearGradient id="gradient3">
+        <stop id="stop2" offset="0%" stop-color="#F5F583"/>
+        <stop id="stop3" offset="8%" stop-color="#D1B464"/>
+        <stop id="stop4" offset="68%" stop-color="#5d4a1f"/>
+        <stop id="stop3" offset="100%" stop-color="#5d4a1f"/>
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0" x2="0" y1="0" y2="1" xlink:href="#gradient1"/>
+    <g>
+        <path d="M 790 31 L 850 31 L 890 71 L 790 171 L 690 71 L 730 31 L 790 31" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 790 171.22 L 790 91 L 850 31" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 790 171 L 790 91 L 730 31" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 790 171 L 870 91 L 810 31 L 770 31 L 710 91 L 790 171" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <rect x="0" y="31" width="680" height="140" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(22.5,-0.5)">
+            <switch>
+                <foreignObject style="overflow:visible;" pointer-events="all" width="634" height="202" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 170px; font-family: Algerian; line-height: 1.2; vertical-align: top; width: 636px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;white-space:normal; background: linear-gradient(to bottom, #FCF6BA, #BF953F, #FCF6BA, #B38728, #FBF5B7, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bonzen</div>
+                    </div>
+                </foreignObject>
+                <text x="317" y="186" fill="#D3B34B" text-anchor="middle" font-size="170px" font-family="Algerian">Bonzen</text>
+            </switch>
+        </g>
+        <rect x="900" y="31" width="820" height="140" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(916.5,-0.5)">
+            <switch>
+                <foreignObject style="overflow:visible;" pointer-events="all" width="787" height="202" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 170px; font-family: Algerian; line-height: 1.2; vertical-align: top; width: 789px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;white-space:normal; background: linear-gradient(to bottom, #FCF6BA, #BF953F, #FCF6BA, #B38728, #FBF5B7, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$hop.com</div>
+                    </div>
+                </foreignObject>
+                <text x="394" y="186" fill="#D3B34B" text-anchor="middle" font-size="170px" font-family="Algerian">$hop.com</text>
+            </switch>
+        </g>
+    </g>
+</svg>

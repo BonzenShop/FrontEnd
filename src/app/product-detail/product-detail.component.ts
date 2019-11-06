@@ -4,6 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService } from '../_services/api.service';
 import { Item } from "../_models/item";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
+import { AuthenticationService } from "../_services/authentication.service";
+import { ProductService } from '../_services/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -27,14 +29,17 @@ export class ProductDetailComponent implements OnInit {
 
   productList: Item[];
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute, private shopping_cart: ShoppingCartService) { }
+  constructor(private productService: ProductService,
+    private route: ActivatedRoute,
+    private shopping_cart: ShoppingCartService,
+    private authService: AuthenticationService) {
+      this.productService.productList.subscribe((data) => {
+        this.productList = data;
+        this.update(this.id);
+      });
+  }
 
   ngOnInit() {
-    this.apiService.getProductList().subscribe((data)=>{
-      console.log(data);
-      this.productList = data;
-      this.update(this.id);
-    })
     this.route.paramMap.subscribe(params => this.update(params.get("id")) );
     this.createDisplayPrice(this.item.price);
   }

@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
@@ -38,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { UserOrderListComponent } from './user-order-list/user-order-list.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     RegisterComponent,
     OrderListComponent,
     UserOrderListComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule
   ],
   providers: [
     DatePipe,

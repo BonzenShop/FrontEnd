@@ -13,6 +13,7 @@ import { AccountComponent } from './account/account.component';
 import { RegisterComponent } from './register/register.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { UserOrderListComponent } from './user-order-list/user-order-list.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'Bestellungen', component: UserOrderListComponent, canActivate: [AuthGuard]},
   { path: 'Admin/Kontoliste', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
   { path: 'Admin/Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
+  { path: 'Admin/Produkt/:id', component: ProductEditComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
   { path: "Admin", component: AdminViewComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
 ];
 

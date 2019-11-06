@@ -32,6 +32,8 @@
     left: 50%;
     transform: translate(-50%);
     cursor: pointer;
+    max-height: 32px;
+    max-width: 100%;
 }
 
 #btnPanel {

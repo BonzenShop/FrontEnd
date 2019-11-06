@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="211px" height="152px" viewBox="-0.5 -0.5 211 152"><defs/>
+    <linearGradient id="gradient1">
+        <stop id="stop1" offset="0%" stop-color="#BF953F" />
+        <stop id="stop2" offset="25%" stop-color="#FCF6BA"/>
+        <stop id="stop3" offset="50%" stop-color="#B38728"/>
+        <stop id="stop4" offset="100%" stop-color="#FBF5B7"/>
+    </linearGradient>
+    <linearGradient id="gradient3">
+        <stop id="stop2" offset="0%" stop-color="#F5F583"/>
+        <stop id="stop3" offset="8%" stop-color="#D1B464"/>
+        <stop id="stop4" offset="68%" stop-color="#5d4a1f"/>
+        <stop id="stop3" offset="100%" stop-color="#5d4a1f"/>
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0" x2="0" y1="0" y2="1" xlink:href="#gradient1"/>
+    <g>
+        <path d="M 105 5 L 165 5 L 205 45 L 105 145 L 5 45 L 45 5 L 105 5" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 105 145.22 L 105 65 L 165 5" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 105 145 L 105 65 L 45 5" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 105 145 L 185 65 L 125 5 L 85 5 L 25 65 L 105 145" fill="none" stroke="url(#gradient2)" stroke-width="10" stroke-miterlimit="10" pointer-events="stroke"/>
+    </g>
+</svg>

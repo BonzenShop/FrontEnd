@@ -9,10 +9,32 @@
 }
 
 #item-name {
+    display: inline-block;
+    transform: translate(-50%);
+    left: 50%;
+    position: relative;
     font-family: 'Courgette', cursive;
     font-size: 30px;
     text-align: center;
     margin-bottom: 6px;
+}
+
+#edit-button {
+    display: flex;
+    padding: 2px;
+    float: right;
+    background: rgb(25,25,25);
+    border: 2px solid rgb(211, 179, 75);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#edit-button:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+#edit-button > i {
+    color: rgb(211, 179, 75);
 }
 
 #item-desc {

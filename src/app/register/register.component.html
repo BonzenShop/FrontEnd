@@ -16,10 +16,10 @@
             <input matInput placeholder="E-Mail" formControlName="email">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Passwort" formControlName="password">
+            <input matInput type="password" placeholder="Passwort" formControlName="password">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Passwort wiederholen" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+            <input matInput type="password" placeholder="Passwort wiederholen" formControlName="confirmPassword" [errorStateMatcher]="matcher">
         </mat-form-field>
     </form>
     <button [disabled]="myForm.invalid" id="registerbtn" (click)="register()" mat-raised-button >Registrieren</button>

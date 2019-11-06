@@ -4,11 +4,11 @@
   <div id="upperToolbar">
     <img id="logo"
       alt="Bonzenshop Logo"
-      src="../assets/Logo long.svg"
+      src="../assets/Logo.svg"
       (click)="goToHome()"
     />
     <div id="btnPanel">
-      <div id="login" *ngIf="!isLoggedIn && !loading">
+      <div id="login" *ngIf="!this.authenticationService.isLoggedIn() && !loading">
         <form *ngIf="showLogin" (keyup.enter)="login()">
             <input type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
             <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password"/>
@@ -18,7 +18,7 @@
           <mat-icon>close</mat-icon>
         </button>
       </div>
-      <div id="logout" *ngIf="isLoggedIn && !loading">
+      <div id="logout" *ngIf="this.authenticationService.isLoggedIn() && !loading">
           <button mat-button (click)="logout(); showLogin = false;">Logout</button>
       </div>
       <div id="loading" *ngIf="loading">
@@ -29,7 +29,7 @@
           shopping_cart
         </i>
       </a>
-      <a *ngIf="isAdmin" id="adminBtn" routerLink="/Admin" >
+      <a *ngIf="this.authenticationService.isAdmin()" id="adminBtn" routerLink="/Admin" >
         <i class="material-icons">
           supervised_user_circle
         </i>

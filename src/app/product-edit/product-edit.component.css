@@ -1,0 +1,108 @@
+table > * {
+    color: white;
+}
+
+tr {
+    vertical-align: top;
+}
+
+h1 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+}
+h3 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+    display: none;
+}
+
+.paragraph {
+    margin-bottom: 10px;
+}
+
+.mat-form-field {
+    margin-bottom: -15px;
+    margin-top: -15px;
+}
+
+td > .mat-form-field {
+    width: 350px;
+}
+
+.paragraph .mat-form-field {
+    width: 100%;
+}
+
+#mobile {
+    color: white;
+    display: none;
+}
+
+@media(max-width: 500px){
+    h1 {
+        display: none;
+    }
+    h3 {
+        display: block;
+    }
+    #desktop {
+        display: none;
+    }
+    #mobile {
+        display: block;
+    }
+}
+
+td {
+    padding-right: 10px;
+    height: 40px;
+}
+
+::ng-deep input.mat-input-element, textarea.mat-input-element {
+    caret-color: rgb(224, 189, 75) !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(224, 189, 75);
+}
+
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    /*background-color: rgb(224, 189, 75);*/
+    background:linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+}
+
+/* arrow color for select */
+::ng-deep .mat-focused .mat-select-arrow{
+    color: rgb(224, 189, 75) !important;
+}
+
+/* color of selected option */
+::ng-deep mat-option.mat-selected .mat-option-text{
+    color: rgb(224, 189, 75) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+#saveBtn {
+    border: 1px ridge goldenrod;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    color: blanchedalmond;
+}
+
+#saveBtn:disabled {
+    border: gray;
+    background: gray;
+    color: white;
+}

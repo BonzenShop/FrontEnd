@@ -1,3 +1,19 @@
+h2 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+}
+
+#productListTopBar {
+    margin: 0 10px 0 10px;
+}
+
+#listTitle {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
 mat-nav-list {
     margin: 10px;
 }
@@ -6,4 +22,23 @@ mat-nav-list {
     height: auto;
     margin: 10px 0 10px 0;
     box-shadow: 0px 0px 5px rgb(124, 94, 18);
+}
+
+#addButton {
+    display: flex;
+    padding: 2px;
+    float: right;
+    background: rgb(25,25,25);
+    border: 2px solid rgb(211, 179, 75);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#addButton:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+#addButton > i {
+    color: rgb(211, 179, 75);
 }

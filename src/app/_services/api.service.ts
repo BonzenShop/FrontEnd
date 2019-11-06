@@ -31,6 +31,10 @@ export class ApiService {
     return this.httpClient.get<Order[]>(API_URL + '/myOrderList');
   }
 
+  saveProduct(data: Item){
+    return this.httpClient.post<Item[]>(API_URL + '/saveProduct', data);
+  }
+
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }
