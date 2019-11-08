@@ -35,6 +35,11 @@ export class ApiService {
     return this.httpClient.post<Item[]>(API_URL + '/saveProduct', data);
   }
 
+  order(data:String) {
+    console.log(data);
+    return this.httpClient.post<String>(API_URL + '/order', data)
+  }
+
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }
@@ -43,8 +48,7 @@ export class ApiService {
     return this.httpClient.post<User>(API_URL + '/signup', data);
   }
 
-  order(data:String) {
-    console.log(data);
-    return this.httpClient.post<String>(API_URL + '/order', data)
+  changeUserData(data){
+    return this.httpClient.post<User>(API_URL + '/updateUser', data);
   }
 }

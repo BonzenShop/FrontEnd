@@ -106,4 +106,20 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
+  cancel() {
+    if(this.id != "Neu"){
+      this.router.navigate(['/Produkt/'+this.item.name]);
+    }else{
+      this.router.navigate(['/Produkte']);
+    }
+  }
+
+  valuesUnchanged() {
+    return (this.item.name == this.myForm.controls.name.value &&
+      this.item.desc == this.myForm.controls.desc.value &&
+      this.item.category == this.myForm.controls.category.value &&
+      this.item.price == this.myForm.controls.price.value &&
+      this.item.onStock == this.myForm.controls.onStock.value);
+  }
+
 }

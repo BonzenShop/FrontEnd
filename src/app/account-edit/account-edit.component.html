@@ -1,0 +1,48 @@
+<div id="contentWrapper">
+    <h2>Kontoinformationen bearbeiten</h2>
+    <h3>Kontoinformationen bearbeiten</h3>
+    <form [formGroup]="myForm">
+        <mat-form-field>
+            <input matInput placeholder="Vorname" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Nachname" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-Mail" formControlName="email">
+        </mat-form-field>
+        <div>
+            <button *ngIf="!changePassword" id="changePasswordBtn" (click)="doChangePassword()" mat-raised-button >
+                Passwort ändern
+                <i class="material-icons">
+                    arrow_drop_down
+                </i>
+            </button>
+            <button *ngIf="changePassword" id="changePasswordBtn" (click)="doNotChangePassword()" mat-raised-button >
+                Passwort nicht ändern
+                <i class="material-icons">
+                    arrow_drop_up
+                </i>
+            </button>
+        </div>
+        <form *ngIf="changePassword" [formGroup]="passwordForm">
+            <mat-form-field>
+                <input matInput type="password" placeholder="Neues Passwort" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Neues Passwort wiederholen" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+            </mat-form-field>
+        </form>
+        <div style="margin-top: 10px;">
+            <button id="cancelBtn" routerLink="/Konto" mat-raised-button >Abbrechen</button>
+            <button [disabled]="valuesUnchanged() || myForm.invalid || (changePassword && passwordForm.invalid)" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>        
+        </div>
+    </form>
+    
+</div>
+    

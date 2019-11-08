@@ -1,5 +1,11 @@
 <div class="desktop">
-    <h1>Kontoinformationen</h1>
+    <h1>Kontoinformationen
+        <button id="edit-button" routerLink="/Konto/Bearbeiten">
+            <i class="material-icons">
+                edit
+            </i>
+        </button>
+    </h1>
     <table>
         <tr>
             <td>Vorname:</td>
@@ -24,7 +30,13 @@
     </table>
 </div>
 <div class="mobile">
-    <h3>Kontoinformationen</h3>
+    <h3>Kontoinformationen
+        <button id="edit-button" routerLink="/Konto/Bearbeiten">
+            <i class="material-icons">
+                edit
+            </i>
+        </button>
+    </h3>
     <p>Vorname:<br>{{currentUser.firstName}}</p>
     <p>Nachname:<br>{{currentUser.lastName}}</p>
     <p>E-Mail:<br>{{currentUser.email}}</p>

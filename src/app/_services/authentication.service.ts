@@ -77,11 +77,25 @@ export class AuthenticationService {
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         this.currentUserSubject.next(user);
                     }
-                    this.loading = false;
                 },
                 error => {
                     console.error(error);
-                    this.loading = false;
+                })
+    }
+
+    changeUserData(user: User) {
+        var body = user;
+        this.apiService.changeUserData(body)
+            .subscribe(
+                user => {
+                    if (user && user.token) {
+                        // store user details and jwt token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('currentUser', JSON.stringify(user));
+                        this.currentUserSubject.next(user);
+                    }
+                },
+                error => {
+                    console.error(error);
                 })
     }
 }

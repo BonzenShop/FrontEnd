@@ -58,6 +58,14 @@
             <td>Bild: </td>
             <td>TODO</td>
         </tr>
+        <tr>
+            <td>
+                <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
+            </td>
+            <td>
+                <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
+            </td>
+        </tr>
     </tbody>
 </table>
 </form>
@@ -117,6 +125,6 @@
         <div>Bild:</div>
         <div>TODO</div>
     </div>
+    <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
+    <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
 </div>
-
-<button [disabled]="myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>

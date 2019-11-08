@@ -40,6 +40,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { UserOrderListComponent } from './user-order-list/user-order-list.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { AccountEditComponent } from './account-edit/account-edit.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     OrderListComponent,
     UserOrderListComponent,
     AdminViewComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    AccountEditComponent
   ],
   imports: [
     BrowserModule,

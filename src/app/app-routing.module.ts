@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { UserOrderListComponent } from './user-order-list/user-order-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { AccountEditComponent } from './account-edit/account-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'Warenkorb',  component: ShoppingCartComponent},
   { path: 'Registrierung', component: RegisterComponent},
   { path: 'Konto', component: AccountComponent, canActivate: [AuthGuard]},
+  { path: 'Konto/Bearbeiten', component: AccountEditComponent, canActivate: [AuthGuard]},
   { path: 'Bestellungen', component: UserOrderListComponent, canActivate: [AuthGuard]},
   { path: 'Admin/Kontoliste', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
   { path: 'Admin/Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
