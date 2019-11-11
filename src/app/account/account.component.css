@@ -1,22 +1,31 @@
 * {
-    color:  rgb(211, 179, 75);
+    color:  white;
 }
 
-td {
-    padding: 5px;
+#title {
+    display: inline-block;
+    margin: 0;
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
 }
 
-.mobile {
+#title.mobile {
     display: none;
 }
 
 @media (max-width: 500px) {
-    .desktop {
+    #title.desktop {
         display: none;
     }
-    .mobile {
-        display: block;
+    #title.mobile {
+        display: inline-block;
     }
+}
+
+#header {
+    margin: 10px 0 20px 0;
 }
 
 #edit-button {
@@ -35,4 +44,17 @@ td {
 
 #edit-button > i {
     color: rgb(211, 179, 75);
+}
+
+.infoWrapper {
+    margin: 10px 0 10px 0;
+}
+
+.infoWrapper > div {
+    display: inline-block;
+}
+
+.infoWrapper > div:first-child {
+    padding-right: 10px;
+    min-width: 115px;
 }

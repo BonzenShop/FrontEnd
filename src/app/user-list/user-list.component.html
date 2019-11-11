@@ -1,41 +1,13 @@
-<table mat-table [dataSource]="userList">
-
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let user"> {{user.id}} </td>
-    </ng-container>
-    
-    <!-- FirstName Column -->
-    <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef> Vorname </th>
-        <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
-    </ng-container>
-    
-    <!-- LastName Column -->
-    <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef> Nachname </th>
-        <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
-    </ng-container>
-    
-    <!-- birthDate Column -->
-    <ng-container matColumnDef="birthDate">
-        <th mat-header-cell *matHeaderCellDef> Geburtsdatum </th>
-        <td mat-cell *matCellDef="let user"> {{user.birthDate}} </td>
-    </ng-container>
-
-    <!-- email Column -->
-    <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> E-Mail </th>
-            <td mat-cell *matCellDef="let user"> {{user.email}} </td>
-        </ng-container>
-
-    <!-- Role Column -->
-    <ng-container matColumnDef="role">
-            <th mat-header-cell *matHeaderCellDef> Rolle </th>
-            <td mat-cell *matCellDef="let user"> {{user.role}} </td>
-        </ng-container>
-    
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div id="contentWrapper">
+    <div id="header">
+        <h2>Benutzer</h2>
+        <h3>Benutzer</h3>
+    </div>
+    <mat-nav-list>
+        <a mat-list-item routerLink="/Admin/Konto/{{user.id}}"  *ngFor="let user of userList">
+            <h4 matLine id="idName">({{user.id}}) {{user.email}}</h4>
+            <p id="desktop">{{user.role}}</p>
+            <h4 matLine id="mobile">{{user.role}}</h4>
+        </a>
+    </mat-nav-list>
+</div>

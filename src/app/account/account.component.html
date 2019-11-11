@@ -1,45 +1,35 @@
-<div class="desktop">
-    <h1>Kontoinformationen
-        <button id="edit-button" routerLink="/Konto/Bearbeiten">
+<div class="contenWrapper">
+    <div id="header">
+        <h1 class="desktop" id="title">Kontoinformationen</h1>
+        <h2 class="mobile" id="title">Kontoinformationen</h2>
+        <button *ngIf="userId == 0" id="edit-button" routerLink="/Konto/Bearbeiten">
             <i class="material-icons">
                 edit
             </i>
         </button>
-    </h1>
-    <table>
-        <tr>
-            <td>Vorname:</td>
-            <td>{{currentUser.firstName}}</td>
-        </tr>
-        <tr>
-            <td>Nachname:</td>
-            <td>{{currentUser.lastName}}</td>
-        </tr>
-        <tr>
-            <td>E-Mail:</td>
-            <td>{{currentUser.email}}</td>
-        </tr>
-        <tr>
-            <td>Geburtsdatum:</td>
-            <td>{{currentUser.birthDate}}</td>
-        </tr>
-        <tr>
-            <td>Passwort:</td>
-            <td>*****</td>
-        </tr>
-    </table>
-</div>
-<div class="mobile">
-    <h3>Kontoinformationen
-        <button id="edit-button" routerLink="/Konto/Bearbeiten">
-            <i class="material-icons">
-                edit
-            </i>
-        </button>
-    </h3>
-    <p>Vorname:<br>{{currentUser.firstName}}</p>
-    <p>Nachname:<br>{{currentUser.lastName}}</p>
-    <p>E-Mail:<br>{{currentUser.email}}</p>
-    <p>Geburtsdatum:<br>{{currentUser.birthDate}}</p>
-    <p>Passwort:<br>*****</p>
+    </div>
+    <div *ngIf="authService.hasEmployeeRights()" class="infoWrapper">
+        <div>Id: </div>
+        <div>{{currentUser.id}}</div>
+    </div>
+    <div class="infoWrapper">
+        <div>Vorname: </div>
+        <div>{{currentUser.firstName}}</div>
+    </div>
+    <div class="infoWrapper">
+        <div>Nachname: </div>
+        <div>{{currentUser.lastName}}</div>
+    </div>
+    <div class="infoWrapper">
+        <div>E-Mail: </div>
+        <div>{{currentUser.email}}</div>
+    </div>
+    <div class="infoWrapper">
+        <div>Geburtsdatum: </div>
+        <div>{{currentUser.birthDate}}</div>
+    </div>
+    <div class="infoWrapper">
+        <div>Passwort: </div>
+        <div>*****</div>
+    </div>
 </div>

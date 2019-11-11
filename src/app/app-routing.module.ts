@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'Admin/Kontoliste', component: UserListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin] } },
   { path: 'Admin/Bestellungen', component: OrderListComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
   { path: 'Admin/Produkt/:id', component: ProductEditComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
+  { path: 'Admin/Konto/:id', component: AccountComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}},
   { path: "Admin", component: AdminViewComponent, canActivate: [AuthGuard], data: { roles: [Role.Employee, Role.Admin]}}
 ];
 

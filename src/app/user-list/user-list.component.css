@@ -1,12 +1,49 @@
-table {
-    width: 100%;
-    background-color: transparent;
+#header {
+    margin: 0 10px 0 10px;
 }
-th {
-    font-size: 14px;
-    font-weight: bold;
-    color: rgb(211, 179, 75);
+
+h3 {
+    display: none;
 }
-tr.mat-row:hover {
-    background-color: rgba(255,255,255,0.05);
+
+@media(max-width:400px){
+    h2 {
+        display: none;
+    }
+    h3 {
+        display: block;
+    }
+}
+
+h2, h3 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+}
+
+mat-nav-list {
+    margin: 10px;
+}
+
+.mat-list-item {
+    height: auto;
+    margin: 10px 0 10px 0;
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+}
+
+#mobile {
+    display: none;
+}
+
+@media(max-width:500px){
+    #desktop {
+        display: none;
+    }
+    #mobile {
+        display: block;
+    }
+    #idName {
+        font-size: 14px;
+    }
 }
