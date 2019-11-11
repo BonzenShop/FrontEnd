@@ -1,5 +1,5 @@
 #globalwrapper {
-    background: rgb(25, 25, 25);
+    background: rgb(15,15,15);
     min-height: 100%;
 }
 
@@ -28,7 +28,7 @@
 #logo {
     display: inline-block;
     border: none;
-    position: relative;
+    position: absolute;
     left: 50%;
     transform: translate(-50%);
     cursor: pointer;
@@ -36,8 +36,30 @@
     max-width: 100%;
 }
 
-#btnPanel {
+#btnPanelRight {
     float: right;
+}
+
+#btnPanelLeft {
+    float: left;
+    position: absolute;
+}
+
+#dropdownUser {
+    float: right;
+}
+
+#dropdownUser .dropdown-content {
+    width: fit-content;
+    right: 0;
+    transform: translate(50%);
+}
+
+#dropdownUser:hover .material-icons  {
+    font-size: 31px;
+    background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Login/Logout on the toolbar */
@@ -95,7 +117,10 @@
 }
 
 .material-icons:hover{
-    font-size: 32px;
+    font-size: 31px;
+    background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Upper half of the toolbar. Includes the logo */

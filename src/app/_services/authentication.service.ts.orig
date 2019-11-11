@@ -31,16 +31,21 @@ export class AuthenticationService {
         return this.currentUserSubject.value  && this.currentUserSubject.value.role === Role.Admin;
     }
 
-    public hasAdminRights() {
+<<<<<<< HEAD
+    public hasdminRights() {
         return this.currentUserSubject.value  && this.currentUserSubject.value.role === Role.Admin;
     }
 
     public hasEmployeeRights() {
         return this.currentUserSubject.value  && (this.currentUserSubject.value.role === Role.Employee || this.currentUserSubject.value.role === Role.Admin);
+=======
+    public isEmployee() {
+        return this.currentUserSubject.value  && (this.currentUserSubject.value.role === Role.Admin || this.currentUserSubject.value.role === Role.Employee);
     }
-    
+
     public getUser(){
         return this.currentUserSubject.value.firstName;
+>>>>>>> Nicolas
     }
 
     login(username: string, password: string) {

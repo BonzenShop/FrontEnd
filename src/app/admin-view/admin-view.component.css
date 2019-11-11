@@ -1,27 +1,35 @@
-#wrapper div {
+.btnPanels {
     width: 100%;
     padding: 5px;
-    text-align: center;
 }
-#wrapper button {
+.functionBtn {
     color: blanchedalmond;
-    position: relative;
-    min-width: 200px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     font-size: 26px;
-    margin: 0 auto;
     position: relative;
-    border: 4px solid transparent;
+    border: 1px solid transparent;
+    color: blanchedalmond;
     border-radius: 16px;
-    background: linear-gradient(orange, violet);
+    background: rgb(25,25,25);
     background-clip: padding-box;
 }
-#wrapper button::after {
-    position: absolute;
-    top: -4px; bottom: -4px;
-    left: -4px; right: -4px;
-    background: linear-gradient(red, blue);
-    content: '';
-    z-index: -1;
+
+.borderDiv {
+    background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-radius: 16px;
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.btnText {
+    transition: color 2s;
+    margin: 0;
+}
+
+.functionBtn:hover .btnText{
+    background: linear-gradient(to bottom, #BF953F, #FBF5B7, #B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

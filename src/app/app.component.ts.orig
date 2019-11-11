@@ -24,6 +24,14 @@ export class AppComponent {
 
   constructor(private authenticationService: AuthenticationService, private router: Router){
   }
+<<<<<<< HEAD
+=======
+  
+  pIsAdmin() {
+    return this.authenticationService.isAdmin();
+  }
+>>>>>>> Nicolas
+
   login(){
     if(this.email != '' && this.password != ''){
       this.authenticationService.login(this.email, this.password);
