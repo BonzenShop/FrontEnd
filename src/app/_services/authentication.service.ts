@@ -31,6 +31,14 @@ export class AuthenticationService {
         return this.currentUserSubject.value  && this.currentUserSubject.value.role === Role.Admin;
     }
 
+    public isEmployee() {
+        return this.currentUserSubject.value  && (this.currentUserSubject.value.role === Role.Admin || this.currentUserSubject.value.role === Role.Employee);
+    }
+
+    public getUser(){
+        return this.currentUserSubject.value.firstName;
+    }
+
     login(username: string, password: string) {
         var body = { username, password };
         this.loading = true;

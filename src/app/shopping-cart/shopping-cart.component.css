@@ -138,7 +138,7 @@
 #item-quantity .material-icons:hover {
     cursor: pointer;
     border: 1px solid gray;
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(30, 30, 30);
 }
 
 #number-quantity {

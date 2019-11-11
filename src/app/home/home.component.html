@@ -1,13 +1,182 @@
 <div id="welcomeAreaBG">
-    
+    <!--creates blurred things-->
 </div>
 <div id="welcomeAreaText">
-    <h1>Herzlich Willkommen</h1>
-    <p>Sollten Sie zufällig noch Kleingeld übrig haben, dann sind Sie hier genau richtig.</p>
-    <p>Denn hier werden Sie ihr Kleingeld los.</p>
-    <p>Ob Kamel, Lamborghini, Rolex oder gar eine eigene Insel, hier finden Sie alles was ihr Herz begehrt.</p>
+    <div *ngIf="!this.authenticationService.isLoggedIn()">
+        <h1>Herzlich Willkommen</h1>
+        <p>Sollten Sie zufällig noch Kleingeld übrig haben, dann sind Sie hier genau richtig.</p>
+        <p>Denn hier werden Sie ihr Kleingeld los.</p>
+        <p>Ob Kamel, Lamborghini, Rolex oder gar eine eigene Insel, hier finden Sie alles was ihr Herz begehrt.</p>
+    </div>
+    <div *ngIf="this.authenticationService.isLoggedIn()">
+        <h1>Willkommen zurück, {{this.authenticationService.getUser()}}!</h1>
+        <p>Haben sie doch noch ein paar Millionen zwischen den Sofakissen gefunden?</p>
+        <p>Egal ob sie doch noch die dritte Yacht wollen oder das ganze Geld einfach das Konto zu schwer macht, wir sind für sie da!</p>
+    </div>
+    
 </div>
-    <mat-grid-list cols="2" rowHeight="100px">
-        <mat-grid-tile>Bestseller anschauen</mat-grid-tile>
-        <mat-grid-tile>Jetzt registrieren</mat-grid-tile>
-    </mat-grid-list>
+<div id="btnPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="5px">
+  <div class="borderDiv" fxFlex="35%">
+        <button *ngIf="!this.authenticationService.isLoggedIn()" class="functionBtn" mat-stroked-button><p class="btnText">Registrieren</p></button>
+        <button *ngIf="this.authenticationService.isLoggedIn()" class="functionBtn" mat-stroked-button><p class="btnText">Bestellhistorie</p></button>
+  </div>
+  <div class="borderDiv" fxFlex="35%">
+        <button class="functionBtn" mat-stroked-button><p class="btnText">Topseller anzeigen</p></button>
+  </div>
+</div>
+<mat-divider class="secDivider"></mat-divider> <!-------------------------ICONS---------------------------->
+<!--<div class="iconPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="5px">
+  
+    <img
+    class="icon"
+    fxFlex="15%" 
+    src="/assets/Umweltunfreundlich.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="35%" class="iconText">
+        <p class="iconTextHeader">Umweltunfreundlich</p>
+        <p class="iconTextMain">
+            Dank unserer SchmutzMuss™ Technologie ist es uns möglich die Umweltverschmutzung möglichst schnell und effizient voranzutreiben.
+            Kein Wald bleibt ungerodet, kein Fluss ohne Chemiemüll!
+            
+        </p>
+    </div>
+    <img
+    class="icon"
+    fxFlex="15%" 
+    src="/assets/Unfair_Trade.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="35%" class="iconText">
+        <p class="iconTextHeader">Unfair Trade</p>
+        <p class="iconTextMain">
+            Dank unseren Unfair Trade Spezialisten ist es uns möglich, an den Genfer Konventionen vorbei,
+            unsere Arbeitssklaven zu knechten. Von Geburt an benutzen wir nur die schmerzensten Peitschen und
+            zerbrechlisten Kinder! 
+        </p>
+    </div>
+</div>
+<div class="iconPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="5px">
+  
+    <img
+    class="icon"
+    fxFlex="15%" 
+    src="/assets/Umweltunfreundlich.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="35%" class="iconText">
+        <p class="iconTextHeader">Einfache Retoure</p>
+        <p class="iconTextMain">
+            Gefällt ihnen das Produkt nicht? Kein Problem. Sie müssen ihr Geld nicht zurücknehmen!
+        </p>
+    </div>
+    <img
+    class="icon"
+    fxFlex="15%" 
+    src="/assets/Unfair_Trade.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="35%" class="iconText">
+        <p class="iconTextHeader">Hochpreisgarantie</p>
+        <p class="iconTextMain">
+            Alle unsere Produkte sind garantiert teurer als bei der Konkurrenz.
+            Sollten sie dennoch ein teureres Produkt finden, gleichen wir unseren Preis natürlich an und
+            legen selbstverständlich noch 20% oben drauf!
+
+        </p>
+    </div>
+</div>-->
+<h1 id="iconIntro">Unsere Verprechen:</h1>
+<div class="iconPanelLeft"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0px">
+  
+    <img
+    class="icon"
+    fxFlex="30%" 
+    src="/assets/Umweltunfreundlich.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="70%" class="iconTextLeft">
+        <p class="iconTextHeader">Umweltunfreundlich</p>
+        <p class="iconTextMain">
+            Dank unserer SchmutzMuss™ Technologie ist es uns möglich die Umweltverschmutzung möglichst schnell und effizient voranzutreiben.
+            Kein Wald bleibt ungerodet, kein Fluss ohne Chemiemüll!
+        </p>
+    </div>
+</div>
+<div class="iconPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0px">
+    <div fxFlex="70%" fxFlexOrder.xs="1" class="iconTextRight">
+        <p class="iconTextHeader">Unfair Trade</p>
+        <p class="iconTextMain">
+            Unsere Unfair Trade Spezialisten ist es uns möglich, an den Genfer Konventionen vorbei,
+            unsere Arbeitssklaven zu knechten. Von Geburt an benutzen wir nur die schmerzensten Peitschen und
+            zerbrechlisten Kinder!
+        </p>
+    </div>
+    <img
+    class="icon"
+    fxFlex="30%" 
+    src="/assets/Unfair_Trade Thin.svg" 
+    alt="Umweltunfreundlich SVG"/>
+</div>
+<div class="iconPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0px">
+  
+    <img
+    class="icon"
+    fxFlex="30%" 
+    src="/assets/Retoure.svg" 
+    alt="Umweltunfreundlich SVG"/>
+    <div fxFlex="70%" class="iconTextLeft">
+        <p class="iconTextHeader">Einfache Retoure</p>
+        <p class="iconTextMain">
+            Gefällt ihnen das Produkt nicht? Kein Problem. Sie müssen ihr Geld nicht zurücknehmen!
+
+        </p>
+    </div>
+</div>
+<div class="iconPanel"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0px">
+
+    <div fxFlex="70%" fxFlexOrder.xs="1" class="iconTextRight">
+        <p class="iconTextHeader">Hochpreisgarantie</p>
+        <p class="iconTextMain">
+            Alle unsere Produkte sind garantiert teurer als bei der Konkurrenz.
+            Sollten sie dennoch ein teureres Produkt finden, gleichen wir unseren Preis natürlich an und
+            legen selbstverständlich noch 20% oben drauf!
+        </p>
+    </div>
+    <img
+    class="icon"
+    fxFlex="30%" 
+    src="/assets/Retoure.svg" 
+    alt="Umweltunfreundlich SVG"/>
+</div>
+<mat-divider class="secDivider"></mat-divider>
