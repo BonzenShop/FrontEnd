@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
         this.user.email = this.myForm.controls.email.value;
         this.user.password = this.myForm.controls.password.value;
         this.authenticationService.signup(this.user);
-        this.router.navigate([this.returnURL]);
+        this.router.navigateByUrl(this.returnURL);
     }
   }
 

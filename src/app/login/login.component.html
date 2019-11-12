@@ -1,0 +1,17 @@
+<div id="contentWrapper">
+    <h2>Login</h2>
+    <form [formGroup]="myForm" (keyup.enter)="login()">
+        <mat-form-field>
+            <input matInput placeholder="E-Mail" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Passwort" formControlName="password">
+        </mat-form-field>
+    </form>
+    <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
+    <button [disabled]="myForm.invalid" id="loginBtn" (click)="login()" mat-raised-button >Login</button>
+    <div style="margin-top: 15px;">
+        <a routerLink="/Registrierung">Jetzt Registrieren</a>
+    </div>
+</div>
+

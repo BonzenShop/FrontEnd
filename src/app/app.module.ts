@@ -41,6 +41,7 @@ import { UserOrderListComponent } from './user-order-list/user-order-list.compon
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AccountEditComponent } from './account-edit/account-edit.component';
     UserOrderListComponent,
     AdminViewComponent,
     ProductEditComponent,
-    AccountEditComponent
+    AccountEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

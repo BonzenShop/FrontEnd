@@ -10,21 +10,11 @@
     <!-- BtnPanelRight--------------------->
     <div id="btnPanelRight">
       <!--login-->
-      <div id="login" *ngIf="!this.authenticationService.isLoggedIn() && !loading">
-        <form *ngIf="showLogin" (keyup.enter)="login()">
-            <input type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
-            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password"/>
-        </form>
-        <button mat-button *ngIf="!showLogin" (click)="showLogin = true;">Login</button>
-        <button mat-icon-button *ngIf="showLogin" (click)="showLogin = false;">
-          <mat-icon>close</mat-icon>
-        </button>
+      <div id="login" *ngIf="!this.authenticationService.isLoggedIn()">
+        <button mat-button *ngIf="!this.router.url.startsWith('/Login')" routerLink="/Login" [queryParams]="{ReturnURL: this.router.url}">Login</button>
       </div>
-      <div id="logout" *ngIf="this.authenticationService.isLoggedIn() && !loading">
+      <div id="logout" *ngIf="this.authenticationService.isLoggedIn()">
           <button mat-button (click)="logout(); showLogin = false;">Logout</button>
-      </div>
-      <div id="loading" *ngIf="loading">
-          <img src="../assets/loading_spinner.svg"/>
       </div>
       <!--cart-->
       <a id="cart-center" routerLink="/Warenkorb" >
