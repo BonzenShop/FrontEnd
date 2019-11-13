@@ -7,11 +7,13 @@ h2 {
 
 #productListTopBar {
     margin: 0 10px 0 10px;
+    position: relative;
 }
 
 #listTitle {
     display: inline-block;
     margin-bottom: 0;
+    margin-right: 20px;
 }
 
 mat-nav-list {
@@ -27,12 +29,14 @@ mat-nav-list {
 #addButton {
     display: flex;
     padding: 2px;
-    float: right;
     background: rgb(25,25,25);
     border: 2px solid rgb(211, 179, 75);
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 #addButton:hover {
@@ -45,7 +49,6 @@ mat-nav-list {
 
 #categories {
     display: inline-block;
-    margin-left: 20px;
 }
 
 #category {
