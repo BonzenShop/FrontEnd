@@ -21,7 +21,7 @@ export class ProductEditComponent implements OnInit {
       categories: ["Tiere", "Flugzeuge", "Autos", "Yachten", "Sonstige Transportmittel"]
     },
     {
-      name: "Accessoirs",
+      name: "Accessoires",
       categories: ["Uhren", "Ketten", "Ringe"]
     },
     {

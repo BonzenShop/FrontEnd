@@ -15,10 +15,28 @@ export class ProductListComponent implements OnInit {
   
   productList: Item[]
   category: String
+  categories: String[]
 
   constructor(private route: ActivatedRoute, private productServie: ProductService, private authService: AuthenticationService) { 
     this.route.queryParams.subscribe(params => {
       this.category = params['Kategorie'];
+      var cat = params['Kategorie'];
+      if(["Transport", "Immobilien", "Accessoires", "Sonstiges"].some(el => el == cat)){
+        if(cat == "Transport"){
+            return this.categories = ["Tiere", "Flugzeuge", "Autos", "Yachten", "Sonstige Transportmittel"];
+        }
+        if(cat == "Immobilien"){
+            return this.categories = ["Monumente", "Residenzen", "Straßen"];
+        }
+        if(cat == "Accessoires"){
+            return this.categories = ["Ringe", "Ketten", "Uhren"];
+        }
+        if(cat == "Sonstiges"){
+            return this.categories = ["Edelsteine", "Gold", "Untertanen", "Haustiere"];
+        }
+    }else{
+        return this.categories = [cat];
+    }
     });
     this.productServie.productList.subscribe((data) => {
       this.productList = data;

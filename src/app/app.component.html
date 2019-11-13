@@ -49,7 +49,7 @@
     <ul id="navbar">
       <li> 
         <div class="dropdown">
-          <button class="dropbtn">Transport</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Transport'}" class="dropbtn">Transport</button>
           <div class="dropdown-content">
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}">Tiere</a>
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}">Flugzeuge</a>
@@ -61,7 +61,7 @@
       </li>
       <li> 
         <div class="dropdown">
-          <button class="dropbtn">Immobilien</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Immobilien'}" class="dropbtn">Immobilien</button>
           <div class="dropdown-content">
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}">Residenzen</a>
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}">Monumente</a>
@@ -71,7 +71,7 @@
       </li>
       <li>
         <div class="dropdown">
-          <button class="dropbtn">Accessoires</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}" class="dropbtn">Accessoires</button>
           <div class="dropdown-content">
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}">Uhren</a>
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}">Ketten</a>
@@ -81,7 +81,7 @@
       </li>
       <li> 
         <div class="dropdown">
-          <button class="dropbtn">Sonstiges</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstiges'}" class="dropbtn">Sonstiges</button>
           <div class="dropdown-content">
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}">Edelsteine</a>
             <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}">Gold</a>

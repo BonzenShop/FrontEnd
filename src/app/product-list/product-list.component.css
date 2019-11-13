@@ -42,3 +42,29 @@ mat-nav-list {
 #addButton > i {
     color: rgb(211, 179, 75);
 }
+
+#categories {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#category {
+    display: inline-block;
+    color: dimgray;
+    padding: 3px 5px 3px 5px;
+    border: 1px solid dimgray;
+    border-radius: 15px;
+    margin-left: 5px;
+}
+
+#removeBtn {
+    background-color: transparent;
+    border: transparent;
+    color: dimgray;
+    outline: none;
+}
+
+#removeBtn:hover {
+    color: antiquewhite;
+    cursor: pointer;
+}

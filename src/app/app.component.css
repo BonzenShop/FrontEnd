@@ -174,6 +174,7 @@ ul#navbar li button {
     font-size: 20px;
     font-weight: bold;
     border: none;
+    outline: none;
 }
 
 /* The container <div> - needed to position the dropdown content */
