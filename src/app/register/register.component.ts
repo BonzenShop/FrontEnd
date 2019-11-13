@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   myForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   returnURL = '/';
+  maxDate = new Date();
 
   constructor(private authenticationService: AuthenticationService,
     private router: Router,
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dateAdapter: DateAdapter<Date>,
     private datepipe: DatePipe) {
-
+    this.maxDate = new Date(this.maxDate.getFullYear()-18, this.maxDate.getMonth(), this.maxDate.getDate());
     this.route.queryParams.subscribe(params => {
       this.returnURL = params['ReturnURL'];
     });
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
       lastName: ['', [Validators.required]],
       birthDate: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: [''],
     }, { validator: this.checkPasswords });
     this.dateAdapter.setLocale('de');

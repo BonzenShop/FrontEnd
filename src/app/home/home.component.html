@@ -22,8 +22,8 @@
      fxLayoutGap="10px"
      fxLayoutGap.xs="5px">
   <div class="borderDiv" fxFlex="35%">
-        <button *ngIf="!this.authenticationService.isLoggedIn()" class="functionBtn" mat-stroked-button><p class="btnText">Registrieren</p></button>
-        <button *ngIf="this.authenticationService.isLoggedIn()" class="functionBtn" mat-stroked-button><p class="btnText">Bestellhistorie</p></button>
+        <button *ngIf="!this.authenticationService.isLoggedIn()" routerLink="/Registrierung" class="functionBtn" mat-stroked-button><p class="btnText">Registrieren</p></button>
+        <button *ngIf="this.authenticationService.isLoggedIn()" routerLink="/Bestellungen" class="functionBtn" mat-stroked-button><p class="btnText">Bestellhistorie</p></button>
   </div>
   <div class="borderDiv" fxFlex="35%">
         <button class="functionBtn" mat-stroked-button><p class="btnText">Topseller anzeigen</p></button>

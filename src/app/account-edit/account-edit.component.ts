@@ -21,6 +21,7 @@ export class AccountEditComponent implements OnInit {
   passwordForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   changePassword = false;
+  maxDate = new Date();
 
   constructor(private authService: AuthenticationService,
     private router: Router,
@@ -28,7 +29,7 @@ export class AccountEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dateAdapter: DateAdapter<Date>,
     private datepipe: DatePipe) {
-
+    this.maxDate = new Date(this.maxDate.getFullYear()-18, this.maxDate.getMonth(), this.maxDate.getDate());
     this.authService.currentUser.subscribe((data) => {
       this.user = data;
     })
@@ -39,7 +40,7 @@ export class AccountEditComponent implements OnInit {
       email: [this.user.email, [Validators.required, Validators.email]],
     });
     this.passwordForm = this.formBuilder.group({
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: [''],
     }, { validator: this.checkPasswords });
     this.dateAdapter.setLocale('de');
