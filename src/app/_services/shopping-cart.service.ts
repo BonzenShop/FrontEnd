@@ -13,20 +13,26 @@ export class ShoppingCartService {
 
   private cart_items: cart_item[] = [];
 
-  constructor() { }
+  constructor() {
+    var data = JSON.parse(localStorage.getItem("bonzenshoppingcart"));
+    if(data){
+      console.log(data);
+      this.cart_items = data;
+    }
+  }
 
   /**
    * add item to cart, increase quantity if item already in cart
    */
   public addToCart(p_item:Item, quantity:number) {
-    var i = this.cart_items.findIndex(({item}) => item.id = p_item.id);
+    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
     if(i>=0) {
       this.cart_items[i].quantity++;
     } else {
       var cart_item:cart_item = {item:p_item,quantity:1};
       this.cart_items.push(cart_item);
     }
-    console.log(this.cart_items);
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cart_items));
   }
 
   /**
@@ -35,7 +41,7 @@ export class ShoppingCartService {
    * @param wholeCart true if complete item to be deleted, ignores quantity
    */
   public removeFromCart(p_item:Item, quantity:number, wholeItem:boolean) {
-    var i = this.cart_items.findIndex(({item}) => item.id = p_item.id);
+    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
     if(i>0) {
       if(wholeItem) {
         this.cart_items.splice(i, 1);
@@ -45,6 +51,7 @@ export class ShoppingCartService {
         }
       }
     }
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cart_items));
   }
 
   public getCart():cart_item[]{

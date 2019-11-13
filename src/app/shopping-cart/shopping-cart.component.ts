@@ -38,33 +38,10 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private shopping_cart_service: ShoppingCartService, private authenticationService: AuthenticationService, private apiService: ApiService, private _snackBar: MatSnackBar) {
   }
 
-  shopping_cart:cart_item[] = [
-    { quantity: 2,
-      item: {
-        id: 30,
-        name: "Goldbarren",
-        desc: "Ein Goldbarren gefüllt mit Gold",
-        category: "Klunker",
-        price: 20000,
-        onStock: 10,
-        image: "bla"
-      }
-    }, 
-    { quantity: 3,
-      item: {
-        id: 20,
-        name: "Putins Badewasser",
-        desc: "Ein Goldbarren gefüllt mit Gold",
-        category: "blalba",
-        price: 200030,
-        onStock: 10,
-        image: "bla"
-      }
-    }
-  ];
+  shopping_cart:cart_item[] = [];
 
   ngOnInit() {
-    //this.shopping_cart = this.shopping_cart_service.getCart();
+    this.shopping_cart = this.shopping_cart_service.getCart();
     this.calculateTotalPrice();
     console.log(this.shopping_cart);
   }
@@ -86,7 +63,7 @@ export class ShoppingCartComponent implements OnInit {
       var end:number = Math.round(this.totalPriceCalc);
       
       this.shopping_cart[index].quantity--;
-
+      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
       this.animateValue(start,end, 500);
     }
   }
@@ -96,7 +73,7 @@ export class ShoppingCartComponent implements OnInit {
     this.totalPriceCalc += this.shopping_cart[index].item.price;
     var end:number = Math.round(this.totalPriceCalc);
     this.shopping_cart[index].quantity++;
-
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start,end, 500);
   }
 
@@ -105,7 +82,7 @@ export class ShoppingCartComponent implements OnInit {
     this.totalPriceCalc += Math.round((quantity - this.shopping_cart[index].quantity) * this.shopping_cart[index].item.price);
     var end:number = this.totalPriceCalc;
     this.shopping_cart[index].quantity = quantity;
-    
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start,end,500);
   }
 
@@ -115,7 +92,7 @@ export class ShoppingCartComponent implements OnInit {
     var end = Math.round(this.totalPriceCalc);
 
     this.shopping_cart.splice(id,1);
-    
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start, end, 1500);
   }
 

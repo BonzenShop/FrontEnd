@@ -1,3 +1,5 @@
+import { Image } from './image';
+
 export class Item {
     id: number;
     name: string;
@@ -5,5 +7,6 @@ export class Item {
     category: string;
     price: number;
     onStock: number;
-    image: String;
+    imgData: string;
+    imgType: string;
 }

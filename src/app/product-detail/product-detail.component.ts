@@ -6,6 +6,7 @@ import { Item } from "../_models/item";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from "../_services/authentication.service";
 import { ProductService } from '../_services/product.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-detail',
@@ -24,15 +25,18 @@ export class ProductDetailComponent implements OnInit {
     category: "Transport",
     price: 10000000,
     onStock: 2,
-    image: "../assets/Kamel-Placeholder.jpg"
+    imgData: "",
+    imgType: ""
   };
 
   productList: Item[];
+  public imagePath: SafeResourceUrl;
 
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private shopping_cart: ShoppingCartService,
-    private authService: AuthenticationService) {
+    private authService: AuthenticationService,
+    private _sanitizer: DomSanitizer) {
       this.productService.productList.subscribe((data) => {
         this.productList = data;
         this.update(this.id);
@@ -51,6 +55,7 @@ export class ProductDetailComponent implements OnInit {
       if(item) {
         this.item = item
         this.createDisplayPrice(this.item.price);
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.item.imgType+';base64,'+this.item.imgData);
       }
     }  
   }
@@ -65,7 +70,6 @@ export class ProductDetailComponent implements OnInit {
   addItem() {
     if(this.item.onStock > 0) {
       this.shopping_cart.addToCart(this.item,1);
-      this.item.onStock--;
     }
   }
 

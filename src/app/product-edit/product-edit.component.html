@@ -1,130 +1,39 @@
-<h1>Produkt bearbeiten</h1>
-<h3>Produkt bearbeiten</h3>
-<form [formGroup]="myForm">
-<table id="desktop">
-    <tbody>
-        <tr>
-            <td>ID: </td>
-            <td>{{item.id}}</td>
-        </tr>
-        <tr>
-            <td>Name: </td>
-            <td>
-                <mat-form-field>
-                    <input matInput name="name" formControlName="name">
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>Beschreibung: </td>
-            <td>
-                <mat-form-field>
-                    <textarea matInput name="desc" formControlName="desc" rows="5"></textarea>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>Kategorie: </td>
-            <td>
-                <mat-form-field>
-                    <mat-select name="category" formControlName="category">
-                        <mat-optgroup *ngFor="let group of categoryGroups" [label]="group.name">
-                            <mat-option *ngFor="let category of group.categories" [value]="category">
-                                {{category}}
-                            </mat-option>
-                        </mat-optgroup>
-                    </mat-select>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>Preis: </td>
-            <td>
-                <mat-form-field>
-                    <input name="price" type="number" min="0" matInput formControlName="price">
-                    <span matSuffix>€</span>
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>Auf Lager: </td>
-            <td>
-                <mat-form-field>
-                    <input name="onStock" type="number" min="0" matInput formControlName="onStock">
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>Bild: </td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>
-                <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
-            </td>
-            <td>
-                <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</form>
-<div id="mobile">
-    <div class="paragraph">
-        <div>ID:</div>
-        <div>{{item.id}}</div>
-    </div>
-    <div class="paragraph">
-        <div>Name: </div>
+<div id="contentWrapper">
+    <h1>Produkt bearbeiten</h1>
+    <h2>Produkt bearbeiten</h2>
+    <form [formGroup]="myForm">
+        <mat-form-field id="name">
+            <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field id="category">
+            <mat-select placeholder="Kategorie" name="category" formControlName="category">
+                <mat-optgroup *ngFor="let group of categoryGroups" [label]="group.name">
+                    <mat-option *ngFor="let category of group.categories" [value]="category">
+                        {{category}}
+                    </mat-option>
+                </mat-optgroup>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Beschreibung" name="desc" formControlName="desc" rows="5"></textarea>
+        </mat-form-field>
+        <mat-form-field id="price">
+            <input placeholder="Preis" name="price" type="number" min="0" matInput formControlName="price">
+            <span matSuffix>€</span>
+        </mat-form-field>
+        <mat-form-field id="onStock">
+            <input placeholder="Auf Lager" name="onStock" type="number" min="0" matInput formControlName="onStock">
+        </mat-form-field>
         <div>
-            <mat-form-field>
-                <input matInput [(ngModel)]="item.name">
-            </mat-form-field>
+                <img id="image" [src]="imagePath" />
+                <div>
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" (change)="selectFile($event)"/>
+                </div>
+            </div>
+        <div style="margin-top: 10px;">
+            <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
+            <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
         </div>
-    </div>
-    <div class="paragraph">
-        <div>Beschreibung: </div>
-        <div>
-            <mat-form-field>
-                <textarea matInput [(ngModel)]="item.desc" rows="3"></textarea>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="paragraph">
-        <div>Kategorie: </div>
-        <div>
-            <mat-form-field>
-                <mat-select  [(ngModel)]="item.category">
-                    <mat-optgroup *ngFor="let group of categoryGroups" [label]="group.name">
-                        <mat-option *ngFor="let category of group.categories" [value]="category">
-                            {{category}}
-                        </mat-option>
-                    </mat-optgroup>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="paragraph">
-        <div>Preis: </div>
-        <div>
-            <mat-form-field>
-                <input type="number" min="0" matInput [(ngModel)]="item.price">
-                <span matSuffix>€</span>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="paragraph">
-        <div>Auf Lager: </div>
-        <div>
-            <mat-form-field>
-                <input type="number" min="0" matInput [(ngModel)]="item.onStock">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="paragraph">
-        <div>Bild:</div>
-        <div>TODO</div>
-    </div>
-    <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
-    <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
+    </form>
+    
 </div>
