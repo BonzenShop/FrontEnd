@@ -16,7 +16,6 @@ export class ShoppingCartService {
   constructor() {
     var data = JSON.parse(localStorage.getItem("bonzenshoppingcart"));
     if(data){
-      console.log(data);
       this.cart_items = data;
     }
   }

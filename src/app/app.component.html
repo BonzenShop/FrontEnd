@@ -28,7 +28,7 @@
           account_circle
         </i>
         <div *ngIf="this.authenticationService.isLoggedIn()" class="dropdown-content">
-          <a routerLink="/Kontoinformationen">Kontoinformationen</a>
+          <a routerLink="/Konto">Kontoinformationen</a>
           <a routerLink="/Bestellungen">Bestellungen</a>
         </div>
         <div *ngIf="!this.authenticationService.isLoggedIn()" class="dropdown-content">

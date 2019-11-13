@@ -43,6 +43,10 @@ export class AuthenticationService {
         return this.currentUserSubject.value.firstName;
     }
 
+    public getUserId(){
+        return this.currentUserSubject.value.id;
+    }
+
     login(username: string, password: string) {
         var body = { username, password };
         this.loading = true;

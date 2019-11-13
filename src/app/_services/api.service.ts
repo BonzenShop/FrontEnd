@@ -35,9 +35,8 @@ export class ApiService {
     return this.httpClient.post<Item[]>(API_URL + '/saveProduct', data);
   }
 
-  order(data:String) {
-    console.log(data);
-    return this.httpClient.post<String>(API_URL + '/order', data)
+  order(data: Order[]){
+    return this.httpClient.post<Order[]>(API_URL + '/order', data);
   }
 
   login(data){

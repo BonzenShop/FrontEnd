@@ -1,24 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from '../_services/authentication.service';
 import { User } from '../_models/user';
 import { Item } from "../_models/item";
+import { Order } from "../_models/order";
 import { ApiService } from '../_services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class cart_item {
   item:Item;
   quantity:number = 0;
-}
-
-export class order_item {
-  orderDate:string;
-  name:string;
-  category:string;
-  price:number;
-  amount:number;
-  totalPrice:number;
 }
 
 @Component({
@@ -33,9 +26,13 @@ export class ShoppingCartComponent implements OnInit {
   //used to increase price
   totalPriceCalc:number = 0;
   currentUser: User;
-  order: order_item[] = [];
+  order: Order[] = [];
 
-  constructor(private shopping_cart_service: ShoppingCartService, private authenticationService: AuthenticationService, private apiService: ApiService, private _snackBar: MatSnackBar) {
+  constructor(private shopping_cart_service: ShoppingCartService,
+    private authenticationService: AuthenticationService,
+    private apiService: ApiService,
+    private _snackBar: MatSnackBar,
+    private datepipe: DatePipe) {
   }
 
   shopping_cart:cart_item[] = [];
@@ -43,7 +40,6 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
     this.shopping_cart = this.shopping_cart_service.getCart();
     this.calculateTotalPrice();
-    console.log(this.shopping_cart);
   }
 
   get isLoggedIn() {
@@ -111,8 +107,10 @@ export class ShoppingCartComponent implements OnInit {
     if(this.isLoggedIn && this.shopping_cart.length>0) {
       var date = new Date();
       for(let item of this.shopping_cart) {
-        var orderItem:order_item = {
-          orderDate: date.getDay()+"."+ date.getMonth() +"."+ date.getFullYear(),
+        var orderItem:Order = {
+          id: 0,
+          user: this.authenticationService.getUserId(),
+          orderDate: this.datepipe.transform(date, 'dd.MM.yyyy'),
           name: item.item.name,
           category: item.item.category,
           price: item.item.price,
@@ -122,9 +120,12 @@ export class ShoppingCartComponent implements OnInit {
         this.order.push(orderItem);
       }
       this.shopping_cart = [];
+      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
       this.animateValue(this.totalPriceCalc, 0, 150);
       this.totalPriceCalc = 0;
-      this.apiService.order(JSON.stringify(this.order));
+      this.apiService.order(this.order).subscribe((data) => {
+        console.log(data);
+      });
     } else if (!this.isLoggedIn) {
       this.showPopup("Zum Fortfahren bitte einloggen");
     } else  {
