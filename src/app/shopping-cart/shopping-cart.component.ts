@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from '../_services/authentication.service';
@@ -32,7 +33,8 @@ export class ShoppingCartComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private apiService: ApiService,
     private _snackBar: MatSnackBar,
-    private datepipe: DatePipe) {
+    private datepipe: DatePipe,
+    private router: Router) {
   }
 
   shopping_cart:cart_item[] = [];
@@ -128,6 +130,7 @@ export class ShoppingCartComponent implements OnInit {
       });
     } else if (!this.isLoggedIn) {
       this.showPopup("Zum Fortfahren bitte einloggen");
+      this.router.navigateByUrl("/Login?ReturnURL="+this.router.url);
     } else  {
       this.showPopup("Warenkorb ist leer");
     }
