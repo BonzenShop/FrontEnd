@@ -5,9 +5,13 @@ h2 {
     font-family: 'Exo', sans-serif;
 }
 
-#productListTopBar {
+#header {
     margin: 0 10px 0 10px;
     position: relative;
+}
+
+#subHeader {
+    margin: 10px 10px 0 10px;
 }
 
 #listTitle {
@@ -48,16 +52,22 @@ mat-nav-list {
 }
 
 #categories {
+    margin-right: 40px;
     display: inline-block;
 }
 
 #category {
+    font-size: 14px;
     display: inline-block;
     color: dimgray;
     padding: 3px 5px 3px 5px;
     border: 1px solid dimgray;
     border-radius: 15px;
-    margin-left: 5px;
+    margin: 2px 0 2px 5px;
+}
+
+#category:hover {
+    background-color: rgb(41, 41, 41);
 }
 
 #removeBtn {
@@ -69,5 +79,31 @@ mat-nav-list {
 
 #removeBtn:hover {
     color: antiquewhite;
+    cursor: pointer;
+}
+
+#searchInput {
+    border-radius: 10px;
+    padding: 2px 5px;
+    background: transparent;
+    border: 1px solid rgb(211, 179, 75);
+    color: rgb(211, 179, 75);
+    margin-left: 2px;
+    outline: none;
+    font-size: 14px;
+    margin-bottom:2px;
+    margin-right: 40px;
+}
+#searchInput:-webkit-autofill,
+#searchInput:-webkit-autofill:hover, 
+#searchInput:-webkit-autofill:focus, 
+#searchInput:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
+    -webkit-text-fill-color: rgb(211, 179, 75) !important;
+}
+#searchInput::-webkit-search-cancel-button{
+    /*-webkit-appearance: none;*/
+}
+#searchInput::-webkit-search-cancel-button:hover{
     cursor: pointer;
 }

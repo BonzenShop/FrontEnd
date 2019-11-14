@@ -26,6 +26,7 @@ registerLocaleData(localeDe, 'de', localeDeExtra);
 
 import { CUSTOM_DATE_FORMATS, CustomDatePickerAdapter } from './_shared/date-adapter';
 import { ItemCategoryFilterPipe } from './_shared/item-category-filter.pipe';
+import { ItemSearchFilterPipe } from './_shared/item-search-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
@@ -50,6 +51,7 @@ import { LoginComponent } from './login/login.component';
     ProductDetailComponent,
     HomeComponent,
     ItemCategoryFilterPipe,
+    ItemSearchFilterPipe,
     UserListComponent,
     ShoppingCartComponent,
     AccountComponent,

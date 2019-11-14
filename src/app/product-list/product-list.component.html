@@ -1,6 +1,7 @@
 <div id="contentWrapper">
-    <div id="productListTopBar">
+    <div id="header">
         <h2 id="listTitle">Produkte</h2>
+        <input id="searchInput" type="search" placeholder="Suche" [(ngModel)]="searchText">
         <div id="categories">
             <div id="category" *ngFor="let cat of categories; let i = index">
                 {{cat}}
@@ -13,10 +14,9 @@
             </i>
         </button>
     </div>
+    
     <mat-nav-list>
-        <a mat-list-item routerLink="/Produkt/{{item.name}}" *ngFor="let item of productList | itemCategory:categories">
-            <!--<img matListAvatar style="width:150px; height: 150px; margin: 10px 0 10px 0;" alt="Picture"
-                src="http://www.kameldungen.de/wp-content/uploads/2017/03/cropped-kamele.jpg" />-->
+        <a mat-list-item routerLink="/Produkt/{{item.name}}" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
             <h4 matLine>{{item.name}}</h4>
             <p>{{item.price | number:'':'de-DE'}}€</p>
         </a>

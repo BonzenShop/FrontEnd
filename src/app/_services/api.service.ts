@@ -39,6 +39,18 @@ export class ApiService {
     return this.httpClient.post<Order[]>(API_URL + '/order', data);
   }
 
+  changeRole(data: any){
+    return this.httpClient.post(API_URL + '/changeRole', data);
+  }
+
+  resetPassword(userId: number){
+    return this.httpClient.post(API_URL + '/resetPassword', userId);
+  }
+
+  deleteProduct(productId: number){
+    return this.httpClient.post<Item[]>(API_URL + '/deleteProduct', productId);
+  }
+
   login(data){
     return this.httpClient.post<User>(API_URL + '/login', data);
   }

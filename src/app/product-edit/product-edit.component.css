@@ -31,11 +31,8 @@ mat-form-field {
     width: 500px;
 }
 
-h1, h2 {
-    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Exo', sans-serif;
+h1 {
+    display: inline-block;
 }
 
 @media(max-width:600px){
@@ -43,7 +40,7 @@ h1, h2 {
         display: none;
     }
     h2 {
-        display: block;
+        display: inline-block;
     }
     #name, #category, #price, #onStock {
         width: 100%;
@@ -51,9 +48,35 @@ h1, h2 {
     }
 }
 
+h1, h2 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+}
+
 #contentWrapper {
     display: inline-block;
     width: 100%;
+}
+
+#deleteBtn {
+    margin-top: 20px;
+    display: flex;
+    padding: 2px;
+    float: right;
+    background: rgb(25,25,25);
+    border: 2px solid rgb(211, 179, 75);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#deleteBtn:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+#deleteBtn > i {
+    color: rgb(211, 179, 75);
 }
 
 #saveBtn {

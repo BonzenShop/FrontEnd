@@ -25,7 +25,7 @@
 }
 
 /* Logo on the toolbar */
-#logo {
+#logo, #logo-small {
     display: inline-block;
     border: none;
     position: absolute;
@@ -34,6 +34,19 @@
     cursor: pointer;
     max-height: 32px;
     max-width: 100%;
+}
+
+#logo-small {
+    display: none;
+}
+
+@media(max-width:600px){
+    #logo-small {
+        display: inline-block;
+    }
+    #logo {
+        display: none;
+    }
 }
 
 #btnPanelRight {

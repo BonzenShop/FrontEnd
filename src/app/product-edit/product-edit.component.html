@@ -1,6 +1,13 @@
 <div id="contentWrapper">
-    <h1>Produkt bearbeiten</h1>
-    <h2>Produkt bearbeiten</h2>
+    <div id="header">
+        <h1>Produkt bearbeiten</h1>
+        <h2>Produkt bearbeiten</h2>
+        <button id="deleteBtn" (click)="deleteBtn()">
+            <i class="material-icons">
+                delete
+            </i>
+        </button>
+    </div>
     <form [formGroup]="myForm">
         <mat-form-field id="name">
             <input matInput placeholder="Name" formControlName="name">

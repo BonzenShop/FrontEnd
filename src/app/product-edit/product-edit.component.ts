@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ApiService } from '../_services/api.service';
 import { Item } from "../_models/item";
@@ -55,7 +56,8 @@ export class ProductEditComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private _sanitizer: DomSanitizer) {
+    private _sanitizer: DomSanitizer,
+    private _snackBar: MatSnackBar) {
       this.myForm = this.formBuilder.group({
         name: [this.item.name, [Validators.required]],
         desc: [this.item.desc, [Validators.required]],
@@ -149,5 +151,26 @@ export class ProductEditComponent implements OnInit {
     this.myForm.controls.imgData.setValue(btoa(binaryString));
     this.myForm.controls.imgType.setValue(this.file.name.split('.').pop().toLowerCase());
     this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.myForm.controls.imgType.value+';base64,'+this.myForm.controls.imgData.value);
+  }
+
+  deleteBtn(){
+    let snackBarRef = this._snackBar.open("Wirklich löschen?", "Ja", {
+      duration: 3000,
+    });
+    snackBarRef.onAction().subscribe(()=> this.delete());
+  }
+
+  delete(){
+    console.log("deleting");
+    this.apiService.deleteProduct(this.item.id).subscribe(
+      (data) => {
+        console.log("deleted");
+        this.productService.setProductListValue(data);
+        this.router.navigate(["/Produkte"]);
+      },
+      (error) => {
+        this.router.navigate(["/Produkte"]);
+      }
+    );
   }
 }
