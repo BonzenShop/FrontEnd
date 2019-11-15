@@ -13,6 +13,8 @@ const API_URL = environment.apiUrl;
 })
 export class ApiService {
 
+  public loading = false;
+
   constructor(private httpClient: HttpClient) { }
 
   getProductList(){
@@ -61,5 +63,13 @@ export class ApiService {
 
   changeUserData(data){
     return this.httpClient.post<User>(API_URL + '/updateUser', data);
+  }
+
+  public startLoading(){
+    this.loading = true;
+  }
+
+  public stopLoading(){
+    this.loading = false;
   }
 }

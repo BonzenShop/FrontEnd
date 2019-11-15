@@ -19,7 +19,7 @@ export class AccountComponent implements OnInit {
   roles = ["Kunde", "Mitarbeiter", "Admin"];
   showResetBtn = true;
 
-  constructor(private authService: AuthenticationService,
+  constructor(public authService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,

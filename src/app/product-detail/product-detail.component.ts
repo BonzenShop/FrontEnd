@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-import { ApiService } from '../_services/api.service';
 import { Item } from "../_models/item";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from "../_services/authentication.service";
@@ -35,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private shopping_cart: ShoppingCartService,
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     private _sanitizer: DomSanitizer) {
       this.productService.productList.subscribe((data) => {
         this.productList = data;

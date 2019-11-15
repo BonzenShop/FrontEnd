@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   categories: String[]
   searchText: string
 
-  constructor(private route: ActivatedRoute, private productServie: ProductService, private authService: AuthenticationService) { 
+  constructor(private route: ActivatedRoute, private productServie: ProductService, public authService: AuthenticationService) { 
     this.route.queryParams.subscribe(params => {
       var category = params['Kategorie'];
       if(category){

@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthenticationService } from './_services/authentication.service';
-import { User } from './_models/user';
-import { Role } from './_models/role';
+import { ApiService } from './_services/api.service';
 
 export interface Tile {
   color: string;
@@ -22,7 +21,7 @@ export class AppComponent {
   email = '';
   password = '';
 
-  constructor(private authenticationService: AuthenticationService, private router: Router){
+  constructor(public authenticationService: AuthenticationService, public router: Router, public apiService: ApiService){
   }
   login(){
     if(this.email != '' && this.password != ''){

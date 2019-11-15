@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../_services/authentication.service';
+import { ApiService } from '../_services/api.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authService: AuthenticationService, private _snackBar: MatSnackBar, private router: Router) {}
+    constructor(private authService: AuthenticationService,
+        private _snackBar: MatSnackBar,
+        private router: Router,
+        private apiService: ApiService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
@@ -21,6 +25,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
+        this.apiService.loading = true;
         
         return next.handle(request).pipe(
             catchError(error => {
@@ -30,7 +35,15 @@ export class JwtInterceptor implements HttpInterceptor {
                         duration: 4000,
                     });
                 }
+                this.apiService.loading = false;
                 return throwError(error);
-        }));
+            }),
+            map(event => {
+                if (event instanceof HttpResponse) {
+                    this.apiService.loading = false;
+                }         
+                return event;
+            })
+            );
     }
 }

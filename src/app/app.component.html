@@ -19,7 +19,7 @@
         <button mat-button *ngIf="!this.router.url.startsWith('/Login')" routerLink="/Login" [queryParams]="{ReturnURL: this.router.url}">Login</button>
       </div>
       <div id="logout" *ngIf="this.authenticationService.isLoggedIn()">
-          <button mat-button (click)="logout(); showLogin = false;">Logout</button>
+          <button mat-button (click)="logout()">Logout</button>
       </div>
       <!--cart-->
       <a id="cart-center" routerLink="/Warenkorb" >
@@ -101,5 +101,8 @@
   <div id=mock-toolbar></div>
   <div id=content-section>
     <router-outlet></router-outlet>
+  </div>
+  <div id="loadingSpinner" *ngIf="apiService.loading">
+    <img src="../assets/loading-gif.gif" />
   </div>
 </div>
