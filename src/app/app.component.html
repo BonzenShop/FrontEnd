@@ -1,110 +1,156 @@
-<div id="globalwrapper">
-  <!-- Toolbar -->
-  <div class="toolbar" role="banner">
-  <div id="upperToolbar">
-    <img id="logo"
-      alt="Bonzenshop Logo"
-      src="../assets/Logo.svg"
-      (click)="goToHome()"
-    />
-    <!-- BtnPanelRight--------------------->
-    <div id="btnPanelRight">
-      <!--login-->
-      <div id="login" *ngIf="!this.authenticationService.isLoggedIn() && !loading">
-        <form *ngIf="showLogin" (keyup.enter)="login()">
-            <input type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
-            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password"/>
-        </form>
-        <button mat-button *ngIf="!showLogin" (click)="showLogin = true;">Login</button>
-        <button mat-icon-button *ngIf="showLogin" (click)="showLogin = false;">
-          <mat-icon>close</mat-icon>
+<mat-sidenav-container class="sidenav-container" (backdropClick)="sidenav.close">
+  <!--SIDENAV-->
+  <mat-sidenav #sidenav (keydown.escape)="sidenav.close()">
+    <div *ngIf="this.authenticationService.hasAdminRights()">
+      <p style="text-align: center;"><button mat-button routerLink="/Admin">Admin Menü</button></p>
+    <mat-divider></mat-divider>
+    </div>
+    
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" routerLink="/Produkte" [queryParams]="{Kategorie: node.name}" (click)="sidenav.close()" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        {{node.name}}
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" routerLink="/Produkte" [queryParams]="{Kategorie: node.name}" (click)="sidenav.close()" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror sidenavIcon">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
         </button>
-      </div>
-      <div id="logout" *ngIf="this.authenticationService.isLoggedIn() && !loading">
-          <button mat-button (click)="logout(); showLogin = false;">Logout</button>
-      </div>
-      <div id="loading" *ngIf="loading">
-          <img src="../assets/loading_spinner.svg"/>
-      </div>
-      <!--cart-->
-      <a id="cart-center" routerLink="/Warenkorb" >
-        <i class="material-icons">
-          shopping_cart
-        </i>
-      </a>
-      <!--user-->
-      <div class="dropdown" id="dropdownUser">
-        <i class="material-icons">
-          account_circle
-        </i>
-        <div *ngIf="this.authenticationService.isLoggedIn()" class="dropdown-content">
-          <a routerLink="/Kontoinformationen">Kontoinformationen</a>
-          <a routerLink="/Bestellungen">Bestellungen</a>
-        </div>
-        <div *ngIf="!this.authenticationService.isLoggedIn()" class="dropdown-content">
-            <a routerLink="/Registrieren">Registrieren</a>
-        </div>
-      </div> 
-    </div>
-    <!--BtnPanelLeft------------------------>
-    <div id="btnPanelLeft">
-        <a *ngIf="this.authenticationService.hasEmployeeRights()" id="adminBtn" routerLink="/Admin" >
-          <i class="material-icons">
-            supervised_user_circle
-          </i>
-        </a>
-    </div>
-  </div>
-  <div id="lowerToolbar">
-    <ul id="navbar">
-      <li> 
-        <div class="dropdown">
-          <button class="dropbtn">Transport</button>
-          <div class="dropdown-content">
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}">Tiere</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}">Flugzeuge</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}">Autos</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}">Yachten</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}">Sonstige Transportmittel</a>
+        {{node.name}}
+      </mat-tree-node>
+    </mat-tree>
+  </mat-sidenav>
+  <!--SIDENAV-->
+  <mat-sidenav-content>
+    <div id="globalwrapper">  
+      <!-- Toolbar -->
+      <div class="toolbar" role="banner">
+      <div id="upperToolbar">
+        <img id="logoDesktop"
+          alt="Bonzenshop Logo"
+          src="../assets/Logo.svg"
+          (click)="goToHome()"
+        />
+        <img
+        id="logoMobile"
+        src="../assets/Diamond_Logo.svg" 
+        alt="mobile logo"
+        (click)="goToHome()"/>
+        <!-- BtnPanelRight--------------------->
+        <div id="btnPanelRight">
+          <!--login-->
+          <div id="login" *ngIf="!this.authenticationService.isLoggedIn() && !loading">
+            <form *ngIf="showLogin" (keyup.enter)="login()">
+                <input type="text" placeholder="E-Mail" [(ngModel)]="email" name="email"/>
+                <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password"/>
+            </form>
+            <button mat-button *ngIf="!showLogin" (click)="showLogin = true;">Login</button>
+            <button mat-icon-button *ngIf="showLogin" (click)="showLogin = false;">
+              <mat-icon>close</mat-icon>
+            </button>
           </div>
-        </div> 
-      </li>
-      <li> 
-        <div class="dropdown">
-          <button class="dropbtn">Immobilien</button>
-          <div class="dropdown-content">
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}">Residenzen</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}">Monumente</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}">Straßen</a>
+          <div id="logout" *ngIf="this.authenticationService.isLoggedIn() && !loading">
+              <button mat-button (click)="logout(); showLogin = false;">Logout</button>
           </div>
-        </div>
-      </li>
-      <li>
-        <div class="dropdown">
-          <button class="dropbtn">Accessoires</button>
-          <div class="dropdown-content">
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}">Uhren</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}">Ketten</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}">Ringe</a>
+          <div id="loading" *ngIf="loading">
+              <img src="../assets/loading_spinner.svg"/>
           </div>
-        </div>
-      </li>
-      <li> 
-        <div class="dropdown">
-          <button class="dropbtn">Sonstiges</button>
-          <div class="dropdown-content">
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}">Edelsteine</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}">Gold</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}">Haustiere</a>
-            <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}">Untertanen</a>
+          <!--cart-->
+          <a id="cart-center" routerLink="/Warenkorb" >
+            <i class="material-icons navbar">
+              shopping_cart
+            </i>
+          </a>
+          <!--user-->
+          <div class="dropdown" id="dropdownUser">
+            <i class="material-icons navbar">
+              account_circle
+            </i>
+            <div *ngIf="this.authenticationService.isLoggedIn()" class="dropdown-content">
+              <a routerLink="/Kontoinformationen">Kontoinformationen</a>
+              <a routerLink="/Bestellungen">Bestellungen</a>
+              <a (click)="logout()" style="cursor:pointer">Logout</a>
+            </div>
+            <div *ngIf="!this.authenticationService.isLoggedIn()" class="dropdown-content">
+                <a routerLink="/Registrieren">Registrieren</a>
+                <a routerLink="/Login">Login</a>
+            </div>
           </div> 
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
-  <div id=mock-toolbar></div>
-  <div id=content-section>
-    <router-outlet></router-outlet>
-  </div>
-</div>
+        <!--BtnPanelLeft------------------------>
+        <div id="btnPanelLeft">
+          <a id="mobileMenu" (click)="sidenav.open()" >
+            <i class="material-icons navbar">
+              view_headline
+            </i>
+          </a>
+          <a *ngIf="this.authenticationService.hasEmployeeRights()" id="adminBtn" routerLink="/Admin" >
+            <i class="material-icons navbar">
+              supervised_user_circle
+            </i>
+          </a>
+          
+        </div>
+        <!--LeftEnd-->
+      </div>
+      
+      <div id="lowerToolbar">
+        <ul id="navbar">
+          <li> 
+            <div class="dropdown">
+              <button class="dropbtn">Transport</button>
+              <div class="dropdown-content">
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}">Tiere</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}">Flugzeuge</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}">Autos</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}">Yachten</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}">Sonstige Transportmittel</a>
+              </div>
+            </div> 
+          </li>
+          <li> 
+            <div class="dropdown">
+              <button class="dropbtn">Immobilien</button>
+              <div class="dropdown-content">
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}">Residenzen</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}">Monumente</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}">Straßen</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Accessoires</button>
+              <div class="dropdown-content">
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}">Uhren</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}">Ketten</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}">Ringe</a>
+              </div>
+            </div>
+          </li>
+          <li> 
+            <div class="dropdown">
+              <button class="dropbtn">Sonstiges</button>
+              <div class="dropdown-content">
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}">Edelsteine</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}">Gold</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}">Haustiere</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}">Untertanen</a>
+              </div> 
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <div id=mock-toolbar></div>
+      <div id=content-section>
+        <router-outlet></router-outlet>
+      </div>  
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

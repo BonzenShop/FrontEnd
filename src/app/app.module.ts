@@ -22,6 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTreeModule } from '@angular/material/tree';
+
 registerLocaleData(localeDe, 'de', localeDeExtra);
 
 import { CUSTOM_DATE_FORMATS, CustomDatePickerAdapter } from './_shared/date-adapter';
@@ -41,6 +44,7 @@ import { UserOrderListComponent } from './user-order-list/user-order-list.compon
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +67,8 @@ import { AccountEditComponent } from './account-edit/account-edit.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSidenavModule,
+    MatTreeModule,
     MatDividerModule,
     MatSnackBarModule,
     HttpClientModule,

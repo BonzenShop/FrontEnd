@@ -57,7 +57,7 @@
 :host /deep/ .mat-list-item :hover {
     background-color: rgb(41, 41, 41);
     box-shadow: 0 0 2px 1px rgb(25, 25, 25) inset;
-  }
+}
 
 :host /deep/ .mat-list-item-content :hover {
     box-shadow: none;

@@ -19,7 +19,8 @@ export class ShoppingCartService {
    * add item to cart, increase quantity if item already in cart
    */
   public addToCart(p_item:Item, quantity:number) {
-    var i = this.cart_items.findIndex(({item}) => item.id = p_item.id);
+    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+    
     if(i>=0) {
       this.cart_items[i].quantity++;
     } else {
@@ -35,7 +36,8 @@ export class ShoppingCartService {
    * @param wholeCart true if complete item to be deleted, ignores quantity
    */
   public removeFromCart(p_item:Item, quantity:number, wholeItem:boolean) {
-    var i = this.cart_items.findIndex(({item}) => item.id = p_item.id);
+    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+    
     if(i>0) {
       if(wholeItem) {
         this.cart_items.splice(i, 1);

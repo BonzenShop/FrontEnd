@@ -64,7 +64,7 @@ export class ShoppingCartComponent implements OnInit {
   ];
 
   ngOnInit() {
-    //this.shopping_cart = this.shopping_cart_service.getCart();
+    this.shopping_cart = this.shopping_cart_service.getCart();
     this.calculateTotalPrice();
     console.log(this.shopping_cart);
   }
