@@ -30,7 +30,7 @@
 }
 
 .mat-drawer {
-    background-color:  rgb(25, 25, 25);
+    background-color:  rgb(15, 15, 15);
     border-image-source: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-image-slice: 1;
     border-right: 1px solid;
@@ -139,6 +139,12 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    #dropdownUser:hover .material-icons  {
+        background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 @media(min-width:600px) {
@@ -206,6 +212,13 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    #dropdownUser:hover .material-icons  {
+        font-size: 31px;
+        background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 
@@ -217,13 +230,6 @@
     width: fit-content;
     right: 0;
     transform: translate(50%);
-}
-
-#dropdownUser:hover .material-icons  {
-    font-size: 31px;
-    background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 /* Login/Logout on the toolbar */
