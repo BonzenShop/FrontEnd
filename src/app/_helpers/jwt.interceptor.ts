@@ -26,7 +26,6 @@ export class JwtInterceptor implements HttpInterceptor {
             });
         }
         this.apiService.loading = true;
-        console.log("intercept");
         
         return next.handle(request).pipe(
             catchError(error => {
@@ -41,7 +40,6 @@ export class JwtInterceptor implements HttpInterceptor {
             }),
             map(event => {
                 if (event instanceof HttpResponse) {
-                    console.log("success");
                     this.apiService.loading = false;
                 }         
                 return event;
