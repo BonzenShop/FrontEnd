@@ -10,24 +10,10 @@ h2 {
     position: relative;
 }
 
-#subHeader {
-    margin: 10px 10px 0 10px;
-}
-
 #listTitle {
     display: inline-block;
     margin-bottom: 0;
     margin-right: 20px;
-}
-
-mat-nav-list {
-    margin: 10px;
-}
-
-.mat-list-item {
-    height: auto;
-    margin: 10px 0 10px 0;
-    box-shadow: 0px 0px 5px rgb(124, 94, 18);
 }
 
 #addButton {
@@ -106,4 +92,73 @@ mat-nav-list {
 }
 #searchInput::-webkit-search-cancel-button:hover{
     cursor: pointer;
+}
+
+#productListContainer {
+    margin-top: 10px;
+}
+
+.productContainer {
+    display: inline-block;
+    width: 16.6%;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.productContent {
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+    outline: none;
+}
+
+.productContent:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+.productContainer:hover {
+    padding: 0;
+}
+
+.productImage {
+    max-width: 100%;
+}
+
+.productTitle {
+    margin: 5px 0 0 0;
+    text-align: center;
+    height: 60px;
+    overflow: hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+}
+
+.productPrice {
+    margin: 5px 0 5px 0;
+    text-align: center;
+}
+
+@media(max-width:1250px){
+    .productContainer {
+        width: 20%;
+    }
+}
+
+@media(max-width:1000px){
+    .productContainer {
+        width: 25%;
+    }
+}
+
+@media(max-width:750px){
+    .productContainer {
+        width: 33.3%;
+    }
+}
+
+@media(max-width:600px){
+    .productContainer {
+        width: 50%;
+    }
 }

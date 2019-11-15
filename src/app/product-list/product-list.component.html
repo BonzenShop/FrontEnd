@@ -15,10 +15,13 @@
         </button>
     </div>
     
-    <mat-nav-list>
-        <a mat-list-item routerLink="/Produkt/{{item.name}}" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
-            <h4 matLine>{{item.name}}</h4>
-            <p>{{item.price | number:'':'de-DE'}}€</p>
-        </a>
-    </mat-nav-list>
+    <div id="productListContainer">
+        <div class="productContainer" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
+            <div class="productContent" routerLink="/Produkt/{{item.name}}">
+                <img class="productImage" [src]="item.imagePath" alt="Das Bild konnte nicht geladen werden">
+                <h4 class="productTitle">{{item.name}}</h4>
+                <p class="productPrice">{{item.price | number:'':'de-DE'}}€</p>
+            </div>
+        </div>
+    </div>
 </div>

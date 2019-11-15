@@ -25,7 +25,6 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
-        this.apiService.loading = true;
         
         return next.handle(request).pipe(
             catchError(error => {

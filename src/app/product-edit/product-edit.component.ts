@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from '../_services/api.service';
 import { Item } from "../_models/item";
 import { ProductService } from '../_services/product.service';
+import { Image } from '../_models/image';
 
 @Component({
   selector: 'app-product-edit',
@@ -42,6 +43,10 @@ export class ProductEditComponent implements OnInit {
     category: "",
     price: 0,
     onStock: 0,
+    image: 0
+  };
+  image:Image = {
+    id: 0,
     imgData: "",
     imgType: ""
   };
@@ -58,18 +63,26 @@ export class ProductEditComponent implements OnInit {
     private productService: ProductService,
     private _sanitizer: DomSanitizer,
     private _snackBar: MatSnackBar) {
+      this.imagePath = "../assets/loading_spinner.svg";
       this.myForm = this.formBuilder.group({
         name: [this.item.name, [Validators.required]],
         desc: [this.item.desc, [Validators.required]],
         category: [this.item.category, [Validators.required]],
         price: [this.item.price, [Validators.required]],
         onStock: [this.item.onStock, [Validators.required]],
-        imgData: [this.item.imgData, [Validators.required]],
-        imgType: [this.item.imgType, [Validators.required]]
+        imgData: [this.image.imgData, [Validators.required]],
+        imgType: [this.image.imgType, [Validators.required]]
       });
       this.productService.productList.subscribe((data) => {
         this.productList = data;
         this.update(this.id);
+      });
+      this.productService.imageList.subscribe((data) => {
+        var img = data.find(x => x.id == this.item.image);
+        if(img){
+          this.image = img;
+          this.updateImagePath(img.imgData, img.imgType);
+        }
       });
   }
 
@@ -86,14 +99,18 @@ export class ProductEditComponent implements OnInit {
       var item:Item = this.productList.find(({name}) => name == _id);
       if(item) {
         this.item = item;
-        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.myForm.controls.imgType.value+';base64,'+this.myForm.controls.imgData.value);
+        var img = this.productService.loadImage(item.image);
+        if(img){
+          this.image = img;
+          this.updateImagePath(img.imgData, img.imgType);
+        }
         this.myForm.controls.name.setValue(this.item.name);
         this.myForm.controls.desc.setValue(this.item.desc);
         this.myForm.controls.category.setValue(this.item.category);
         this.myForm.controls.price.setValue(this.item.price);
         this.myForm.controls.onStock.setValue(this.item.onStock);
-        this.myForm.controls.imgData.setValue(this.item.imgData);
-        this.myForm.controls.imgType.setValue(this.item.imgType);
+        this.myForm.controls.imgData.setValue(this.image.imgData);
+        this.myForm.controls.imgType.setValue(this.image.imgType);
       }else{
         if(this.id != "Neu"){
           this.router.navigate(['/']);
@@ -110,10 +127,10 @@ export class ProductEditComponent implements OnInit {
       this.item.category = this.myForm.controls.category.value;
       this.item.price = this.myForm.controls.price.value;
       this.item.onStock = this.myForm.controls.onStock.value;
-      this.item.imgData = this.myForm.controls.imgData.value;
-      this.item.imgType = this.myForm.controls.imgType.value;
+      this.image.imgData = this.myForm.controls.imgData.value;
+      this.image.imgType = this.myForm.controls.imgType.value;
 
-      this.apiService.saveProduct(this.item).subscribe((data)=>{
+      this.apiService.saveProduct(this.item, this.image).subscribe((data)=>{
         this.productService.setProductListValue(data);
       })
 
@@ -135,8 +152,8 @@ export class ProductEditComponent implements OnInit {
       this.item.category == this.myForm.controls.category.value &&
       this.item.price == this.myForm.controls.price.value &&
       this.item.onStock == this.myForm.controls.onStock.value &&
-      this.item.imgData == this.myForm.controls.imgData.value &&
-      this.item.imgType == this.myForm.controls.imgType.value);
+      this.image.imgData == this.myForm.controls.imgData.value &&
+      this.image.imgType == this.myForm.controls.imgType.value);
   }
 
   selectFile(event) {
@@ -150,7 +167,7 @@ export class ProductEditComponent implements OnInit {
     var binaryString = readerEvt.target.result;
     this.myForm.controls.imgData.setValue(btoa(binaryString));
     this.myForm.controls.imgType.setValue(this.file.name.split('.').pop().toLowerCase());
-    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.myForm.controls.imgType.value+';base64,'+this.myForm.controls.imgData.value);
+    this.updateImagePath(this.myForm.controls.imgData.value, this.myForm.controls.imgType.value);
   }
 
   deleteBtn(){
@@ -172,5 +189,9 @@ export class ProductEditComponent implements OnInit {
         this.router.navigate(["/Produkte"]);
       }
     );
+  }
+
+  updateImagePath(data:string, type:string){
+    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+type+';base64,'+data);
   }
 }
