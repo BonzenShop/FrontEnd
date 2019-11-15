@@ -26,10 +26,11 @@ export class JwtInterceptor implements HttpInterceptor {
             });
         }
         this.apiService.loading = true;
+        console.log("intercept");
         
         return next.handle(request).pipe(
             catchError(error => {
-                if(this.authService.isTokenExpired()){
+                if(this.authService.isLoggedIn() && this.authService.isTokenExpired()){
                     this.authService.logout("/Login?ReturnURL="+this.router.url);
                     this._snackBar.open("Ihre Sitzung ist abgelaufen. Sie wurden ausgeloggt.", "OK", {
                         duration: 4000,
@@ -40,6 +41,7 @@ export class JwtInterceptor implements HttpInterceptor {
             }),
             map(event => {
                 if (event instanceof HttpResponse) {
+                    console.log("success");
                     this.apiService.loading = false;
                 }         
                 return event;
