@@ -3,25 +3,37 @@
     min-height: 100%;
 }
 
-/* same height as toolbar - for correct positioning of content-section */
-#mock-toolbar {
-    height: 13%;
-    min-height: 100px;
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-.toolbar {
-    position: fixed;
-    width: 100%;
-    height: 13%;
-    min-height: 100px;
-    box-shadow: 0px 1px 5px rgb(124, 94, 18);
-    display: flex;
-    flex-flow: column;
-    background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
-    border-bottom: 2px outset goldenrod;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 100;
+.mat-tree-node {
+    padding-right: 15px;
+    background-color: rgb(15,15,15);
+    font-size: 17px;
+    color: blanchedalmond;
+}
+
+/* Expand / Collapse icon in sidenav */
+.mat-icon-rtl-mirror.sidenavIcon {
+    font-size: 30px;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Changes sidenav backdrop color */
+:host /deep/ .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgb(15, 15, 15, 0.6);
+}
+
+.mat-drawer {
+    background-color:  rgb(25, 25, 25);
+    border-image-source: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    border-image-slice: 1;
+    border-right: 1px solid;
 }
 
 /* Logo on the toolbar */
@@ -57,6 +69,145 @@
     float: left;
     position: absolute;
 }
+
+@media(max-width:600px) {
+
+    #adminBtn{
+        display: none;
+    }
+
+    #mobileMenu {
+        float: left;
+    }
+
+    #logoDesktop {
+        display: none;
+    }
+
+    #logoMobile {
+        border: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        cursor: pointer;
+        padding: 5px;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #mock-toolbar {
+        height: 55px;
+    }
+
+    .toolbar {
+        position: fixed;
+        width: 100%;
+        height: 55px;
+        box-shadow: 0px 1px 5px rgb(124, 94, 18);
+        display: flex;
+        flex-flow: column;
+        background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
+        border-bottom: 2px outset goldenrod;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 100;
+    }
+
+    /* Upper half of the toolbar. Includes the logo */
+    #upperToolbar {
+        height: 100%;
+    }
+
+    /* Lower half of the toolbar. Includes the navbar*/
+    #lowerToolbar {
+        display: none;
+    }
+
+    /* navbar icons */
+    .material-icons.navbar {
+        padding: 2px;
+        margin-right: 2px;
+        font-size: 50px;
+        background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .material-icons.navbar:hover{
+        font-size: 50px;
+        background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@media(min-width:600px) {
+
+    #adminBtn{
+        float: left;
+    }
+
+    #mobileMenu {
+        display: none;
+    }
+
+    #logoDesktop {
+        display: inline-block;
+        border: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        cursor: pointer;
+        max-height: 32px;
+        max-width: 100%;
+    }
+
+    #logoMobile {
+        display: none;
+    }
+
+    /* same height as toolbar - for correct positioning of content-section */
+    #mock-toolbar {
+        min-height: 85px;
+    }
+
+    .toolbar {
+        position: fixed;
+        width: 100%;
+        height: 85px;
+        box-shadow: 0px 1px 5px rgb(124, 94, 18);
+        display: flex;
+        flex-flow: column;
+        background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
+        border-bottom: 2px outset goldenrod;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 100;
+    }
+
+    /* Lower half of the toolbar. Includes the navbar*/
+    #lowerToolbar {
+        height: 100%;
+    }
+
+    /* navbar icons */
+    .material-icons.navbar {
+        padding: 2px;
+        margin-right: 2px;
+        font-size: 30px;
+        background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .material-icons.navbar:hover{
+        font-size: 31px;
+        background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
 
 #dropdownUser {
     float: right;
@@ -119,34 +270,6 @@
     float: right;
 }
 
-/* shopping cart button */
-.material-icons {
-    padding: 2px;
-    margin-right: 2px;
-    font-size: 30px;
-    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.material-icons:hover{
-    font-size: 31px;
-    background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Upper half of the toolbar. Includes the logo */
-#upperToolbar {
-
-}
-
-/* Lower half of the toolbar. Includes the navbar*/
-#lowerToolbar {
-    flex-grow: 1;
-    bottom: 0;
-}
-
 /* Category Menu */
 ul#navbar {
     width: 100%;
@@ -169,12 +292,6 @@ ul#navbar li:first-child {
     border-left: none;
 }
 
-/*
-ul#navbar li button {
-    width: 100%;
-    height: 100%;
-}*/
-
 /* Dropdown Button */
 .dropbtn {
     transition: .3s ease;
@@ -182,9 +299,10 @@ ul#navbar li button {
     height: 100%;
     border-radius: 5px;
     background-color: transparent;
-    color: rgb(211, 179, 75);
-    padding: 16px;
-    font-size: 20px;
+    background: linear-gradient(to bottom, #BF953F,#BF953F, #FBF5B7, #B38728,#B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 17px;
     font-weight: bold;
     border: none;
     outline: none;

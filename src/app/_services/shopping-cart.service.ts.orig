@@ -25,7 +25,10 @@ export class ShoppingCartService {
    */
   public addToCart(p_item:Item, quantity:number) {
     var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+<<<<<<< HEAD
+=======
     
+>>>>>>> Nicolas
     if(i>=0) {
       this.cart_items[i].quantity++;
     } else {
@@ -42,7 +45,10 @@ export class ShoppingCartService {
    */
   public removeFromCart(p_item:Item, quantity:number, wholeItem:boolean) {
     var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+<<<<<<< HEAD
+=======
     
+>>>>>>> Nicolas
     if(i>0) {
       if(wholeItem) {
         this.cart_items.splice(i, 1);
