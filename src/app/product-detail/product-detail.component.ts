@@ -29,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   };
 
   productList: Item[];
+  imageList: Image[];
   image: Image = {
     id: 0,
     imgData: "",
@@ -47,10 +48,8 @@ export class ProductDetailComponent implements OnInit {
         this.update(this.id);
       });
       this.productService.imageList.subscribe((data) => {
-        var img = data.find(x => x.id == this.item.image);
-        if(img){
-          this.updateImage(img);
-        }
+        this.imageList = data;
+        this.updateImagePath();
       });
   }
 
@@ -65,18 +64,23 @@ export class ProductDetailComponent implements OnInit {
       var item:Item = this.productList.find(({name}) => name == _id);
       if(item) {
         this.item = item
-        var img = this.productService.loadImage(item.image);
-        if(img){
-          this.updateImage(img);
-        }
+        this.updateImagePath();
         this.createDisplayPrice(this.item.price);
       }
     }  
   }
 
-  updateImage(img){
-    this.image = img;
-    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.image.imgType+';base64,'+this.image.imgData);
+  updateImagePath(){
+    if(this.imageList && this.imageList.length > 0){
+      var img = this.imageList.find(i => i.id == this.item.image);
+      if(img){
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+      }else{
+        this.imagePath = "../assets/image-placeholder.png";
+      }
+    }else{
+      this.imagePath = "../assets/loading_spinner.svg";
+    }
   }
 
   /**

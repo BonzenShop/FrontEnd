@@ -47,7 +47,6 @@ export class ProductListComponent implements OnInit {
         this.categories = []
       }
     });
-    this.imageList = this.productService.loadAllImages();
     this.productService.productList.subscribe((data) => {
       this.productList = data;
       this.updateImagePaths();
@@ -62,9 +61,13 @@ export class ProductListComponent implements OnInit {
   }
 
   getImagePath(id:number):SafeResourceUrl{
-    var img = this.imageList.find(i => i.id == id);
-    if(img){
-      return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+    if(this.imageList && this.imageList.length > 0){
+      var img = this.imageList.find(i => i.id == id);
+      if(img){
+        return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+      }else{
+        return "../assets/image-placeholder.png";
+      }
     }else{
       return "../assets/loading_spinner.svg";
     }

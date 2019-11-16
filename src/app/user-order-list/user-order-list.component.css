@@ -1,3 +1,17 @@
+h2 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
+}
+
+mat-list {
+    max-width: 1000px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 mat-list-item {
     height: auto !important;
     margin: 10px 0 10px 0;
@@ -6,38 +20,39 @@ mat-list-item {
 mat-list-item:hover {
     background-color: rgba(255,255,255,0.05);
 }
-/* adds margin when in desktop ...for the looks */
-@media (min-width:1000px){
-    #spacer {
-        margin-left: 60px;
-        margin-right: 60px;
-    }
-}
 
 :host /deep/ .mat-list-item-content {
     padding: 0!important;
 }
 
-.list-box{
+.listBox{
     height: auto !important;
     color: blanchedalmond;
 }
 
-#item-img {
-    max-height: 200px;
-    max-width: 200px;
+#itemImg {
+    width: 150px;
 }
 
-.container-item {
+.containerItem {
     margin-left: 10px;
+    overflow: hidden;
 }
 
-#item-name {
+#itemName {
     font-size: 23px;
     font-family: 'Courgette', cursive;
     background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+#itemPrice {
+    margin-bottom: 10px;
 }
 
 #totalPrice {
@@ -50,7 +65,7 @@ mat-list-item:hover {
     float: left;
 }
 
-#order-info {
+#orderInfo {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -59,7 +74,7 @@ mat-list-item:hover {
     background-color: rgba(255,255,255,0.05);
 }
 
-#product-info {
+#productInfo {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -67,13 +82,11 @@ mat-list-item:hover {
 }
 
 @media (max-width:500px){
-    #product-info {
-        width: auto;
-        flex-direction: column;
-        align-items: center;
+    #itemImg {
+        width: 100px;
     }
-    .container-item {
-        margin-left: 0;
+    #itemPrice {
+        margin-bottom: 0;
     }
 }
 

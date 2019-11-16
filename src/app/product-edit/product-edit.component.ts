@@ -45,6 +45,7 @@ export class ProductEditComponent implements OnInit {
     onStock: 0,
     image: 0
   };
+  imageList: Image[];
   image:Image = {
     id: 0,
     imgData: "",
@@ -78,11 +79,8 @@ export class ProductEditComponent implements OnInit {
         this.update(this.id);
       });
       this.productService.imageList.subscribe((data) => {
-        var img = data.find(x => x.id == this.item.image);
-        if(img){
-          this.image = img;
-          this.updateImagePath(img.imgData, img.imgType);
-        }
+        this.imageList = data;
+        this.updateImagePath();
       });
   }
 
@@ -90,7 +88,6 @@ export class ProductEditComponent implements OnInit {
     this.route.paramMap.subscribe(params => 
       params.get("id") != "Neu" ? this.update(params.get("id")) : ''
     );
-    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.myForm.controls.imgType.value+';base64,'+this.myForm.controls.imgData.value);
   }
 
   update(_id: string) {
@@ -99,11 +96,7 @@ export class ProductEditComponent implements OnInit {
       var item:Item = this.productList.find(({name}) => name == _id);
       if(item) {
         this.item = item;
-        var img = this.productService.loadImage(item.image);
-        if(img){
-          this.image = img;
-          this.updateImagePath(img.imgData, img.imgType);
-        }
+        this.updateImagePath()
         this.myForm.controls.name.setValue(this.item.name);
         this.myForm.controls.desc.setValue(this.item.desc);
         this.myForm.controls.category.setValue(this.item.category);
@@ -132,7 +125,8 @@ export class ProductEditComponent implements OnInit {
 
       this.apiService.saveProduct(this.item, this.image).subscribe((data)=>{
         this.productService.setProductListValue(data);
-      })
+      });
+      this.productService.updateImageList();
 
       this.router.navigate(['/Produkt/'+this.item.name]);
     }
@@ -160,14 +154,17 @@ export class ProductEditComponent implements OnInit {
     this.file = event.target.files[0];
     var reader = new FileReader();
     reader.onload =this._handleReaderLoaded.bind(this);
-    reader.readAsBinaryString(this.file);
+    if(this.file){
+      reader.readAsBinaryString(this.file);
+    }
   }
 
   _handleReaderLoaded(readerEvt) {
     var binaryString = readerEvt.target.result;
     this.myForm.controls.imgData.setValue(btoa(binaryString));
     this.myForm.controls.imgType.setValue(this.file.name.split('.').pop().toLowerCase());
-    this.updateImagePath(this.myForm.controls.imgData.value, this.myForm.controls.imgType.value);
+    this.image.id = 0;
+    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.myForm.controls.imgType.value+';base64,'+this.myForm.controls.imgData.value);
   }
 
   deleteBtn(){
@@ -178,10 +175,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   delete(){
-    console.log("deleting");
     this.apiService.deleteProduct(this.item.id).subscribe(
       (data) => {
-        console.log("deleted");
         this.productService.setProductListValue(data);
         this.router.navigate(["/Produkte"]);
       },
@@ -191,7 +186,16 @@ export class ProductEditComponent implements OnInit {
     );
   }
 
-  updateImagePath(data:string, type:string){
-    this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+type+';base64,'+data);
+  updateImagePath(){
+    if(this.imageList && this.imageList.length > 0){
+      var img = this.imageList.find(i => i.id == this.item.image);
+      if(img){
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+      }else{
+        this.imagePath = "../assets/image-placeholder.png";
+      }
+    }else{
+      this.imagePath = "../assets/loading_spinner.svg";
+    }
   }
 }

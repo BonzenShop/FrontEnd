@@ -1,53 +1,28 @@
-<table mat-table [dataSource]="orderList">
-
-        <!-- Id Column -->
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> Id </th>
-            <td mat-cell *matCellDef="let order"> {{order.id}} </td>
-        </ng-container>
-        
-        <!-- OrderDate Column -->
-        <ng-container matColumnDef="orderDate">
-            <th mat-header-cell *matHeaderCellDef> Bestelldatum </th>
-            <td mat-cell *matCellDef="let order"> {{order.orderDate}} </td>
-        </ng-container>
-        
-        <!-- User Column -->
-        <ng-container matColumnDef="user">
-            <th mat-header-cell *matHeaderCellDef> Kunden-Id </th>
-            <td mat-cell *matCellDef="let order"> {{order.user}} </td>
-        </ng-container>
-        
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Produkt </th>
-            <td mat-cell *matCellDef="let order"> {{order.name}} </td>
-        </ng-container>
-    
-        <!-- Category Column -->
-        <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> Kategorie </th>
-            <td mat-cell *matCellDef="let order"> {{order.category}} </td>
-        </ng-container>
-    
-        <!-- Price Column -->
-        <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef> Einzelpreis </th>
-            <td mat-cell *matCellDef="let order"> {{order.price | number:'':'de-DE'}}€ </td>
-        </ng-container>
-
-        <!-- Amount Column -->
-        <ng-container matColumnDef="amount">
-            <th mat-header-cell *matHeaderCellDef> Menge </th>
-            <td mat-cell *matCellDef="let order"> {{order.amount}} </td>
-        </ng-container>
-    
-        <!-- TotalPrice Column -->
-        <ng-container matColumnDef="totalPrice">
-            <th mat-header-cell *matHeaderCellDef> Gesamtpreis </th>
-            <td mat-cell *matCellDef="let order"> {{order.totalPrice | number:'':'de-DE'}}€ </td>
-        </ng-container>
-        
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+<div id="contentWrapper">
+    <mat-list>
+        <h2>Alle Bestellungen</h2>
+        <mat-list-item class="listBox" *ngFor="let order of orderList">
+            <div id="orderWrapper">
+                <div id="orderInfo">
+                    <div id="orderInfoLine">
+                        <div>({{order.id}})</div>
+                        <div>Kunden-Id: {{order.user}}</div>
+                    </div>
+                    <div id="orderInfoLine">
+                        <div id="orderDate">Bestellt: {{order.orderDate}}</div>
+                        <div id="totalPrice">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
+                    </div>
+                </div>
+                <div id="productInfo">
+                    <img id="itemImg" [src]="order.imagePath" alt="Placeholder">
+                    <div class="containerItem">
+                        <div id="itemName">{{order.name}}</div>
+                        <div id="itemCategory">Kategorie: {{order.category}}</div>
+                        <div id="itemPrice">Einzelpreis: {{order.price | number:'':'de-DE'}}€</div>
+                        <div id="itemAmount">Menge: {{order.amount}}</div>
+                    </div>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

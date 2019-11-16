@@ -1,12 +1,118 @@
-table {
-    width: 100%;
-    background-color: transparent;
+h2 {
+    background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Exo', sans-serif;
 }
-th {
-    font-size: 14px;
-    font-weight: bold;
-    color: rgb(211, 179, 75);
+
+mat-list {
+    max-width: 1000px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
-tr.mat-row:hover {
+
+mat-list-item {
+    height: auto !important;
+    margin: 10px 0 10px 0;
+    box-shadow: 0px 0px 5px rgb(124, 94, 18);
+}
+mat-list-item:hover {
     background-color: rgba(255,255,255,0.05);
+}
+
+:host /deep/ .mat-list-item-content {
+    padding: 0!important;
+}
+
+.listBox{
+    height: auto !important;
+    color: blanchedalmond;
+}
+
+#itemImg {
+    width: 150px;
+    max-height: 150px;
+}
+
+.containerItem {
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+#itemName {
+    font-size: 23px;
+    font-family: 'Courgette', cursive;
+    background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+#itemPrice {
+    margin-bottom: 10px;
+}
+
+#itemCategory {
+    margin-bottom: 10px;
+}
+
+#totalPrice {
+    padding-left: 5px;
+    float: right;
+    text-align: right;
+}
+
+#orderId {
+
+}
+
+#orderDate {
+    padding-right: 5px;
+    float: left;
+}
+
+#orderInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.05);
+}
+
+#orderInfoLine {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#productInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px
+}
+
+@media (max-width:500px){
+    #itemImg {
+        width: 100px;
+        max-height: 100px;
+    }
+    #itemPrice {
+        margin-bottom: 0;
+    }
+    #itemCategory {
+        margin-bottom: 0;
+    }
+    
+}
+
+#orderWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }

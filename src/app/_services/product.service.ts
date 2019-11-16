@@ -22,7 +22,8 @@ export class ProductService {
         this.productList = this.productListSubject.asObservable();
         this.imageListSubject = new BehaviorSubject<Image[]>([]);
         this.imageList = this.imageListSubject.asObservable();
-        this.initProductList();
+        this.updateProductList();
+        this.updateImageList();
     }
 
     public get productListValue(): Item[] {
@@ -33,13 +34,27 @@ export class ProductService {
         this.productListSubject.next(newList);
     }
 
-    private initProductList(){
+    public updateProductList(){
         this.apiService.getProductList().subscribe((data) => {
             this.productListSubject.next(data);
         });
     }
 
-    public loadImage(id:number):Image{
+    public get imageListValue(): Image[] {
+        return this.imageListSubject.value;
+    }
+
+    public setImageListValue(newList: Image[]) {
+        this.imageListSubject.next(newList);
+    }
+
+    public updateImageList(){
+        this.apiService.getImages().subscribe((data) => {
+            this.imageListSubject.next(data);
+        });
+    }
+
+    public getImage(id:number):Image{
         var img = this.imageListSubject.value.find(i => i.id == id);
         if(img){
             return img;
@@ -67,30 +82,6 @@ export class ProductService {
                     console.log("Could not load image");
                 }
             )
-        }
-    }
-
-    public setImage(img:Image){
-        this.imageListSubject.value.push(img);
-    }
-
-    public generateNewImageId(){
-        var list = this.getImageIdList();
-        var newId = Math.round((Math.random()*10000+20000));
-        while(list.some(x => x == newId)){
-            newId = Math.round((Math.random()*10000+20000));
-        }
-        return newId;
-    }
-
-    getImageIdList(){
-        if(this.imageIdList && this.imageIdList.length > 0){
-            return this.imageIdList;
-        }else{
-            this.apiService.getImageIds().subscribe(data => {
-                this.imageIdList = data;
-                return this.imageIdList;
-            })
         }
     }
 }

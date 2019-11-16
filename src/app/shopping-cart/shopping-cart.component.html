@@ -3,7 +3,7 @@
         <h1 id="cart-title" mat-subheader>Warenkorb</h1>
         <mat-list-item class="list-box" *ngFor="let item of shopping_cart; let i = index" [attr.data-index]="i" >
             <i class="material-icons" id="removeIcon" (click)="removeItem(i)"> clear </i>
-            <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Kamel Placeholder">
+            <img id="item-img" [src]="item.item.imagePath" alt="Kamel Placeholder">
             <div class="container-item"
                 fxLayout="column"
                 fxLayout.xs="column"

@@ -19,7 +19,7 @@
         <div class="productContainer" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
             <div class="productContent" routerLink="/Produkt/{{item.name}}">
                 <img class="productImage" [src]="item.imagePath" alt="Das Bild konnte nicht geladen werden">
-                <h4 class="productTitle">{{item.name}}</h4>
+                <h4 [title]="item.name" class="productTitle">{{item.name}}</h4>
                 <p class="productPrice">{{item.price | number:'':'de-DE'}}€</p>
             </div>
         </div>

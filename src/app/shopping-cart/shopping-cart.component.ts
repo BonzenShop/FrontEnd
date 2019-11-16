@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from '../_services/authentication.service';
+import { ProductService } from '../_services/product.service';
 import { User } from '../_models/user';
 import { Item } from "../_models/item";
 import { Order } from "../_models/order";
+import { Image } from "../_models/image";
 import { ApiService } from '../_services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -28,19 +31,28 @@ export class ShoppingCartComponent implements OnInit {
   totalPriceCalc:number = 0;
   currentUser: User;
   order: Order[] = [];
+  imageList: Image[];
 
   constructor(private shopping_cart_service: ShoppingCartService,
     private authenticationService: AuthenticationService,
     private apiService: ApiService,
     private _snackBar: MatSnackBar,
     private datepipe: DatePipe,
-    private router: Router) {
+    private router: Router,
+    private _sanitizer: DomSanitizer,
+    private productService: ProductService) {
+      
+    this.productService.imageList.subscribe((data) => {
+      this.imageList = data;
+      this.updateImagePaths();
+    });
   }
 
   shopping_cart:cart_item[] = [];
 
   ngOnInit() {
     this.shopping_cart = this.shopping_cart_service.getCart();
+    this.updateImagePaths();
     this.calculateTotalPrice();
   }
 
@@ -90,6 +102,7 @@ export class ShoppingCartComponent implements OnInit {
     var end = Math.round(this.totalPriceCalc);
 
     this.shopping_cart.splice(id,1);
+    this.shopping_cart_service.removeFromCart(this.shopping_cart[id].item, 0, true);
     localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start, end, 1500);
   }
@@ -117,7 +130,8 @@ export class ShoppingCartComponent implements OnInit {
           category: item.item.category,
           price: item.item.price,
           amount: item.quantity,
-          totalPrice: this.totalPriceCalc
+          totalPrice: this.totalPriceCalc,
+          image: item.item.image
         }
         this.order.push(orderItem);
       }
@@ -186,5 +200,24 @@ export class ShoppingCartComponent implements OnInit {
         }  
     }
     timer = setInterval(run, stepTime);
+  }
+
+  getImagePath(id:number):SafeResourceUrl{
+    if(this.imageList && this.imageList.length > 0){
+      var img = this.imageList.find(i => i.id == id);
+      if(img){
+        return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+      }else{
+        return "../assets/image-placeholder.png";
+      }
+    }else{
+      return "../assets/loading_spinner.svg";
+    }
+  }
+
+  updateImagePaths(){
+    for(let cart_item of this.shopping_cart){
+      cart_item.item.imagePath = this.getImagePath(cart_item.item.image);
+    }
   }
 }
