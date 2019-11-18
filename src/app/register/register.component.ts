@@ -61,8 +61,15 @@ export class RegisterComponent implements OnInit {
         this.user.birthDate = this.datepipe.transform(birthDate, 'dd.MM.yyyy');
         this.user.email = this.myForm.controls.email.value;
         this.user.password = this.myForm.controls.password.value;
-        this.authenticationService.signup(this.user);
-        this.router.navigateByUrl(this.returnURL);
+
+        this.authenticationService.signup(this.user, this.returnURL);
+        
+        this.myForm.controls.firstName.setValue("");
+        this.myForm.controls.lastName.setValue("");
+        this.myForm.controls.birthDate.setValue("");
+        this.myForm.controls.email.setValue("");
+        this.myForm.controls.password.setValue("");
+        this.checkPassword = "";
     }
   }
 

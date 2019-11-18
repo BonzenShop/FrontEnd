@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ApiService } from './api.service';
 import { Role } from '../_models/role';
@@ -14,7 +15,9 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
     public loading = false;
 
-    constructor(private apiService: ApiService, private router: Router) {
+    constructor(private apiService: ApiService,
+        private router: Router,
+        private _snackBar: MatSnackBar) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -78,7 +81,7 @@ export class AuthenticationService {
         
     }
 
-    signup(user: User) {
+    signup(user: User, returnURL: string) {
         var body = user;
         this.apiService.signup(body)
             .subscribe(
@@ -88,13 +91,15 @@ export class AuthenticationService {
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         this.currentUserSubject.next(user);
                     }
+                    this.router.navigateByUrl(returnURL);
                 },
                 error => {
                     console.error(error);
+                    this.showPopup("Registrierung fehlgeschlagen.");
                 })
     }
 
-    changeUserData(user: User) {
+    changeUserData(user: User, returnURL: string) {
         var body = user;
         this.apiService.changeUserData(body)
             .subscribe(
@@ -104,10 +109,18 @@ export class AuthenticationService {
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         this.currentUserSubject.next(user);
                     }
+                    this.router.navigateByUrl(returnURL);
                 },
                 error => {
                     console.error(error);
+                    this.showPopup("Ihre Daten konnten nicht geändert werden.");
                 })
+    }
+
+    showPopup(message:string){
+        this._snackBar.open(message, "OK", {
+        duration: 4000,
+        });
     }
 
     public decodeToken(): any {
