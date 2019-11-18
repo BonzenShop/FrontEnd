@@ -71,8 +71,8 @@ export class ProductEditComponent implements OnInit {
         category: [this.item.category, [Validators.required]],
         price: [this.item.price, [Validators.required]],
         onStock: [this.item.onStock, [Validators.required]],
-        imgData: [this.image.imgData, [Validators.required]],
-        imgType: [this.image.imgType, [Validators.required]]
+        imgData: [this.image.imgData],
+        imgType: [this.image.imgType]
       });
       this.productService.productList.subscribe((data) => {
         this.productList = data;
@@ -190,6 +190,8 @@ export class ProductEditComponent implements OnInit {
     if(this.imageList && this.imageList.length > 0){
       var img = this.imageList.find(i => i.id == this.item.image);
       if(img){
+        this.myForm.controls.imgData.setValue(img.imgData);
+        this.myForm.controls.imgType.setValue(img.imgType);
         this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
       }else{
         this.imagePath = "../assets/image-placeholder.png";

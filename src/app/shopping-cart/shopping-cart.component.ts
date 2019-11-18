@@ -97,13 +97,19 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   removeItem(id:number) {
+    console.log(id);
+    console.log(this.shopping_cart);
     var start = Math.round(this.totalPriceCalc);
     this.totalPriceCalc = this.totalPriceCalc - this.shopping_cart[id].quantity * this.shopping_cart[id].item.price;
     var end = Math.round(this.totalPriceCalc);
 
+    console.log(id);
     this.shopping_cart.splice(id,1);
-    this.shopping_cart_service.removeFromCart(this.shopping_cart[id].item, 0, true);
+    console.log(this.shopping_cart);
+    //this.shopping_cart_service.removeFromCart(this.shopping_cart[id].item, 0, true);
+    console.log(this.shopping_cart);
     localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+    console.log(this.shopping_cart);
     this.animateValue(start, end, 1500);
   }
 
