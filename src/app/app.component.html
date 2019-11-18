@@ -2,7 +2,7 @@
   <!--SIDENAV-->
   <mat-sidenav #sidenav (keydown.escape)="sidenav.close()">
     <div *ngIf="this.authenticationService.hasAdminRights()">
-      <p style="text-align: center;"><button mat-button routerLink="/Admin">Admin Menü</button></p>
+      <p style="text-align: center;"><button mat-button routerLink="/Admin" (click)="sidenav.close()">Admin Menü</button></p>
     <mat-divider></mat-divider>
     </div>
     
@@ -86,44 +86,44 @@
         <ul id="navbar">
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Transport'}" class="dropbtn">Transport</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Transport'}" class="dropbtn"><span class="navbarCatText">Transport</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}">Tiere</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}">Flugzeuge</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}">Autos</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}">Yachten</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}">Sonstige Transportmittel</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}"><span class="navbarCatText">Tiere</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}"><span class="navbarCatText">Flugzeuge</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}"><span class="navbarCatText">Autos</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}"><span class="navbarCatText">Yachten</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}"><span class="navbarCatText">Sonstige Transportmittel</span></a>
               </div>
             </div> 
           </li>
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Immobilien'}" class="dropbtn">Immobilien</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Immobilien'}" class="dropbtn"><span class="navbarCatText">Immobilien</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}">Residenzen</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}">Monumente</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}">Straßen</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}"><span class="navbarCatText">Residenzen</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}"><span class="navbarCatText">Monumente</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}"><span class="navbarCatText">Straßen</span></a>
               </div>
             </div>
           </li>
           <li>
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}" class="dropbtn">Accessoires</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}" class="dropbtn"><span class="navbarCatText">Accessoires</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}">Uhren</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}">Ketten</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}">Ringe</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}"><span class="navbarCatText">Uhren</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}"><span class="navbarCatText">Ketten</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}"><span class="navbarCatText">Ringe</span></a>
               </div>
             </div>
           </li>
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstiges'}" class="dropbtn">Sonstiges</button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstiges'}" class="dropbtn"><span class="navbarCatText">Sonstiges</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}">Edelsteine</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}">Gold</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}">Haustiere</a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}">Untertanen</a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}"><span class="navbarCatText">Edelsteine</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}"><span class="navbarCatText">Gold</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}"><span class="navbarCatText">Haustiere</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}"><span class="navbarCatText">Untertanen</span></a>
               </div> 
             </div>
           </li>
@@ -132,9 +132,10 @@
     </div>
       <div id=mock-toolbar></div>
       <div id=content-section>
+        <!--<div id="topBackgroundImage"></div>-->
         <router-outlet></router-outlet>
-  </div>
-  <div id="loadingSpinner" *ngIf="apiService.loading">
+      </div>
+    <div id="loadingSpinner" *ngIf="apiService.loading">
     <img src="../assets/loading-gif.gif" />
       </div>  
     </div>
