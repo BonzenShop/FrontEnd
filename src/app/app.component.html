@@ -2,7 +2,7 @@
   <!--SIDENAV-->
   <mat-sidenav #sidenav (keydown.escape)="sidenav.close()">
     <div *ngIf="this.authenticationService.hasAdminRights()">
-      <p style="text-align: center;"><button mat-button routerLink="/Admin">Admin Menü</button></p>
+      <p style="text-align: center;"><button mat-button routerLink="/Admin" (click)="sidenav.close()">Admin Menü</button></p>
     <mat-divider></mat-divider>
     </div>
     
