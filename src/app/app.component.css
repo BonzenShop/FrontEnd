@@ -330,7 +330,7 @@ ul#navbar {
 ul#navbar li {
     height: 100%;
     width: 25%;
-    border-image: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    border-image: linear-gradient(to bottom, #BF953F, rgb(236, 230, 157), #AA771C);
     border-image-slice: 1;
     border-left: 1px solid;
     display: inline-block;
@@ -347,11 +347,9 @@ ul#navbar li:first-child {
     height: 100%;
     border-radius: 5px;
     background-color: transparent;
-    background: linear-gradient(to bottom, #BF953F,#BF953F, #FBF5B7, #B38728,#B38728);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 17px;
     font-weight: bold;
+    cursor: pointer;
     border: none;
     outline: none;
 }
@@ -364,33 +362,44 @@ ul#navbar li:first-child {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+    border-image: linear-gradient(10deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    border-image-slice: 1;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
     display: none;
     position: absolute;
-    background-color: #202020;
+    background-color: rgb(20,20,20);
     min-width: 100px;
     width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(218, 168, 30, 0.24);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.24);
     z-index: 1;
-    top: 96%;
+    top: 100%;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: rgb(224, 189, 75);
+    color: blanchedalmond;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
+.navbarCatText{
+    background: linear-gradient(to bottom, #BF953F,#BF953F, #FBF5B7, #B38728,#B38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: rgb(41, 41, 41);}
+.dropdown-content a:hover {background-color: rgb(30, 30, 30);}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-background-color: rgb(41, 41, 41);
+    background-color: rgb(20, 20, 20);
 }
 
 #loadingSpinner {
