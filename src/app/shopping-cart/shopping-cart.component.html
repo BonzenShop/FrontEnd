@@ -11,14 +11,14 @@
                 fxLayoutGap="10px"
                 fxLayoutGap.xs="0">
                 <div id="item-name" fxFlex="20%"> {{ item.item.name}}</div>
-                <div id="item-desc" fxFlex="50%"> {{item.item.desc}}</div>
+                <div id="item-desc" fxFlex="50%"> {{(item.item.desc.length>180)? (item.item.desc | slice:0:180)+'...':(item.item.desc)}}</div>
                 <div id="price_quantity" fxFlex="30%"
                     fxLayout
                     fxLayout.xs="column"
                     fxLayoutAlign="start"
                     fxLayoutGap="10px"
                     fxLayoutGap.xs="0">
-                    <div id="item-price"> {{ item.item.price }}€</div>
+                    <div id="item-price"> {{ item.item.price | number:'':'de-DE' }}€</div>
                     <div id="item-quantity">
                         <i class="material-icons" (click)="quantityMinus(i)">remove</i>
                         <input id="inputField" #input type="number" min="1" name="fname" value={{item.quantity}} (focusout)="submitQuantity(input.value,i)" >

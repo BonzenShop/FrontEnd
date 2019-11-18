@@ -96,7 +96,15 @@
     }
 
     #mock-toolbar {
+        background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: fixed;
         height: 55px;
+        width: 100%;
+        z-index: 99;
+        box-shadow: 0px 6px 8px 2px rgba(0,0,0,0.8);
+
     }
 
     .toolbar {
@@ -106,10 +114,11 @@
         box-shadow: 0px 1px 5px rgb(124, 94, 18);
         display: flex;
         flex-flow: column;
-        background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
-        border-bottom: 2px outset goldenrod;
+        background: linear-gradient(180deg, rgb(15, 15, 15), rgb(25, 25, 25));
+        border-bottom: 1px solid transparent;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+        background-clip: padding-box;
         z-index: 100;
     }
 
@@ -145,6 +154,17 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    /* Add all actual content in this div */
+    #content-section {
+        position: static;
+        padding-top: 65px;
+        width: 100%;
+        height: 87%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
 }
 
 @media(min-width:600px) {
@@ -174,7 +194,15 @@
 
     /* same height as toolbar - for correct positioning of content-section */
     #mock-toolbar {
-        min-height: 85px;
+        background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: fixed;
+        height: 85px;
+        width: 100%;
+        z-index: 99;
+        box-shadow: 0px 6px 8px 2px rgba(0,0,0,0.8);
+
     }
 
     .toolbar {
@@ -184,10 +212,11 @@
         box-shadow: 0px 1px 5px rgb(124, 94, 18);
         display: flex;
         flex-flow: column;
-        background: linear-gradient(180deg, rgb(25, 25, 25), rgb(35, 35, 35));
-        border-bottom: 2px outset goldenrod;
+        background: linear-gradient(180deg, rgb(15, 15, 15), rgb(25, 25, 25));
+        border-bottom: 1px solid transparent;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+        background-clip: padding-box;
         z-index: 100;
     }
 
@@ -219,17 +248,28 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-}
 
+    /* Add all actual content in this div */
+    #content-section {
+        position: static;
+        padding-top: 95px;
+        width: 100%;
+        height: 87%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+}
 
 #dropdownUser {
     float: right;
+    cursor: default;
 }
 
 #dropdownUser .dropdown-content {
     width: fit-content;
     right: 0;
-    transform: translate(50%);
+    /*transform: translate(50%);*/
 }
 
 /* Login/Logout on the toolbar */
@@ -290,7 +330,9 @@ ul#navbar {
 ul#navbar li {
     height: 100%;
     width: 25%;
-    border-left: rgb(124, 94, 18) solid 1px;
+    border-image: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    border-image-slice: 1;
+    border-left: 1px solid;
     display: inline-block;
 }
 
@@ -349,17 +391,6 @@ ul#navbar li:first-child {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
 background-color: rgb(41, 41, 41);
-}
-
-/* Add all actual content in this div */
-#content-section {
-    position: static;
-    padding-top: 10px;
-    width: 100%;
-    height: 87%;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
 }
 
 #loadingSpinner {

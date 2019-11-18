@@ -132,9 +132,10 @@
     </div>
       <div id=mock-toolbar></div>
       <div id=content-section>
+        <!--<div id="topBackgroundImage"></div>-->
         <router-outlet></router-outlet>
-  </div>
-  <div id="loadingSpinner" *ngIf="apiService.loading">
+      </div>
+    <div id="loadingSpinner" *ngIf="apiService.loading">
     <img src="../assets/loading-gif.gif" />
       </div>  
     </div>

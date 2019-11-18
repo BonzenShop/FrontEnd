@@ -5,7 +5,9 @@
 #item-img {
     max-width: 100%;
     max-height: 100%;
-    border: 2px ridge goldenrod;
+    border: 1px solid;
+    border-image-source: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    border-image-slice: 1;
 }
 
 #item-name {
@@ -59,7 +61,7 @@ font-size: 20px;
 
 #price {
     font-size: calc(35px + 2.5vw);
-    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%); 
+    background:linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #BF953F); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 0;

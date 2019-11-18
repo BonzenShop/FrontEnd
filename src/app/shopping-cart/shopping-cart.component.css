@@ -17,6 +17,10 @@
         margin-left: 60px;
         margin-right: 60px;
     }
+
+    #item-desc {
+        width: 95%;
+    }
 }
 
 @media (max-width:1000px) {
