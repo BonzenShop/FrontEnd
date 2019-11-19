@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from "../_services/authentication.service"
+
+import { AuthenticationService } from "../_services/authentication.service";
+import { ApiService } from '../_services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,13 @@ import { AuthenticationService } from "../_services/authentication.service"
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authenticationService: AuthenticationService) { }
+  mainInfos: any;
+
+  constructor(public authenticationService: AuthenticationService, private apiService: ApiService) {
+    apiService.getMainInfos().subscribe(data => {
+      this.mainInfos = data;
+    });
+   }
 
   ngOnInit() {
   }

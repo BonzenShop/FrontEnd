@@ -69,7 +69,7 @@ export class ProductListComponent implements OnInit {
         return "../assets/image-placeholder.png";
       }
     }else{
-      return "../assets/loading_spinner.svg";
+      return "../assets/loading_spinner_small.svg";
     }
   }
 

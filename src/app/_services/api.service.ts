@@ -6,6 +6,7 @@ import { Item } from '../_models/item';
 import { User } from '../_models/user';
 import { Image } from '../_models/image';
 import { environment } from '../../environments/environment';
+import { VirtualTimeScheduler } from 'rxjs';
 
 const API_URL = environment.apiUrl;
 
@@ -85,6 +86,11 @@ export class ApiService {
   getImageIds(){
     this.loading = true;
     return this.httpClient.get<number[]>(API_URL + '/getImageIds');
+  }
+
+  getMainInfos(){
+    this.loading = true;
+    return this.httpClient.get(API_URL + '/mainInfos');
   }
 
   public startLoading(){

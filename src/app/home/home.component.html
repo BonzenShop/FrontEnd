@@ -29,7 +29,7 @@
         <button *ngIf="this.authenticationService.isLoggedIn()" routerLink="/Bestellungen" class="functionBtn" mat-stroked-button><p class="btnText">Bestellhistorie</p></button>
   </div>
   <div class="borderDiv" fxFlex="35%">
-        <button class="functionBtn" mat-stroked-button><p class="btnText">Topseller anzeigen</p></button>
+        <button class="functionBtn" routerLink="/Produkt/{{mainInfos.bestseller}}" mat-stroked-button><p class="btnText">Topseller anzeigen</p></button>
   </div>
 </div>
 <mat-divider class="secDivider"></mat-divider> <!-------------------------ICONS---------------------------->
