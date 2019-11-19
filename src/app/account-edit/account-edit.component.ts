@@ -31,7 +31,7 @@ export class AccountEditComponent implements OnInit {
     private datepipe: DatePipe) {
     this.maxDate = new Date(this.maxDate.getFullYear()-18, this.maxDate.getMonth(), this.maxDate.getDate());
     this.authService.currentUser.subscribe((data) => {
-      this.user = data;
+      this.user = JSON.parse(JSON.stringify(data));
     })
     this.myForm = this.formBuilder.group({
       firstName: [this.user.firstName, [Validators.required]],
@@ -58,6 +58,12 @@ export class AccountEditComponent implements OnInit {
 
   save(){
     if(!this.valuesUnchanged() && this.myForm.valid){
+        var oldFirstName = this.user.firstName;
+        var oldLastName = this.user.lastName;
+        var oldBirthDateString = this.user.birthDate;
+        var oldBirthDate = this.stringToDate(this.user.birthDate);
+        var oldEmail = this.user.email;
+
         this.user.firstName = this.myForm.controls.firstName.value;
         this.user.lastName = this.myForm.controls.lastName.value;
         let birthDate = new Date(this.myForm.controls.birthDate.value);
@@ -66,8 +72,19 @@ export class AccountEditComponent implements OnInit {
         if(this.changePassword && this.passwordForm.valid){
             this.user.password = this.passwordForm.controls.password.value;
         }
-        this.authService.changeUserData(this.user);
-        this.router.navigate(["/Konto"]);
+
+        this.authService.changeUserData(this.user, "/Konto");
+
+        this.user.firstName = oldFirstName;
+        this.myForm.controls.firstName.setValue(oldFirstName);
+        this.user.lastName = oldLastName
+        this.myForm.controls.lastName.setValue(oldLastName);
+        this.user.birthDate = oldBirthDateString;
+        this.myForm.controls.birthDate.setValue(oldBirthDate);
+        this.user.email = oldEmail
+        this.myForm.controls.email.setValue(oldEmail);
+        this.passwordForm.controls.password.setValue("");
+        this.passwordForm.controls.confirmPassword.setValue("");
     }
   }
 

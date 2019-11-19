@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
+
 export class Item {
     id: number;
     name: string;
@@ -5,6 +7,6 @@ export class Item {
     category: string;
     price: number;
     onStock: number;
-    imgData: string;
-    imgType: string;
+    image: number;
+    imagePath?: SafeResourceUrl
 }

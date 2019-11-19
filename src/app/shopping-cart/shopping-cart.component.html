@@ -3,7 +3,7 @@
         <h1 id="cart-title" mat-subheader>Warenkorb</h1>
         <mat-list-item class="list-box" *ngFor="let item of shopping_cart; let i = index" [attr.data-index]="i" >
             <i class="material-icons" id="removeIcon" (click)="removeItem(i)"> clear </i>
-            <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Kamel Placeholder">
+            <img id="item-img" [src]="item.item.imagePath" alt="Kamel Placeholder">
             <div class="container-item"
                 fxLayout="column"
                 fxLayout.xs="column"
@@ -11,7 +11,7 @@
                 fxLayoutGap="10px"
                 fxLayoutGap.xs="0">
                 <div id="item-name" fxFlex="20%"> {{ item.item.name}}</div>
-                <div id="item-desc" fxFlex="50%"> {{(item.item.desc.length>180)? (item.item.desc | slice:0:180)+'...':(item.item.desc)}}</div>
+                <div id="item-desc" fxFlex="50%"> {{(item.item.desc.length>170)? (item.item.desc | slice:0:170)+'...':(item.item.desc)}}</div>
                 <div id="price_quantity" fxFlex="30%"
                     fxLayout
                     fxLayout.xs="column"

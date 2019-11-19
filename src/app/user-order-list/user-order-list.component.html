@@ -1,22 +1,18 @@
-<div id="spacer">
+<div id="contentWrapper">
     <mat-list>
-        <mat-list-item class="list-box" *ngFor="let order of orderList">
+        <h2>Meine Bestellungen</h2>
+        <mat-list-item class="listBox" *ngFor="let order of orderList">
             <div id="orderWrapper">
-                <div id="order-info">
-                    <div id="orderDate"> Bestellt: {{order.orderDate}}</div>
-                    <div id="totalPrice"> Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
+                <div id="orderInfo">
+                    <div id="orderDate">Bestellt: {{order.orderDate}}</div>
+                    <div id="totalPrice">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
                 </div>
-                <div id="product-info">
-                    <img id="item-img" src="..\assets\Kamel-Placeholder.jpg" alt="Placeholder">
-                    <div class="container-item"
-                        fxLayout="column"
-                        fxLayout.xs="column"
-                        fxLayoutAlign
-                        fxLayoutGap="10px"
-                        fxLayoutGap.xs="0">
-                        <div id="item-name" fxFlex="20%"> {{order.name}}</div>
-                        <div id="item-price" fxFlex="20%"> Einzelpreis: {{order.price | number:'':'de-DE'}}€</div>
-                        <div id="amount" fxFlex="20%"> Menge: {{order.amount}}</div>
+                <div id="productInfo">
+                    <img id="itemImg" [src]="order.imagePath" alt="Placeholder">
+                    <div class="containerItem">
+                        <div id="itemName"> {{order.name}}</div>
+                        <div id="itemPrice"> Einzelpreis: {{order.price | number:'':'de-DE'}}€</div>
+                        <div id="amount"> Menge: {{order.amount}}</div>
                     </div>
                 </div>
             </div>

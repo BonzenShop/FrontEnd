@@ -39,7 +39,7 @@ export class AccountComponent implements OnInit {
         })
       }else{
         this.authService.currentUser.subscribe((user) => {
-          this.currentUser = user;
+          this.currentUser = JSON.parse(JSON.stringify(user));
           this.userRole = user.role;
         });
       }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 
@@ -86,6 +86,15 @@ export class AppComponent {
 constructor(public authenticationService: AuthenticationService, public router: Router, public apiService: ApiService){
     this.dataSource.data = TREE_DATA;
   }
+
+  ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            document.getElementById("globalwrapper").scrollIntoView();
+        });
+    }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 

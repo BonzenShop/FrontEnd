@@ -6,6 +6,7 @@ import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from "../_services/authentication.service";
 import { ProductService } from '../_services/product.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Image } from '../_models/image';
 
 @Component({
   selector: 'app-product-detail',
@@ -24,11 +25,16 @@ export class ProductDetailComponent implements OnInit {
     category: "Transport",
     price: 10000000,
     onStock: 2,
-    imgData: "",
-    imgType: ""
+    image: 0
   };
 
   productList: Item[];
+  imageList: Image[];
+  image: Image = {
+    id: 0,
+    imgData: "",
+    imgType: ""
+  };
   public imagePath: SafeResourceUrl;
 
   constructor(private productService: ProductService,
@@ -36,9 +42,14 @@ export class ProductDetailComponent implements OnInit {
     private shopping_cart: ShoppingCartService,
     public authService: AuthenticationService,
     private _sanitizer: DomSanitizer) {
+      this.imagePath = "../assets/loading_spinner.svg";
       this.productService.productList.subscribe((data) => {
         this.productList = data;
         this.update(this.id);
+      });
+      this.productService.imageList.subscribe((data) => {
+        this.imageList = data;
+        this.updateImagePath();
       });
   }
 
@@ -53,10 +64,23 @@ export class ProductDetailComponent implements OnInit {
       var item:Item = this.productList.find(({name}) => name == _id);
       if(item) {
         this.item = item
+        this.updateImagePath();
         this.createDisplayPrice(this.item.price);
-        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+this.item.imgType+';base64,'+this.item.imgData);
       }
     }  
+  }
+
+  updateImagePath(){
+    if(this.imageList && this.imageList.length > 0){
+      var img = this.imageList.find(i => i.id == this.item.image);
+      if(img){
+        this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);
+      }else{
+        this.imagePath = "../assets/image-placeholder.png";
+      }
+    }else{
+      this.imagePath = "../assets/loading_spinner.svg";
+    }
   }
 
   /**
