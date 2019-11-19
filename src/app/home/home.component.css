@@ -82,7 +82,7 @@ margin-bottom: 20px;
     margin-bottom: 40px;
 }
 
-@media(max-width:1000px) {
+@media(max-width:600px) {
     .icon {
         position: relative;
         height:176px;
@@ -98,7 +98,7 @@ margin-bottom: 20px;
     }
 }
 
-@media(min-width:1000px) {
+@media(min-width:600px) {
     #welcomeAreaText {
         width: 80%;
     }
