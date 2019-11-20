@@ -12,11 +12,14 @@
         <div id="item-name">
             {{ id }}
         </div>
-        <button *ngIf="this.authService.hasEmployeeRights()" id="edit-button" routerLink="/Admin/Produkt/{{this.id}}">
-          <i class="material-icons">
-            edit
-          </i>
-        </button>
+        <div id="edit-button-border" *ngIf="this.authService.hasEmployeeRights()">
+          <button id="edit-button" routerLink="/Admin/Produkt/{{this.id}}">
+            <i class="material-icons">
+              edit
+            </i>
+          </button>
+        </div>
+        
     </div>
     <div id ="item-desc">
         <p>{{ item.desc}}</p>
