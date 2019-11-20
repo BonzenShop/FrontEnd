@@ -16,21 +16,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* width */
-::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+:not(textarea)::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+:not(textarea)::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Handle */
+:not(textarea)::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+:not(textarea)::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

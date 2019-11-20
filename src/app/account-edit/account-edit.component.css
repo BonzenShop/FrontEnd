@@ -1,7 +1,3 @@
-* {
-    color: white;
-}
-
 form {
     width: 100%;
 }
@@ -66,25 +62,28 @@ h2, h3 {
     background-color: rgb(41,41,41);
 }
 
-/* input color class */
-::ng-deep input.mat-input-element {
-    caret-color: rgb(224, 189, 75) !important;
+::ng-deep .mat-input-element {
+  caret-color: rgb(224, 189, 75) !important;
 }
-  
+
+::ng-deep .mat-select-arrow {
+  color: rgba(255,255,255,.7) !important;
+}
+
 /* Change label color on focused */
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: rgb(224, 189, 75);
+  color: rgb(224, 189, 75);
 }
 
 /* underline border color on focused */
 ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
-    background-color: rgb(224, 189, 75);
+  background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7);
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
-    -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
+  -webkit-text-fill-color: blanchedalmond !important;
 }
