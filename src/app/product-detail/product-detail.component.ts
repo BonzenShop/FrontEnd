@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Item } from "../_models/item";
+import { SnackBarComponent } from "../snack-bar/snack-bar.component";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from "../_services/authentication.service";
 import { ProductService } from '../_services/product.service';
@@ -39,6 +41,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
     private shopping_cart: ShoppingCartService,
     public authService: AuthenticationService,
     private _sanitizer: DomSanitizer) {
@@ -56,6 +59,12 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => this.update(params.get("id")) );
     this.createDisplayPrice(this.item.price);
+  }
+
+  showPopup(message:string){
+    this.snackBar.open(message, "OK", {
+      duration: 4000,
+    });
   }
 
   update(_id: string) {
@@ -93,7 +102,7 @@ export class ProductDetailComponent implements OnInit {
   addItem() {
     if(this.item.onStock > 0) {
       this.shopping_cart.addToCart(this.item,1);
+      this.showPopup("Zum Warenkorb hinzugefügt");
     }
   }
-
 }
