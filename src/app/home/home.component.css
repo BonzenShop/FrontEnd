@@ -123,7 +123,7 @@ p {
     }
 }
 
-#iconIntro {
+#sectionTitle {
     margin-bottom: 15px;
 }
 
@@ -152,4 +152,35 @@ p {
     .gridButton {
         font-size: 14px;
     }
+}
+
+#topCustomerList {
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#topCustomerWrapper {
+    overflow: auto;
+}
+
+#topCustomerWrapper:hover {
+    background-color: rgb(41,41,41);
+}
+
+#topCustomerName, #topCustomerPurchase {
+    display: inline-block;
+    margin: 15px 10px 15px 10px;
+}
+
+#topCustomerPurchase {
+    float: right;
+}
+
+.customerDivider {
+    border-top: 1px solid;
+    border-image-source: linear-gradient(to right, transparent, #AA771C, rgb(195, 170, 30), #AA771C, transparent);
+    border-image-slice: 1;
 }

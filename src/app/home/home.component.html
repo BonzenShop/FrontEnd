@@ -100,7 +100,7 @@
         </p>
     </div>
 </div>-->
-<h1 id="iconIntro">Unsere Verprechen:</h1>
+<h1 id="sectionTitle">Unsere Verprechen</h1>
 <div class="iconPanelLeft"
      fxLayout
      fxLayout.xs="column"
@@ -181,5 +181,14 @@
     fxFlex="30%" 
     src="/assets/coins.svg" 
     alt="Umweltunfreundlich SVG"/>
+</div>
+<mat-divider class="secDivider"></mat-divider>
+<div id="topCustomerList">
+    <h1 id="sectionTitle">Top Kunden</h1>
+    <div id="topCustomerWrapper" *ngFor="let customer of mainInfos.topCustomerList; let i = index">
+        <p id="topCustomerName">{{i+1}}. {{customer.firstName}} {{customer.lastName}}</p>
+        <p id="topCustomerPurchase">{{customer.totalPurchase | number:'':'de-DE'}}€</p>
+        <mat-divider *ngIf="i < 2" class="customerDivider"></mat-divider>
+    </div>
 </div>
 <mat-divider class="secDivider"></mat-divider>

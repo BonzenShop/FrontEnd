@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService, private apiService: ApiService) {
     apiService.getMainInfos().subscribe(data => {
+      data["topCustomerList"].sort((a,b) => (b.totalPurchase - a.totalPurchase));
       this.mainInfos = data;
     });
    }
