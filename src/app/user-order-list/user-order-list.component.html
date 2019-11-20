@@ -4,7 +4,7 @@
         <mat-list-item class="listBox" *ngFor="let order of orderList">
             <div id="orderWrapper">
                 <div id="orderInfo">
-                    <div id="orderDate">Bestellt: {{order.orderDate}}</div>
+                    <div id="orderDate">Bestellt: {{displayDate(order.orderDate)}}</div>
                     <div id="totalPrice">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
                 </div>
                 <div id="productInfo">

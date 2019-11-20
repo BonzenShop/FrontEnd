@@ -32,7 +32,7 @@ export class ProductEditComponent implements OnInit {
     },
     {
       name: "Sonstiges",
-      categories: ["Gold", "Edelsteine", "Haustiere",]
+      categories: ["Gold", "Edelsteine", "Haustiere","Untertanen"]
     }
   ]
   
@@ -190,6 +190,8 @@ export class ProductEditComponent implements OnInit {
     if(this.imageList && this.imageList.length > 0){
       var img = this.imageList.find(i => i.id == this.item.image);
       if(img){
+        this.image.imgData = img.imgData;
+        this.image.imgType = img.imgType;
         this.myForm.controls.imgData.setValue(img.imgData);
         this.myForm.controls.imgType.setValue(img.imgType);
         this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/'+img.imgType+';base64,'+img.imgData);

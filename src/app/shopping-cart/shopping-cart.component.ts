@@ -131,7 +131,7 @@ export class ShoppingCartComponent implements OnInit {
         var orderItem:Order = {
           id: 0,
           user: this.authenticationService.getUserId(),
-          orderDate: this.datepipe.transform(date, 'dd.MM.yyyy'),
+          orderDate: date.toString(),
           name: item.item.name,
           category: item.item.category,
           price: item.item.price,

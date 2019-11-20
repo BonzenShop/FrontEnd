@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 
 import { Order } from '../_models/order';
 import { ApiService } from '../_services/api.service';
@@ -18,9 +19,11 @@ export class OrderListComponent implements OnInit {
 
   constructor(private apiService: ApiService,
     private _sanitizer: DomSanitizer,
-    private productService: ProductService) {
+    private productService: ProductService,
+    private datepipe: DatePipe) {
 
       this.apiService.getOrderList().subscribe((data)=>{
+        data.sort((a, b) => new Date(b.orderDate).getTime() - new Date(a.orderDate).getTime());
         this.orderList = data;
         this.updateImagePaths();
       });
@@ -51,6 +54,10 @@ export class OrderListComponent implements OnInit {
     for(let order of this.orderList){
       order.imagePath = this.getImagePath(order.image);
     }
+  }
+
+  displayDate(date: string){
+    return this.datepipe.transform(date, 'dd.MM.yyyy');
   }
 
 }

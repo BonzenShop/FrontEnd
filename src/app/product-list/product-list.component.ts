@@ -48,6 +48,7 @@ export class ProductListComponent implements OnInit {
       }
     });
     this.productService.productList.subscribe((data) => {
+      data.sort((a, b) => (a.category > b.category ? 1 : ((a.category == b.category && a.price < b.price) ? 1 : -1)));
       this.productList = data;
       this.updateImagePaths();
     });

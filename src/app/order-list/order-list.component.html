@@ -9,7 +9,7 @@
                         <div>Kunden-Id: {{order.user}}</div>
                     </div>
                     <div id="orderInfoLine">
-                        <div id="orderDate">Bestellt: {{order.orderDate}}</div>
+                        <div id="orderDate">Bestellt: {{displayDate(order.orderDate)}}</div>
                         <div id="totalPrice">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
                     </div>
                 </div>

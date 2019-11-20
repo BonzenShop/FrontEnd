@@ -23,7 +23,7 @@ const TREE_DATA: FoodNode[] = [
       {name: 'Flugzeuge'},
       {name: 'Autos'},
       {name: 'Yachten'},
-      {name: 'Sonstige'}
+      {name: 'Sonstige Transportmittel'}
     ]
   }, {
     name: 'Immobilien',

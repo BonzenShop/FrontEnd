@@ -10,7 +10,10 @@ import { ApiService } from '../_services/api.service';
 })
 export class HomeComponent implements OnInit {
 
-  mainInfos: any;
+  mainInfos:any = {
+    bestseller: "Kamel",
+    topCustomerList: []
+  };
 
   constructor(public authenticationService: AuthenticationService, private apiService: ApiService) {
     apiService.getMainInfos().subscribe(data => {
