@@ -7,12 +7,12 @@
             <h1>Herzlich Willkommen</h1>
             <p>Sollten Sie zufällig noch Kleingeld übrig haben, dann sind Sie hier genau richtig.</p>
             <p>Denn hier werden Sie ihr Kleingeld los.</p>
-            <p>Ob Kamel, Lamborghini, Rolex oder gar eine eigene Insel, hier finden Sie alles was ihr Herz begehrt.</p>
+            <p>Ob Kamel, Lamborghini, Yacht oder gar die Freiheitsstatue, hier finden Sie alles was ihr Herz begehrt.</p>
         </div>
         <div *ngIf="this.authenticationService.isLoggedIn()">
             <h1>Willkommen zurück, {{this.authenticationService.getUser()}}!</h1>
-            <p>Haben sie doch noch ein paar Millionen zwischen den Sofakissen gefunden?</p>
-            <p>Egal ob sie doch noch die dritte Yacht wollen oder das ganze Geld einfach das Konto zu schwer macht, wir sind für sie da!</p>
+            <p>Haben Sie doch noch ein paar Millionen zwischen den Sofakissen gefunden?</p>
+            <p>Egal ob es die dritte Residenz, die fünfte Yacht oder der zehnte Supersportwagen sein soll, wir sind für Sie da!</p>
         </div>
         
     </div>
@@ -188,7 +188,7 @@
     <div id="topCustomerWrapper" *ngFor="let customer of mainInfos.topCustomerList; let i = index">
         <p id="topCustomerName">{{i+1}}. {{customer.firstName}} {{customer.lastName}}</p>
         <p id="topCustomerPurchase">{{customer.totalPurchase | number:'':'de-DE'}}€</p>
-        <mat-divider *ngIf="i < 2" class="customerDivider"></mat-divider>
+        <mat-divider *ngIf="i < 4" class="customerDivider"></mat-divider>
     </div>
 </div>
 <mat-divider class="secDivider"></mat-divider>

@@ -44,7 +44,8 @@
         <!-- BtnPanelRight--------------------->
         <div id="btnPanelRight">
           <!--cart-->
-          <a id="cart-center" routerLink="/Warenkorb" >
+          <a id="cart-center" routerLink="/Warenkorb">
+            <h1 style="margin: 0; position: absolute; top: 9px; right: 11px;" matBadge="{{shoppingCartService.getCart().length}}" [matBadgeHidden]="shoppingCartService.getCart().length == 0" matBadgeSize="small" matBadgePosition="below after" matBadgeColor="warn"></h1>
             <i class="material-icons navbar">
               shopping_cart
             </i>

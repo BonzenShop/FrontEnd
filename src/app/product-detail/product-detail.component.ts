@@ -63,7 +63,7 @@ export class ProductDetailComponent implements OnInit {
 
   showPopup(message:string){
     this.snackBar.open(message, "OK", {
-      duration: 4000,
+      duration: 2500,
     });
   }
 

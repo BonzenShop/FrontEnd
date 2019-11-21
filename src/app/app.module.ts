@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import {MatBadgeModule} from '@angular/material/badge';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -81,6 +82,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     MatDividerModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatBadgeModule,
     RouterModule,
     MatFormFieldModule,
     AppRoutingModule,

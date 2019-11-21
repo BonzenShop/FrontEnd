@@ -43,7 +43,6 @@ h2, h3 {
 #saveBtn:disabled {
     border: none;
     background: transparent;
-    color: white;
 }
 
 #cancelBtn:hover {

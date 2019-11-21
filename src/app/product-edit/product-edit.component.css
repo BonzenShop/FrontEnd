@@ -91,7 +91,6 @@ h1, h2 {
 #saveBtn:disabled {
     border: none;
     background: transparent;
-    color: white;
 }
 
 #cancelBtn:hover {

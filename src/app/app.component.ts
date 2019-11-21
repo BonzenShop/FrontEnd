@@ -5,6 +5,7 @@ import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree'
 
 import { AuthenticationService } from './_services/authentication.service';
 import { ApiService } from './_services/api.service';
+import { ShoppingCartService } from './_services/shopping-cart.service';
 
 /**
  * Food data with nested structure.
@@ -83,7 +84,10 @@ export class AppComponent {
       this._transformer, node => node.level, node => node.expandable, node => node.children);
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-constructor(public authenticationService: AuthenticationService, public router: Router, public apiService: ApiService){
+constructor(public authenticationService: AuthenticationService,
+  public router: Router,
+  public apiService: ApiService,
+  public shoppingCartService: ShoppingCartService){
     this.dataSource.data = TREE_DATA;
   }
 
