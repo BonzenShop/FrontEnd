@@ -58,4 +58,8 @@ export class ShoppingCartService {
   public getCart():cart_item[]{
     return this.cart_items;
   }
+
+  public setCart(array:cart_item[]){
+    this.cart_items = array;
+  } 
 }

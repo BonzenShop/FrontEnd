@@ -11,7 +11,7 @@
                 fxLayoutGap="10px"
                 fxLayoutGap.xs="0">
                 <div id="item-name" fxFlex="20%"> {{ item.item.name}}</div>
-                <div id="item-desc" fxFlex="50%"> {{(item.item.desc.length>170)? (item.item.desc | slice:0:170)+'...':(item.item.desc)}}</div>
+                <div id="item-desc" fxFlex="50%"> {{(item.item.desc.length>165)? (item.item.desc | slice:0:165)+'...':(item.item.desc)}}</div>
                 <div id="price_quantity" fxFlex="30%"
                     fxLayout
                     fxLayout.xs="column"
@@ -39,7 +39,7 @@
         fxLayoutGap="10px"
         fxLayoutGap.xs="5px" >
             <button id="buyBtn" mat-raised-button (click)="createOrder()">Jetzt Kaufen</button>
-            <button id="buyBtn" (click)="moneyMaker()" mat-flat-button>Ich bin doch kein Straßenpenner</button>
+            <button id="buyBtn" (click)="moneyMaker()" mat-flat-button>Ich bin R{{priceFactorEs}}ICH!</button>
         </div>
     </div>
     

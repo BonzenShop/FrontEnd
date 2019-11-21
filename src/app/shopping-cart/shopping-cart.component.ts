@@ -29,6 +29,8 @@ export class ShoppingCartComponent implements OnInit {
   totalPrice:String = "0€";
   //used to increase price
   totalPriceCalc:number = 0;
+  priceFactor:number = 1.0;
+  priceFactorEs:String = "E";
   currentUser: User;
   order: Order[] = [];
   imageList: Image[];
@@ -51,7 +53,10 @@ export class ShoppingCartComponent implements OnInit {
   shopping_cart:cart_item[] = [];
 
   ngOnInit() {
-    this.shopping_cart = this.shopping_cart_service.getCart();
+    console.log("hallo");
+    console.log(this.shopping_cart_service.getCart());
+    
+    this.shopping_cart = JSON.parse(JSON.stringify(this.shopping_cart_service.getCart()));
     this.updateImagePaths();
     this.calculateTotalPrice();
   }
@@ -75,6 +80,8 @@ export class ShoppingCartComponent implements OnInit {
       this.shopping_cart[index].quantity--;
       localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
       this.animateValue(start,end, 500);
+
+      this.shopping_cart_service.getCart()[index].quantity--;
     }
   }
 
@@ -85,6 +92,8 @@ export class ShoppingCartComponent implements OnInit {
     this.shopping_cart[index].quantity++;
     localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start,end, 500);
+
+    this.shopping_cart_service.getCart()[index].quantity++;
   }
 
   submitQuantity(quantity:any, index:any){
@@ -94,6 +103,8 @@ export class ShoppingCartComponent implements OnInit {
     this.shopping_cart[index].quantity = quantity;
     localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start,end,500);
+
+    this.shopping_cart_service.getCart()[index].quantity = quantity;
   }
 
   removeItem(id:number) {
@@ -102,9 +113,13 @@ export class ShoppingCartComponent implements OnInit {
     var end = Math.round(this.totalPriceCalc);
 
     this.shopping_cart.splice(id,1);
-    //this.shopping_cart_service.removeFromCart(this.shopping_cart[id].item, 0, true);
     localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
     this.animateValue(start, end, 1500);
+
+    this.shopping_cart_service.getCart().splice(id,1);
+    if(this.shopping_cart.length==0) {
+      this.priceFactorEs="E"
+    }
   }
 
   calculateTotalPrice() {
@@ -135,7 +150,10 @@ export class ShoppingCartComponent implements OnInit {
         }
         this.order.push(orderItem);
       }
+      console.log(this.order);
       this.shopping_cart = [];
+      this.shopping_cart_service.setCart([]);
+      console.log(this.shopping_cart_service.getCart());
       localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
       this.animateValue(this.totalPriceCalc, 0, 150);
       this.totalPriceCalc = 0;
@@ -151,16 +169,25 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   moneyMaker() {
+    this.priceFactorEs+="E";
     var start:number = Math.round(this.totalPriceCalc);
-    this.totalPriceCalc = this.totalPriceCalc*1.2;
-    var end:number = Math.round(this.totalPriceCalc);
+    var end:number = 0;
+    for(let item of this.shopping_cart) {
+      item.item.price = item.item.price*1.2;
+      end = end +
+            item.item.price *
+            item.quantity;
+    }
+    end = Math.round(end);
+    this.totalPriceCalc = end;
+    
     this.animateValue(start,end, 1500);
-    //document.getElementById("totalPrice").style.cssText = "background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
-    //this.totalPrice = this.totalPriceCalc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
   }
 
   animateValue(start, end, duration) {
     // assumes integer values for start and end
+
+    console.log(this.shopping_cart_service.getCart());
 
     var range = Math.abs(end - start);
     // no timer shorter than 50ms (not really visible any way)
@@ -182,7 +209,7 @@ export class ShoppingCartComponent implements OnInit {
         if(start<=end) {
           var value = Math.round(end - (remaining * range));
 
-          document.getElementById("totalPrice").style.cssText = "background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
+          document.getElementById("totalPrice").style.cssText = "background:linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7);  -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
           this.totalPrice = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
           
             if (value >= end) {  
@@ -191,7 +218,7 @@ export class ShoppingCartComponent implements OnInit {
         } else {
           var value = Math.round(start - ((1-remaining) * range));
 
-          document.getElementById("totalPrice").style.cssText = "background: linear-gradient(to bottom, #cfc09f 26%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
+          document.getElementById("totalPrice").style.cssText = "background:linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7);  -webkit-background-clip: text;-webkit-text-fill-color: transparent;";
           this.totalPrice = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€";
           
             if (value <= end) {  
