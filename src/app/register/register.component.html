@@ -1,11 +1,27 @@
 <div id="contentWrapper">
     <h2>Registrierung</h2>
     <form [formGroup]="myForm">
-        <mat-form-field>
+        <mat-form-field class="leftSide">
             <input matInput placeholder="Vorname" formControlName="firstName">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="rightSide">
             <input matInput placeholder="Nachname" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field class="leftSide">
+            <mat-select placeholder="Land" formControlName="country">
+                <mat-option *ngFor="let key of objectKeys(countryService.countryData)" [value]="key">
+                    {{countryService.getCountryName(key)}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="rightSide">
+            <input matInput placeholder="Stadt" formControlName="city">
+        </mat-form-field>
+        <mat-form-field  class="leftSide">
+            <input matInput placeholder="ZIP/PLZ" formControlName="postalCode">
+        </mat-form-field>
+        <mat-form-field class="rightSide">
+            <input matInput placeholder="Straße" formControlName="street">
         </mat-form-field>
         <mat-form-field>
             <input matInput [matDatepicker]="picker" [max]="maxDate" placeholder="Geburtsdatum" formControlName="birthDate">

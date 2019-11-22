@@ -48,6 +48,7 @@
 
 .infoWrapper > div {
     display: inline-block;
+    vertical-align: top;
 }
 
 .infoWrapper > div:first-child {

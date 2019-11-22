@@ -89,7 +89,6 @@ export class ApiService {
   }
 
   getMainInfos(){
-    this.loading = true;
     return this.httpClient.get(API_URL + '/mainInfos');
   }
 

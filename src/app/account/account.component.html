@@ -25,6 +25,14 @@
         <div>{{currentUser.email}}</div>
     </div>
     <div class="infoWrapper">
+        <div>Adresse: </div>
+        <div>
+            {{currentUser.street}}<br>
+            {{currentUser.postalCode}}, {{currentUser.city}}<br>
+            {{countryService.getCountryName(currentUser.country)}}
+        </div>
+    </div>
+    <div class="infoWrapper">
         <div>Geburtsdatum: </div>
         <div>{{currentUser.birthDate}}</div>
     </div>

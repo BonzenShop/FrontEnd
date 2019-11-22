@@ -19,7 +19,26 @@ h2 {
     left: 50%;
     transform: translate(-50%);
     min-width: 150px;
-    max-width: 500px;
+    max-width: 700px;
+}
+
+.leftSide, .rightSide {
+  width: 50%;
+}
+
+.leftSide {
+  padding-right: 10px;
+}
+
+.rightSide {
+  padding-left: 10px;
+}
+
+@media(max-width: 500px){
+  .leftSide, .rightSide {
+      width: 100%;
+      padding: 0;
+  }
 }
 
 #registerbtn {

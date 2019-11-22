@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from '../_services/authentication.service';
 import { ApiService } from '../_services/api.service';
 import { User } from '../_models/user';
+import { CountryService } from '../_services/country.service';
 
 @Component({
   selector: 'app-account',
@@ -23,7 +24,8 @@ export class AccountComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    private _snackBar: MatSnackBar){
+    private _snackBar: MatSnackBar,
+    public countryService: CountryService){
     
     this.route.paramMap.subscribe((params) => {
       if(params.has("id")){
@@ -40,7 +42,7 @@ export class AccountComponent implements OnInit {
       }else{
         this.authService.currentUser.subscribe((user) => {
           this.currentUser = JSON.parse(JSON.stringify(user));
-          this.userRole = user.role;
+          this.userRole = user ? user.role : "";
         });
       }
     });
