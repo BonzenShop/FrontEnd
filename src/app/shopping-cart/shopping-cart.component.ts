@@ -173,10 +173,10 @@ export class ShoppingCartComponent implements OnInit {
     var start:number = Math.round(this.totalPriceCalc);
     var end:number = 0;
     for(let item of this.shopping_cart) {
-      item.item.price = item.item.price*1.2;
-      end = end +
+      item.item.price = Math.round(item.item.price*1.2);
+      end = Math.round(end +
             item.item.price *
-            item.quantity;
+            item.quantity);
     }
     end = Math.round(end);
     this.totalPriceCalc = end;

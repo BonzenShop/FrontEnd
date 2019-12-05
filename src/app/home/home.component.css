@@ -171,6 +171,7 @@ p {
 }
 
 #topCustomerName, #topCustomerPurchase {
+    max-width: 50%;
     display: inline-block;
     margin: 15px 10px 15px 10px;
 }

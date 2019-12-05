@@ -11,7 +11,7 @@ export class ItemSearchFilterPipe implements PipeTransform {
         if (!items || !searchText) {
             return items;
         }else{
-            return items.filter(item => item.name.match(re) || item.desc.match(re));
+            return items.filter(item => item.name.match(re) || item.desc.match(re) || item.category.match(re));
         }
     }
 }
