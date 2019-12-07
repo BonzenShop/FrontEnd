@@ -3,7 +3,6 @@ import { ActivatedRoute } from "@angular/router";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { Item } from '../_models/item';
-import { ApiService } from '../_services/api.service';
 import { Image } from '../_models/image';
 import { AuthenticationService } from '../_services/authentication.service';
 import { ProductService } from '../_services/product.service';
