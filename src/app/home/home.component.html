@@ -185,7 +185,7 @@
 <mat-divider class="sec-divider"></mat-divider>
 <div id="top-customer-list">
     <h1 id="section-title">Top Kunden</h1>
-    <div id="top-customer-wrapper" *ngFor="let customer of mainInfos.top-customer-list; let i = index">
+    <div id="top-customer-wrapper" *ngFor="let customer of mainInfos.topCustomerList; let i = index">
         <p id="top-customer-name">{{i+1}}. {{customer.firstName}} {{customer.lastName}}</p>
         <p id="top-customer-purchase">{{customer.totalPurchase | number:'':'de-DE'}}€</p>
         <mat-divider *ngIf="i < 4" class="customer-divider"></mat-divider>
