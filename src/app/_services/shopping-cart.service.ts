@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from "../_models/item";
 
-export class cart_item {
+export class CartItem {
   item:Item;
   quantity:number = 0;
 }
@@ -11,55 +11,55 @@ export class cart_item {
 })
 export class ShoppingCartService {
 
-  private cart_items: cart_item[] = [];
+  private cartItems: CartItem[] = [];
 
   constructor() {
     var data = JSON.parse(localStorage.getItem("bonzenshoppingcart"));
     if(data){
-      this.cart_items = data;
+      this.cartItems = data;
     }
   }
 
   /**
    * add item to cart, increase quantity if item already in cart
    */
-  public addToCart(p_item:Item, quantity:number) {
-    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+  public addToCart(pItem:Item, quantity:number) {
+    var i = this.cartItems.findIndex(({item}) => item.id == pItem.id);
     
     if(i>=0) {
-      this.cart_items[i].quantity++;
+      this.cartItems[i].quantity++;
     } else {
-      var cart_item:cart_item = {item:p_item,quantity:1};
-      this.cart_items.push(cart_item);
+      var cartItem:CartItem = {item:pItem,quantity:1};
+      this.cartItems.push(cartItem);
     }
-    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cart_items));
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cartItems));
   }
 
   /**
-   * @param p_item item to be deleted
+   * @param pItem item to be deleted
    * @param quantity amount to be deleted
    * @param wholeCart true if complete item to be deleted, ignores quantity
    */
-  public removeFromCart(p_item:Item, quantity:number, wholeItem:boolean) {
-    var i = this.cart_items.findIndex(({item}) => item.id == p_item.id);
+  public removeFromCart(pItem:Item, quantity:number, wholeItem:boolean) {
+    var i = this.cartItems.findIndex(({item}) => item.id == pItem.id);
     
     if(i>0) {
       if(wholeItem) {
-        this.cart_items.splice(i, 1);
+        this.cartItems.splice(i, 1);
       } else {
-        if(--this.cart_items[i].quantity <= 0){
-          this.cart_items.splice(i, 1);
+        if(--this.cartItems[i].quantity <= 0){
+          this.cartItems.splice(i, 1);
         }
       }
     }
-    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cart_items));
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.cartItems));
   }
 
-  public getCart():cart_item[]{
-    return this.cart_items;
+  public getCart():CartItem[]{
+    return this.cartItems;
   }
 
-  public setCart(array:cart_item[]){
-    this.cart_items = array;
+  public setCart(array:CartItem[]){
+    this.cartItems = array;
   } 
 }

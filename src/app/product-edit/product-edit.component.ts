@@ -14,6 +14,7 @@ import { Image } from '../_models/image';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
+/** product edit view */
 export class ProductEditComponent implements OnInit {
 
   id:string = "Neu";
@@ -150,6 +151,10 @@ export class ProductEditComponent implements OnInit {
       this.image.imgType == this.myForm.controls.imgType.value);
   }
 
+  /**
+   * Changes picture of product
+   * @param event 
+   */
   selectFile(event) {
     this.file = event.target.files[0];
     var reader = new FileReader();

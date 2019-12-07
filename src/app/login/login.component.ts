@@ -9,6 +9,9 @@ import { AuthenticationService } from '../_services/authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+/**
+ * login view
+ */
 export class LoginComponent implements OnInit {
 
   myForm: FormGroup;

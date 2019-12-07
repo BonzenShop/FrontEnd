@@ -1,8 +1,8 @@
 <div style="position: relative;">
-    <div id="welcomeAreaBG">
+    <div id="welcome-area-BG">
         <!--creates blurred things-->
     </div>
-    <div id="welcomeAreaText">
+    <div id="welcome-area-text">
         <div *ngIf="!this.authenticationService.isLoggedIn()">
             <h1>Herzlich Willkommen</h1>
             <p>Sollten Sie zufällig noch Kleingeld übrig haben, dann sind Sie hier genau richtig.</p>
@@ -18,22 +18,22 @@
     </div>
 </div>
 
-<div id="btnPanel"
+<div id="btn-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
      fxLayoutGap="10px"
      fxLayoutGap.xs="5px">
-  <div class="borderDiv" fxFlex="35%">
-        <button *ngIf="!this.authenticationService.isLoggedIn()" routerLink="/Registrierung" class="functionBtn" mat-stroked-button><p class="btnText">Registrieren</p></button>
-        <button *ngIf="this.authenticationService.isLoggedIn()" routerLink="/Bestellungen" class="functionBtn" mat-stroked-button><p class="btnText">Bestellhistorie</p></button>
+  <div class="border-div" fxFlex="35%">
+        <button *ngIf="!this.authenticationService.isLoggedIn()" routerLink="/Registrierung" class="function-btn" mat-stroked-button><p class="btn-text">Registrieren</p></button>
+        <button *ngIf="this.authenticationService.isLoggedIn()" routerLink="/Bestellungen" class="function-btn" mat-stroked-button><p class="btn-text">Bestellhistorie</p></button>
   </div>
-  <div class="borderDiv" fxFlex="35%">
-        <button class="functionBtn" routerLink="/Produkt/{{mainInfos.bestseller}}" mat-stroked-button><p class="btnText">Topseller anzeigen</p></button>
+  <div class="border-div" fxFlex="35%">
+        <button class="function-btn" routerLink="/Produkt/{{mainInfos.bestseller}}" mat-stroked-button><p class="btn-text">Topseller anzeigen</p></button>
   </div>
 </div>
-<mat-divider class="secDivider"></mat-divider> <!-------------------------ICONS---------------------------->
-<!--<div class="iconPanel"
+<mat-divider class="sec-divider"></mat-divider> <!-------------------------ICONS---------------------------->
+<!--<div class="icon-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
@@ -46,8 +46,8 @@
     src="/assets/Umweltunfreundlich.svg" 
     alt="Umweltunfreundlich SVG"/>
     <div fxFlex="35%" class="iconText">
-        <p class="iconTextHeader">Umweltunfreundlich</p>
-        <p class="iconTextMain">
+        <p class="icon-text-header">Umweltunfreundlich</p>
+        <p class="icon-text-main">
             Dank unserer SchmutzMuss™ Technologie ist es uns möglich die Umweltverschmutzung möglichst schnell und effizient voranzutreiben.
             Kein Wald bleibt ungerodet, kein Fluss ohne Chemiemüll!
             
@@ -59,15 +59,15 @@
     src="/assets/Unfair_Trade.svg" 
     alt="Umweltunfreundlich SVG"/>
     <div fxFlex="35%" class="iconText">
-        <p class="iconTextHeader">Unfair Trade</p>
-        <p class="iconTextMain">
+        <p class="icon-text-header">Unfair Trade</p>
+        <p class="icon-text-main">
             Dank unseren Unfair Trade Spezialisten ist es uns möglich, an den Genfer Konventionen vorbei,
             unsere Arbeitssklaven zu knechten. Von Geburt an benutzen wir nur die schmerzensten Peitschen und
             zerbrechlisten Kinder! 
         </p>
     </div>
 </div>
-<div class="iconPanel"
+<div class="icon-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
@@ -80,8 +80,8 @@
     src="/assets/Umweltunfreundlich.svg" 
     alt="Umweltunfreundlich SVG"/>
     <div fxFlex="35%" class="iconText">
-        <p class="iconTextHeader">Einfache Retoure</p>
-        <p class="iconTextMain">
+        <p class="icon-text-header">Einfache Retoure</p>
+        <p class="icon-text-main">
             Gefällt ihnen das Produkt nicht? Kein Problem. Sie müssen ihr Geld nicht zurücknehmen!
         </p>
     </div>
@@ -91,8 +91,8 @@
     src="/assets/Unfair_Trade.svg" 
     alt="Umweltunfreundlich SVG"/>
     <div fxFlex="35%" class="iconText">
-        <p class="iconTextHeader">Hochpreisgarantie</p>
-        <p class="iconTextMain">
+        <p class="icon-text-header">Hochpreisgarantie</p>
+        <p class="icon-text-main">
             Alle unsere Produkte sind garantiert teurer als bei der Konkurrenz.
             Sollten sie dennoch ein teureres Produkt finden, gleichen wir unseren Preis natürlich an und
             legen selbstverständlich noch 20% oben drauf!
@@ -100,8 +100,8 @@
         </p>
     </div>
 </div>-->
-<h1 id="sectionTitle">Unsere Verprechen</h1>
-<div class="iconPanelLeft"
+<h1 id="section-title">Unsere Verprechen</h1>
+<div class="icon-panelLeft"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
@@ -113,23 +113,23 @@
     fxFlex="30%" 
     src="/assets/Umweltunfreundlich_new.svg" 
     alt="Umweltunfreundlich SVG"/>
-    <div fxFlex="70%" class="iconTextLeft">
-        <p class="iconTextHeader">Umweltunfreundlich</p>
-        <p class="iconTextMain">
+    <div fxFlex="70%" class="icon-text-left">
+        <p class="icon-text-header">Umweltunfreundlich</p>
+        <p class="icon-text-main">
             Dank unserer SchmutzMuss™ Technologie ist es uns möglich die Umweltverschmutzung möglichst schnell und effizient voranzutreiben.
             Kein Wald bleibt ungerodet, kein Fluss ohne Chemiemüll!
         </p>
     </div>
 </div>
-<div class="iconPanel"
+<div class="icon-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
      fxLayoutGap="10px"
      fxLayoutGap.xs="0px">
-    <div fxFlex="70%" fxFlexOrder.xs="1" class="iconTextRight">
-        <p class="iconTextHeader">Unfair Trade</p>
-        <p class="iconTextMain">
+    <div fxFlex="70%" fxFlexOrder.xs="1" class="icon-text-Right">
+        <p class="icon-text-header">Unfair Trade</p>
+        <p class="icon-text-main">
             Unsere Unfair Trade Spezialisten ist es uns möglich, an den Genfer Konventionen vorbei,
             unsere Arbeitssklaven zu knechten. Von Geburt an benutzen wir nur die schmerzensten Peitschen und
             zerbrechlisten Kinder!
@@ -141,7 +141,7 @@
     src="/assets/Unfair_Trade_new.svg" 
     alt="Umweltunfreundlich SVG"/>
 </div>
-<div class="iconPanel"
+<div class="icon-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
@@ -153,24 +153,24 @@
     fxFlex="30%" 
     src="/assets/Retoure.svg" 
     alt="Umweltunfreundlich SVG"/>
-    <div fxFlex="70%" class="iconTextLeft">
-        <p class="iconTextHeader">Einfache Retoure</p>
-        <p class="iconTextMain">
+    <div fxFlex="70%" class="icon-text-left">
+        <p class="icon-text-header">Einfache Retoure</p>
+        <p class="icon-text-main">
             Gefällt ihnen das Produkt nicht? Kein Problem. Nachdem sie das Produkt zurückgebracht haben müssen
             sie das Geld nicht wieder mitnehmen!
         </p>
     </div>
 </div>
-<div class="iconPanel"
+<div class="icon-panel"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
      fxLayoutGap="10px"
      fxLayoutGap.xs="0px">
 
-    <div fxFlex="70%" fxFlexOrder.xs="1" class="iconTextRight">
-        <p class="iconTextHeader">Hochpreisgarantie</p>
-        <p class="iconTextMain">
+    <div fxFlex="70%" fxFlexOrder.xs="1" class="icon-text-Right">
+        <p class="icon-text-header">Hochpreisgarantie</p>
+        <p class="icon-text-main">
             Alle unsere Produkte sind garantiert teurer als bei der Konkurrenz.
             Sollten sie dennoch ein teureres Produkt finden, gleichen wir unseren Preis natürlich an und
             legen selbstverständlich noch 20% oben drauf!
@@ -182,13 +182,13 @@
     src="/assets/coins.svg" 
     alt="Umweltunfreundlich SVG"/>
 </div>
-<mat-divider class="secDivider"></mat-divider>
-<div id="topCustomerList">
-    <h1 id="sectionTitle">Top Kunden</h1>
-    <div id="topCustomerWrapper" *ngFor="let customer of mainInfos.topCustomerList; let i = index">
-        <p id="topCustomerName">{{i+1}}. {{customer.firstName}} {{customer.lastName}}</p>
-        <p id="topCustomerPurchase">{{customer.totalPurchase | number:'':'de-DE'}}€</p>
-        <mat-divider *ngIf="i < 4" class="customerDivider"></mat-divider>
+<mat-divider class="sec-divider"></mat-divider>
+<div id="top-customer-list">
+    <h1 id="section-title">Top Kunden</h1>
+    <div id="top-customer-wrapper" *ngFor="let customer of mainInfos.top-customer-list; let i = index">
+        <p id="top-customer-name">{{i+1}}. {{customer.firstName}} {{customer.lastName}}</p>
+        <p id="top-customer-purchase">{{customer.totalPurchase | number:'':'de-DE'}}€</p>
+        <mat-divider *ngIf="i < 4" class="customer-divider"></mat-divider>
     </div>
 </div>
-<mat-divider class="secDivider"></mat-divider>
+<mat-divider class="sec-divider"></mat-divider>

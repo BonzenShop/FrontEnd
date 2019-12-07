@@ -13,7 +13,7 @@ import { Image } from "../_models/image";
 import { ApiService } from '../_services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-export class cart_item {
+export class CartItem {
   item:Item;
   quantity:number = 0;
 }
@@ -23,6 +23,7 @@ export class cart_item {
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
+/** The shopping cart */
 export class ShoppingCartComponent implements OnInit {
 
   //used for display
@@ -35,7 +36,7 @@ export class ShoppingCartComponent implements OnInit {
   order: Order[] = [];
   imageList: Image[];
 
-  constructor(private shopping_cart_service: ShoppingCartService,
+  constructor(private shoppingCartService: ShoppingCartService,
     private authenticationService: AuthenticationService,
     private apiService: ApiService,
     private _snackBar: MatSnackBar,
@@ -50,13 +51,13 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
-  shopping_cart:cart_item[] = [];
+  shoppingCart:CartItem[] = [];
 
   ngOnInit() {
     console.log("hallo");
-    console.log(this.shopping_cart_service.getCart());
+    console.log(this.shoppingCartService.getCart());
     
-    this.shopping_cart = JSON.parse(JSON.stringify(this.shopping_cart_service.getCart()));
+    this.shoppingCart = JSON.parse(JSON.stringify(this.shoppingCartService.getCart()));
     this.updateImagePaths();
     this.calculateTotalPrice();
   }
@@ -71,60 +72,81 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
+  /**
+   * reduced a selected item quantity my 1. Cant become less than 1.
+   * @param index index of item to be reduced
+   */
   quantityMinus(index:number) {
-    if(this.shopping_cart[index].quantity>1){
+    if(this.shoppingCart[index].quantity>1){
       var start:number = Math.round(this.totalPriceCalc);
-      this.totalPriceCalc -= this.shopping_cart[index].item.price;
+      this.totalPriceCalc -= this.shoppingCart[index].item.price;
       var end:number = Math.round(this.totalPriceCalc);
       
-      this.shopping_cart[index].quantity--;
-      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+      this.shoppingCart[index].quantity--;
+      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shoppingCart));
       this.animateValue(start,end, 500);
 
-      this.shopping_cart_service.getCart()[index].quantity--;
+      this.shoppingCartService.getCart()[index].quantity--;
     }
   }
 
+  /**
+   * increased an item quantity by 1
+   * @param index index of item to be increased.
+   */
   quantityPlus(index:number){
     var start:number = Math.round(this.totalPriceCalc);
-    this.totalPriceCalc += this.shopping_cart[index].item.price;
+    this.totalPriceCalc += this.shoppingCart[index].item.price;
     var end:number = Math.round(this.totalPriceCalc);
-    this.shopping_cart[index].quantity++;
-    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+    this.shoppingCart[index].quantity++;
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shoppingCart));
     this.animateValue(start,end, 500);
 
-    this.shopping_cart_service.getCart()[index].quantity++;
+    this.shoppingCartService.getCart()[index].quantity++;
   }
 
+  /**
+   * submit a quantity for an item
+   * @param quantity quantity to be set
+   * @param index index of item
+   */
   submitQuantity(quantity:any, index:any){
     var start:number = Math.round(this.totalPriceCalc);
-    this.totalPriceCalc += Math.round((quantity - this.shopping_cart[index].quantity) * this.shopping_cart[index].item.price);
+    this.totalPriceCalc += Math.round((quantity - this.shoppingCart[index].quantity) * this.shoppingCart[index].item.price);
     var end:number = this.totalPriceCalc;
-    this.shopping_cart[index].quantity = quantity;
-    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+    this.shoppingCart[index].quantity = quantity;
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shoppingCart));
     this.animateValue(start,end,500);
 
-    this.shopping_cart_service.getCart()[index].quantity = quantity;
+    this.shoppingCartService.getCart()[index].quantity = quantity;
   }
 
+  /**
+   * remove an item
+   * @param id index of item
+   */
   removeItem(id:number) {
     var start = Math.round(this.totalPriceCalc);
-    this.totalPriceCalc = this.totalPriceCalc - this.shopping_cart[id].quantity * this.shopping_cart[id].item.price;
+    this.totalPriceCalc = this.totalPriceCalc - this.shoppingCart[id].quantity * this.shoppingCart[id].item.price;
     var end = Math.round(this.totalPriceCalc);
 
-    this.shopping_cart.splice(id,1);
-    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+    this.shoppingCart.splice(id,1);
+    localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shoppingCart));
     this.animateValue(start, end, 1500);
 
-    this.shopping_cart_service.getCart().splice(id,1);
-    if(this.shopping_cart.length==0) {
+    this.shoppingCartService.getCart().splice(id,1);
+    if(this.shoppingCart.length==0) {
       this.priceFactorEs="E"
     }
   }
 
+  /**
+   * calculates the total price on opening the view.
+   * Method is not used when the price changes while on view.
+   */
   calculateTotalPrice() {
     var price:number = 0;
-    for(let item of this.shopping_cart) {
+    for(let item of this.shoppingCart) {
       price = price +
         item.quantity *
         item.item.price;
@@ -134,9 +156,9 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   createOrder() {
-    if(this.isLoggedIn && this.shopping_cart.length>0) {
+    if(this.isLoggedIn && this.shoppingCart.length>0) {
       var date = new Date();
-      for(let item of this.shopping_cart) {
+      for(let item of this.shoppingCart) {
         var orderItem:Order = {
           id: 0,
           user: this.authenticationService.getUserId(),
@@ -151,10 +173,9 @@ export class ShoppingCartComponent implements OnInit {
         this.order.push(orderItem);
       }
       console.log(this.order);
-      this.shopping_cart = [];
-      this.shopping_cart_service.setCart([]);
-      console.log(this.shopping_cart_service.getCart());
-      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shopping_cart));
+      this.shoppingCart = [];
+      this.shoppingCartService.setCart([]);
+      localStorage.setItem("bonzenshoppingcart", JSON.stringify(this.shoppingCart));
       this.animateValue(this.totalPriceCalc, 0, 150);
       this.totalPriceCalc = 0;
       this.apiService.order(this.order).subscribe((data) => {
@@ -168,15 +189,16 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
+  /** Used to increase price by 120% */
   moneyMaker() {
     this.priceFactorEs+="E";
     var start:number = Math.round(this.totalPriceCalc);
     var end:number = 0;
-    for(let item of this.shopping_cart) {
-      item.item.price = item.item.price*1.2;
-      end = end +
+    for(let item of this.shoppingCart) {
+      item.item.price = Math.round(item.item.price*1.2);
+      end = Math.round(end +
             item.item.price *
-            item.quantity;
+            item.quantity);
     }
     end = Math.round(end);
     this.totalPriceCalc = end;
@@ -184,10 +206,14 @@ export class ShoppingCartComponent implements OnInit {
     this.animateValue(start,end, 1500);
   }
 
+  /**
+   * Call to change total Price with animation
+   * @param start initial value of total price BEFORE the change
+   * @param end value of total price AFTER the change
+   * @param duration duration of animation
+   */
   animateValue(start, end, duration) {
     // assumes integer values for start and end
-
-    console.log(this.shopping_cart_service.getCart());
 
     var range = Math.abs(end - start);
     // no timer shorter than 50ms (not really visible any way)
@@ -243,8 +269,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   updateImagePaths(){
-    for(let cart_item of this.shopping_cart){
-      cart_item.item.imagePath = this.getImagePath(cart_item.item.image);
+    for(let cartItem of this.shoppingCart){
+      cartItem.item.imagePath = this.getImagePath(cartItem.item.image);
     }
   }
 }

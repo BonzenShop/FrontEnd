@@ -1,8 +1,8 @@
 <div id="spacer">
     <mat-list>
         <h2 id="cart-title" mat-subheader>Warenkorb</h2>
-        <mat-list-item class="list-box" *ngFor="let item of shopping_cart; let i = index" [attr.data-index]="i" >
-            <i class="material-icons" id="removeIcon" (click)="removeItem(i)"> clear </i>
+        <mat-list-item class="list-box" *ngFor="let item of shoppingCart; let i = index" [attr.data-index]="i" >
+            <i class="material-icons" id="remove-icon" (click)="removeItem(i)"> clear </i>
             <img id="item-img" [src]="item.item.imagePath" alt="Kamel Placeholder">
             <div class="container-item"
                 fxLayout="column"
@@ -30,16 +30,16 @@
         </mat-list-item>
     </mat-list>
     <div id="checkout-area">
-        <p id="totalPriceText"> Total: </p>
-        <div id="totalPrice">{{ totalPrice }}</div>
+        <p id="total-price-text"> Total: </p>
+        <div id="total-price">{{ totalPrice }}</div>
         <div 
         fxLayout
         fxLayout.xs="column"
         fxLayoutAlign
         fxLayoutGap="10px"
         fxLayoutGap.xs="5px" >
-            <button id="buyBtn" mat-raised-button (click)="createOrder()">Jetzt Kaufen</button>
-            <button id="buyBtn" (click)="moneyMaker()" mat-flat-button>Ich bin R{{priceFactorEs}}ICH!</button>
+            <button id="buy-btn" mat-raised-button (click)="createOrder()">Jetzt Kaufen</button>
+            <button id="buy-btn" (click)="moneyMaker()" mat-flat-button>Ich bin R{{priceFactorEs}}ICH!</button>
         </div>
     </div>
     

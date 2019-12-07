@@ -3,7 +3,6 @@ import { ActivatedRoute } from "@angular/router";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Item } from "../_models/item";
-import { SnackBarComponent } from "../snack-bar/snack-bar.component";
 import { ShoppingCartService } from "../_services/shopping-cart.service";
 import { AuthenticationService } from "../_services/authentication.service";
 import { ProductService } from '../_services/product.service';
@@ -15,6 +14,9 @@ import { Image } from '../_models/image';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
+/**
+ * Detailed View of a product
+ */
 export class ProductDetailComponent implements OnInit {
 
   id:string = "placeholder";
@@ -42,7 +44,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
-    private shopping_cart: ShoppingCartService,
+    private shoppingCart: ShoppingCartService,
     public authService: AuthenticationService,
     private _sanitizer: DomSanitizer) {
       this.imagePath = "../assets/loading_spinner.svg";
@@ -56,6 +58,9 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
+  /**
+   * Receives Item ID out of the url and shows all corresponding data
+   */
   ngOnInit() {
     this.route.paramMap.subscribe(params => this.update(params.get("id")) );
     this.createDisplayPrice(this.item.price);
@@ -101,7 +106,7 @@ export class ProductDetailComponent implements OnInit {
 
   addItem() {
     if(this.item.onStock > 0) {
-      this.shopping_cart.addToCart(this.item,1);
+      this.shoppingCart.addToCart(this.item,1);
       this.showPopup("Zum Warenkorb hinzugefügt");
     }
   }

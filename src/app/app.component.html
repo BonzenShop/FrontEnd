@@ -27,22 +27,22 @@
   </mat-sidenav>
   <!--SIDENAV-->
   <mat-sidenav-content>
-    <div id="globalwrapper">  
+    <div id="global-wrapper">  
       <!-- Toolbar -->
       <div class="toolbar" role="banner">
-      <div id="upperToolbar">
-        <img id="logoDesktop"
+      <div id="upper-toolbar">
+        <img id="logo-desktop"
           alt="Bonzenshop Logo"
           src="../assets/Logo.svg"
           (click)="goToHome()"
         />
         <img
-        id="logoMobile"
+        id="logo-mobile"
         src="../assets/Diamond_Logo.svg" 
         alt="mobile logo"
         (click)="goToHome()"/>
-        <!-- BtnPanelRight--------------------->
-        <div id="btnPanelRight">
+        <!-- btn-panel-right--------------------->
+        <div id="btn-panel-right">
           <!--cart-->
           <a id="cart-center" routerLink="/Warenkorb">
             <h1 style="margin: 0; position: absolute; top: 9px; right: 11px;" matBadge="{{shoppingCartService.getCart().length}}" [matBadgeHidden]="shoppingCartService.getCart().length == 0" matBadgeSize="small" matBadgePosition="below after" matBadgeColor="warn"></h1>
@@ -51,7 +51,7 @@
             </i>
           </a>
           <!--user-->
-          <div class="dropdown" id="dropdownUser">
+          <div class="dropdown" id="dropdown-user">
             <i class="material-icons navbar">
               account_circle
             </i>
@@ -66,14 +66,14 @@
             </div>
           </div> 
         </div>
-        <!--BtnPanelLeft------------------------>
-        <div id="btnPanelLeft">
-          <a id="mobileMenu" (click)="sidenav.open()" >
+        <!--btn-panel-left------------------------>
+        <div id="btn-panel-left">
+          <a id="mobile-menu" (click)="sidenav.open()" >
             <i class="material-icons navbar">
               view_headline
             </i>
           </a>
-          <a *ngIf="this.authenticationService.hasEmployeeRights()" id="adminBtn" routerLink="/Admin" >
+          <a *ngIf="this.authenticationService.hasEmployeeRights()" id="admin-btn" routerLink="/Admin" >
             <i class="material-icons navbar">
               supervised_user_circle
             </i>
@@ -83,48 +83,48 @@
         <!--LeftEnd-->
       </div>
       
-      <div id="lowerToolbar">
+      <div id="lower-toolbar">
         <ul id="navbar">
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Transport'}" class="dropbtn"><span class="navbarCatText">Transport</span></button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Transport'}" class="drop-btn"><span class="navbar-cat-text">Transport</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}"><span class="navbarCatText">Tiere</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}"><span class="navbarCatText">Flugzeuge</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}"><span class="navbarCatText">Autos</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}"><span class="navbarCatText">Yachten</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}"><span class="navbarCatText">Sonstige Transportmittel</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Tiere'}"><span class="navbar-cat-text">Tiere</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Flugzeuge'}"><span class="navbar-cat-text">Flugzeuge</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Autos'}"><span class="navbar-cat-text">Autos</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Yachten'}"><span class="navbar-cat-text">Yachten</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstige Transportmittel'}"><span class="navbar-cat-text">Sonstige Transportmittel</span></a>
               </div>
             </div> 
           </li>
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Immobilien'}" class="dropbtn"><span class="navbarCatText">Immobilien</span></button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Immobilien'}" class="drop-btn"><span class="navbar-cat-text">Immobilien</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}"><span class="navbarCatText">Residenzen</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}"><span class="navbarCatText">Monumente</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}"><span class="navbarCatText">Straßen</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Residenzen'}"><span class="navbar-cat-text">Residenzen</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Monumente'}"><span class="navbar-cat-text">Monumente</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Straßen'}"><span class="navbar-cat-text">Straßen</span></a>
               </div>
             </div>
           </li>
           <li>
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}" class="dropbtn"><span class="navbarCatText">Accessoires</span></button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Accessoires'}" class="drop-btn"><span class="navbar-cat-text">Accessoires</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}"><span class="navbarCatText">Uhren</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}"><span class="navbarCatText">Ketten</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}"><span class="navbarCatText">Ringe</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Uhren'}"><span class="navbar-cat-text">Uhren</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ketten'}"><span class="navbar-cat-text">Ketten</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Ringe'}"><span class="navbar-cat-text">Ringe</span></a>
               </div>
             </div>
           </li>
           <li> 
             <div class="dropdown">
-          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstiges'}" class="dropbtn"><span class="navbarCatText">Sonstiges</span></button>
+          <button routerLink="/Produkte" [queryParams]="{Kategorie: 'Sonstiges'}" class="drop-btn"><span class="navbar-cat-text">Sonstiges</span></button>
               <div class="dropdown-content">
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}"><span class="navbarCatText">Edelsteine</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}"><span class="navbarCatText">Gold</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}"><span class="navbarCatText">Haustiere</span></a>
-                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}"><span class="navbarCatText">Untertanen</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Edelsteine'}"><span class="navbar-cat-text">Edelsteine</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Gold'}"><span class="navbar-cat-text">Gold</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Haustiere'}"><span class="navbar-cat-text">Haustiere</span></a>
+                <a routerLink="/Produkte" [queryParams]="{Kategorie: 'Untertanen'}"><span class="navbar-cat-text">Untertanen</span></a>
               </div> 
             </div>
           </li>
@@ -136,7 +136,7 @@
         <!--<div id="topBackgroundImage"></div>-->
         <router-outlet></router-outlet>
       </div>
-    <div id="loadingSpinner" *ngIf="apiService.loading">
+    <div id="loading-spinner" *ngIf="apiService.loading">
     <img src="../assets/loading-gif.gif" />
       </div>  
     </div>

@@ -1,26 +1,26 @@
 <div id="contentWrapper">
     <div id="header">
-        <h2 id="listTitle">Produkte</h2>
-        <input id="searchInput" type="search" placeholder="Suche" [(ngModel)]="searchText">
+        <h2 id="list-title">Produkte</h2>
+        <input id="search-input" type="search" placeholder="Suche" [(ngModel)]="searchText">
         <div id="categories">
             <div id="category" *ngFor="let cat of categories; let i = index">
                 {{cat}}
-                <button (click)="categories.splice(i,1)" id="removeBtn">X</button>
+                <button (click)="categories.splice(i,1)" id="remove-btn">X</button>
             </div>
         </div>
-        <button *ngIf="this.authService.hasEmployeeRights()" id="addButton" routerLink="/Admin/Produkt/Neu">
+        <button *ngIf="this.authService.hasEmployeeRights()" id="add-button" routerLink="/Admin/Produkt/Neu">
             <i class="material-icons">
                 add
             </i>
         </button>
     </div>
     
-    <div id="productListContainer">
-        <div class="productContainer" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
+    <div id="product-list-container">
+        <div class="product-container" *ngFor="let item of productList | itemCategory:categories | itemSearch:searchText">
             <div class="productContent" routerLink="/Produkt/{{item.name}}">
-                <img class="productImage" [src]="item.imagePath" alt="Das Bild konnte nicht geladen werden">
-                <h4 [title]="item.name" class="productTitle">{{item.name}}</h4>
-                <p class="productPrice">{{item.price | number:'':'de-DE'}}€</p>
+                <img class="product-image" [src]="item.imagePath" alt="Das Bild konnte nicht geladen werden">
+                <h4 [title]="item.name" class="product-title">{{item.name}}</h4>
+                <p class="product-price">{{item.price | number:'':'de-DE'}}€</p>
             </div>
         </div>
     </div>

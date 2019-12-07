@@ -1,4 +1,4 @@
-#globalwrapper {
+#global-wrapper {
     background: rgb(15,15,15);
     min-height: 100%;
 }
@@ -62,30 +62,30 @@
     }
 }
 
-#btnPanelRight {
+#btn-panel-right {
     float: right;
 }
 
-#btnPanelLeft {
+#btn-panel-left {
     float: left;
     position: absolute;
 }
 
 @media(max-width:600px) {
 
-    #adminBtn{
+    #admin-btn{
         display: none;
     }
 
-    #mobileMenu {
+    #mobile-menu {
         float: left;
     }
 
-    #logoDesktop {
+    #logo-desktop {
         display: none;
     }
 
-    #logoMobile {
+    #logo-mobile {
         border: none;
         position: absolute;
         left: 50%;
@@ -124,12 +124,12 @@
     }
 
     /* Upper half of the toolbar. Includes the logo */
-    #upperToolbar {
+    #upper-toolbar {
         height: 100%;
     }
 
     /* Lower half of the toolbar. Includes the navbar*/
-    #lowerToolbar {
+    #lower-toolbar {
         display: none;
     }
 
@@ -150,7 +150,7 @@
         -webkit-text-fill-color: transparent;
     }
 
-    #dropdownUser:hover .material-icons  {
+    #dropdown-user:hover .material-icons  {
         background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -170,15 +170,15 @@
 
 @media(min-width:600px) {
 
-    #adminBtn{
+    #admin-btn{
         float: left;
     }
 
-    #mobileMenu {
+    #mobile-menu {
         display: none;
     }
 
-    #logoDesktop {
+    #logo-desktop {
         display: inline-block;
         border: none;
         position: absolute;
@@ -189,7 +189,7 @@
         max-width: 100%;
     }
 
-    #logoMobile {
+    #logo-mobile {
         display: none;
     }
 
@@ -222,7 +222,7 @@
     }
 
     /* Lower half of the toolbar. Includes the navbar*/
-    #lowerToolbar {
+    #lower-toolbar {
         height: 100%;
     }
 
@@ -243,7 +243,7 @@
         -webkit-text-fill-color: transparent;
     }
 
-    #dropdownUser:hover .material-icons  {
+    #dropdown-user:hover .material-icons  {
         font-size: 31px;
         background:linear-gradient(10deg, #FBF5B7, #BF953F, #FCF6BA, #B38728);
         -webkit-background-clip: text;
@@ -262,44 +262,17 @@
     }
 }
 
-#dropdownUser {
+#dropdown-user {
     float: right;
     cursor: default;
 }
 
-#dropdownUser .dropdown-content {
+#dropdown-user .dropdown-content {
     width: fit-content;
     right: 0;
     /*transform: translate(50%);*/
 }
 
-/* Login/Logout on the toolbar */
-#login, #logout, #loading {
-    float: right;
-    color: rgb(211, 179, 75);
-}
-#login > form {
-    display: inline-block;
-}
-#login > .mat-icon-button {
-    width: 30px;
-    height: 30px;
-}
-#login > form > input {
-    border-radius: 10px;
-    padding: 2px 5px;
-    background: transparent;
-    border: 1px solid rgb(211, 179, 75);
-    color: rgb(211, 179, 75);
-    margin-left: 2px;
-}
-#login > form > input:-webkit-autofill,
-#login > form > input:-webkit-autofill:hover, 
-#login > form > input:-webkit-autofill:focus, 
-#login > form > input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
-    -webkit-text-fill-color: rgb(211, 179, 75) !important;
-}
 #loading {
     position: relative;
     height: 100%;
@@ -342,7 +315,7 @@ ul#navbar li:first-child {
 }
 
 /* Dropdown Button */
-.dropbtn {
+.drop-btn {
     transition: .3s ease;
     width: 100%;
     height: 100%;
@@ -386,7 +359,7 @@ ul#navbar li:first-child {
     display: block;
 }
 
-.navbarCatText{
+.navbar-cat-text{
     background: linear-gradient(to bottom, #BF953F,#BF953F, #FBF5B7, #B38728,#B38728);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -399,11 +372,11 @@ ul#navbar li:first-child {
 .dropdown:hover .dropdown-content {display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+.dropdown:hover .drop-btn {
     background-color: rgb(20, 20, 20);
 }
 
-#loadingSpinner {
+#loading-spinner {
     position: fixed;
     top: 0;
     height: 100%;
@@ -412,7 +385,7 @@ ul#navbar li:first-child {
     z-index: 999;
 }
 
-#loadingSpinner > img {
+#loading-spinner > img {
     position: relative;
     left: 50%;
     top: 50%;

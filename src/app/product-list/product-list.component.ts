@@ -13,6 +13,9 @@ import { ProductService } from '../_services/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
+/**
+ * View of the product list
+ */
 export class ProductListComponent implements OnInit {
   
   productList: Item[]

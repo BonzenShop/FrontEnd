@@ -14,6 +14,9 @@ import { CountryService } from '../_services/country.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+/**
+ * Register View
+ */
 export class RegisterComponent implements OnInit {
 
   user = new User;

@@ -1,26 +1,26 @@
-<div id="contentWrapper">
+<div id="content-wrapper">
     <h2>Registrierung</h2>
     <form [formGroup]="myForm">
-        <mat-form-field class="leftSide">
+        <mat-form-field class="left-side">
             <input matInput placeholder="Vorname" formControlName="firstName">
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Nachname" formControlName="lastName">
         </mat-form-field>
-        <mat-form-field class="leftSide">
+        <mat-form-field class="left-side">
             <mat-select placeholder="Land" formControlName="country">
                 <mat-option *ngFor="let key of objectKeys(countryService.countryData)" [value]="key">
                     {{countryService.getCountryName(key)}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Stadt" formControlName="city">
         </mat-form-field>
-        <mat-form-field  class="leftSide">
+        <mat-form-field  class="left-side">
             <input matInput placeholder="ZIP/PLZ" formControlName="postalCode">
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Straße" formControlName="street">
         </mat-form-field>
         <mat-form-field>
@@ -40,6 +40,6 @@
             <input matInput type="password" placeholder="Passwort wiederholen" formControlName="confirmPassword" [errorStateMatcher]="matcher">
         </mat-form-field>
     </form>
-    <button [disabled]="myForm.invalid" id="registerbtn" (click)="register()" mat-raised-button >Registrieren</button>
+    <button [disabled]="myForm.invalid" id="register-btn" (click)="register()" mat-raised-button >Registrieren</button>
 </div>
 

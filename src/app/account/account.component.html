@@ -1,4 +1,4 @@
-<div class="contenWrapper">
+<div class="content-wrapper">
     <div id="header">
         <h1 class="desktop" id="title">Kontoinformationen</h1>
         <h2 class="mobile" id="title">Kontoinformationen</h2>
@@ -8,23 +8,23 @@
             </i>
         </button>
     </div>
-    <div *ngIf="authService.hasEmployeeRights()" class="infoWrapper">
+    <div *ngIf="authService.hasEmployeeRights()" class="info-wrapper">
         <div>Id: </div>
         <div>{{currentUser.id}}</div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>Vorname: </div>
         <div>{{currentUser.firstName}}</div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>Nachname: </div>
         <div>{{currentUser.lastName}}</div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>E-Mail: </div>
         <div>{{currentUser.email}}</div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>Adresse: </div>
         <div>
             {{currentUser.street}}<br>
@@ -32,28 +32,28 @@
             {{countryService.getCountryName(currentUser.country)}}
         </div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>Geburtsdatum: </div>
         <div>{{currentUser.birthDate}}</div>
     </div>
-    <div class="infoWrapper">
+    <div class="info-wrapper">
         <div>Passwort: </div>
         <div>*****</div>
     </div>
     <div *ngIf="authService.hasAdminRights()">
-        <div class="infoWrapper">
+        <div class="info-wrapper">
             <div>Rolle: </div>
-            <mat-select id="roleSelect" placeholder="Rolle" name="role" [(ngModel)]="currentUser.role">
+            <mat-select id="role-select" placeholder="Rolle" name="role" [(ngModel)]="currentUser.role">
                 <mat-option *ngFor="let role of roles" [value]="role">
                     {{role}}
                 </mat-option>
             </mat-select>
         </div>
-        <div id="resetPw" class="borderDiv" *ngIf="currentUser.id != authService.getUserId() && showResetBtn">
-            <button class="functionBtn" (click)="resetPassword()" mat-stroked-button><p class="btnText">Passwort zurücksetzen</p></button>
+        <div id="reset-pw" class="border-div" *ngIf="currentUser.id != authService.getUserId() && showResetBtn">
+            <button class="function-btn" (click)="resetPassword()" mat-stroked-button><p class="btn-text">Passwort zurücksetzen</p></button>
         </div>
-        <div class="borderDiv" *ngIf="userRole != currentUser.role">
-            <button class="functionBtn" (click)="save()" mat-stroked-button><p class="btnText">Speichern</p></button>
+        <div class="border-div" *ngIf="userRole != currentUser.role">
+            <button class="function-btn" (click)="save()" mat-stroked-button><p class="btn-text">Speichern</p></button>
         </div>
     </div>
     

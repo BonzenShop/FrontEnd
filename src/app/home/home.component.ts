@@ -8,6 +8,9 @@ import { ApiService } from '../_services/api.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+/**
+ * Standard view - default when opening website
+ */
 export class HomeComponent implements OnInit {
 
   mainInfos:any = {

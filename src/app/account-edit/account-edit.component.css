@@ -26,32 +26,32 @@ h2, h3 {
     font-family: 'Exo', sans-serif;
 }
 
-#contentWrapper {
+#content-wrapper {
     display: inline-block;
     min-width: 150px;
     max-width: 700px;
 }
 
-.leftSide, .rightSide {
+.left-side, .right-side {
     width: 50%;
 }
 
-.leftSide {
+.left-side {
     padding-right: 10px;
 }
 
-.rightSide {
+.right-side {
     padding-left: 10px;
 }
 
 @media(max-width: 500px){
-    .leftSide, .rightSide {
+    .left-side, .right-side {
         width: 100%;
         padding: 0;
     }
 }
 
-#saveBtn {
+#save-btn {
     float: right;
     border: 1px ridge goldenrod;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
@@ -59,16 +59,16 @@ h2, h3 {
     color: blanchedalmond;
 }
 
-#saveBtn:disabled {
+#save-btn:disabled {
     border: none;
     background: transparent;
 }
 
-#cancelBtn:hover {
+#cancel-btn:hover {
     background-color: rgb(90,90,90);
 }
 
-#changePasswordBtn {
+#change-password-btn {
     position: relative;
     left: 50%;
     transform: translate(-50%);
@@ -76,7 +76,7 @@ h2, h3 {
     background-color: transparent;
 }
 
-#changePasswordBtn:hover {
+#change-password-btn:hover {
     background-color: rgb(41,41,41);
 }
 

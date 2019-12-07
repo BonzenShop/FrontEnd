@@ -1,9 +1,9 @@
-<div id="contentWrapper">
+<div id="content-wrapper">
     <div id="header">
         <h1>Produkt bearbeiten</h1>
         <h2>Produkt bearbeiten</h2>
         <div id="delete-button-border">
-            <button id="deleteBtn" (click)="deleteBtn()">
+            <button id="delete-btn" (click)="deleteBtn()">
                 <i class="material-icons">
                     delete
                 </i>
@@ -40,8 +40,8 @@
                 </div>
             </div>
         <div style="margin-top: 10px;">
-            <button id="cancelBtn" (click)="cancel()" mat-raised-button >Abbrechen</button>
-            <button [disabled]="valuesUnchanged() || myForm.invalid" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>
+            <button id="cancel-btn" (click)="cancel()" mat-raised-button >Abbrechen</button>
+            <button [disabled]="valuesUnchanged() || myForm.invalid" id="save-btn" (click)="save()" mat-raised-button >Speichern</button>
         </div>
     </form>
     

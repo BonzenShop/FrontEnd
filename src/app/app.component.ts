@@ -11,12 +11,12 @@ import { ShoppingCartService } from './_services/shopping-cart.service';
  * Food data with nested structure.
  * Each node has a name and an optiona list of children.
  */
-interface FoodNode {
+interface CatNode {
   name: string;
-  children?: FoodNode[];
+  children?: CatNode[];
 }
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: CatNode[] = [
   {
     name: 'Transport',
     children: [
@@ -69,7 +69,8 @@ export class AppComponent {
   email = '';
   password = '';
 
-  private _transformer = (node: FoodNode, level: number) => {
+  /* creates sidenav in mobile environment */ 
+  private _transformer = (node: CatNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
@@ -82,12 +83,13 @@ export class AppComponent {
 
   treeFlattener = new MatTreeFlattener(
       this._transformer, node => node.level, node => node.expandable, node => node.children);
+      dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  /* -------------------------------------- */
 
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-constructor(public authenticationService: AuthenticationService,
-  public router: Router,
-  public apiService: ApiService,
-  public shoppingCartService: ShoppingCartService){
+  constructor(public authenticationService: AuthenticationService,
+    public router: Router,
+    public apiService: ApiService,
+    public shoppingCartService: ShoppingCartService){
     this.dataSource.data = TREE_DATA;
   }
 

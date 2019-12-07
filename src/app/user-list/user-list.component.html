@@ -1,11 +1,11 @@
-<div id="contentWrapper">
+<div id="content-wrapper">
     <div id="header">
         <h2>Benutzer</h2>
         <h3>Benutzer</h3>
     </div>
     <mat-nav-list>
         <a mat-list-item routerLink="/Admin/Konto/{{user.id}}"  *ngFor="let user of userList">
-            <h4 matLine id="idName">({{user.id}}) {{user.email}}</h4>
+            <h4 matLine id="id-name">({{user.id}}) {{user.email}}</h4>
             <p id="desktop">{{user.role}}</p>
             <h4 matLine id="mobile">{{user.role}}</h4>
         </a>
