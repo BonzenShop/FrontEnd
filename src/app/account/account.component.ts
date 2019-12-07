@@ -12,6 +12,9 @@ import { CountryService } from '../_services/country.service';
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
+/**
+ * account view - by user
+ */
 export class AccountComponent implements OnInit {
 
   currentUser: User = new User();

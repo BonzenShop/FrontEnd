@@ -1,24 +1,24 @@
 <div id="contentWrapper">
     <mat-list>
         <h2>Alle Bestellungen</h2>
-        <mat-list-item class="listBox" *ngFor="let order of orderList">
-            <div id="orderWrapper">
-                <div id="orderInfo">
-                    <div id="orderInfoLine">
+        <mat-list-item class="list-box" *ngFor="let order of orderList">
+            <div id="order-wrapper">
+                <div id="order-info">
+                    <div id="order-info-line">
                         <div>({{order.id}})</div>
                         <div>Kunden-Id: {{order.user}}</div>
                     </div>
-                    <div id="orderInfoLine">
-                        <div id="orderDate">Bestellt: {{displayDate(order.orderDate)}}</div>
-                        <div id="totalPrice">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
+                    <div id="order-info-line">
+                        <div id="order-date">Bestellt: {{displayDate(order.orderDate)}}</div>
+                        <div id="total-price">Summe: {{order.totalPrice | number:'':'de-DE'}}€</div>
                     </div>
                 </div>
-                <div id="productInfo">
-                    <img id="itemImg" [src]="order.imagePath" alt="Placeholder">
-                    <div class="containerItem">
-                        <div id="itemName">{{order.name}}</div>
-                        <div id="itemCategory">Kategorie: {{order.category}}</div>
-                        <div id="itemPrice">Einzelpreis: {{order.price | number:'':'de-DE'}}€</div>
+                <div id="product-info">
+                    <img id="item-img" [src]="order.imagePath" alt="Placeholder">
+                    <div class="container-item">
+                        <div id="item-name">{{order.name}}</div>
+                        <div id="item-category">Kategorie: {{order.category}}</div>
+                        <div id="item-price">Einzelpreis: {{order.price | number:'':'de-DE'}}€</div>
                         <div id="itemAmount">Menge: {{order.amount}}</div>
                     </div>
                 </div>

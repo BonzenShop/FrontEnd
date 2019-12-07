@@ -101,7 +101,7 @@
     text-overflow: ellipsis;
 }
 
-#removeIcon {
+#remove-icon {
     position: absolute;
     top: 2px;
     right: 2px;
@@ -109,7 +109,7 @@
     color: blanchedalmond;
 }
 
-#removeIcon:hover {
+#remove-icon:hover {
     color: crimson;
     cursor: pointer;
 }
@@ -123,12 +123,12 @@
     -webkit-text-fill-color: transparent;
 }
 
-#totalPriceText{
+#total-price-text{
     margin-bottom: 5px;
     color: blanchedalmond;
 }
 
-#totalPrice {
+#total-price {
     font-family: 'Courgette', cursive;
     font-size: 42px;
     background:linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7); 
@@ -136,7 +136,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-#buyBtn {
+#buy-btn {
     border: 1px ridge goldenrod;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);

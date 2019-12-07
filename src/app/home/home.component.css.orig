@@ -1,4 +1,4 @@
-#welcomeAreaBG {
+#welcome-area-BG {
     width: 100%;
     height: 300px;
     background-image: url("/assets/blurredLight.jpg");
@@ -9,14 +9,13 @@
     background-size: cover;
 }
 
-#welcomeAreaText {
+#welcome-area-text {
     position: absolute;
     text-align: center;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 80%;
     padding: 20px;
     background-color: rgba(0,0,0, 0.5);
     text-align: center;
@@ -41,21 +40,20 @@ p {
     color: blanchedalmond;
 }
 
-#btnPanel {
-margin-top: 20px;
-margin-bottom: 20px;
+#btn-panel {
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
-.borderDiv {
+.border-div {
     background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-radius: 8px;
     height: 75px;
     margin: 0 auto;
 }
 
-.functionBtn {
+.function-btn {
     color: blanchedalmond;
-    width: 100%;
     height: 100%;
     font-size: 26px;
     position: relative;
@@ -66,17 +64,17 @@ margin-bottom: 20px;
     background-clip: padding-box;
 }
 
-.btnText {
+.btn-text {
     margin: 0;
 }
 
-.functionBtn:hover .btnText{
+.function-btn:hover .btn-text{
     background: linear-gradient(to bottom, #BF953F, #FBF5B7, #B38728);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.secDivider {
+.sec-divider {
     border-top: 1px solid;
     border-image-source: linear-gradient(to right, transparent, transparent, #AA771C, rgb(195, 170, 30), #AA771C, transparent, transparent);
     border-image-slice: 1;
@@ -84,70 +82,100 @@ margin-bottom: 20px;
     margin-bottom: 40px;
 }
 
-@media(max-width:1000px) {
+@media(max-width:600px) {
     .icon {
         position: relative;
         height:176px;
         border: 2px solid transparent;
     }
+
+    #welcome-area-text {
+        width: 100%;
+    }
+
+    .function-btn {
+        width: 300px;
+    }
 }
 
-@media(min-width:1000px) {
+@media(min-width:600px) {
+    #welcome-area-text {
+        width: 80%;
+    }
+
     .icon {
         position: relative;
         height:176px;
     }
 
-    .iconTextLeft p {
+    .icon-text-left p {
         text-align: left;
         padding-right: 165px;
     }
 
-    .iconTextRight p {
+    .icon-text-Right p {
         text-align: right;
         padding-left: 165px;
     }
+
+    .function-btn {
+        width: 100%;
+    }
 }
 
-#iconIntro {
+#section-title {
     margin-bottom: 15px;
 }
 
-.iconPanel { 
+.icon-panel { 
     margin-top: 50px;
     position: relative;
     width: 95%;
 }
 
-.iconTextHeader {
+.icon-text-header {
     font-size: 1.3em;
     color: rgb(155,135,80);
 }
 
-<<<<<<< HEAD
-.gridButton {
-    box-shadow: 0px 0px 5px rgb(124, 94, 18);
-    color: rgb(211, 179, 75);
-    background: transparent;
-    border: none;
-    position: relative;
-    height: 90%;
-    width: 90%;
-    cursor: pointer;
+.icon-text-main {
+    font-size: 17px;
+    margin: 0;
     font-size: 18px;
 }
 
-.gridButton:hover {
-    background-color: rgba(255,255,255,0.05);
+#top-customer-list {
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
-@media (max-width: 500px) {
-    .gridButton {
-        font-size: 14px;
-    }
+#top-customer-wrapper {
+    overflow: auto;
+}
+
+#top-customer-wrapper:hover {
+    background-color: rgb(41,41,41);
+}
+
+<<<<<<< HEAD
+#topCustomerName, #topCustomerPurchase {
+    max-width: 50%;
 =======
-.iconTextMain {
-    font-size: 17px;
-    margin: 0;
+#top-customer-name, #top-customer-purchase {
 >>>>>>> Nicolas
+    display: inline-block;
+    margin: 15px 10px 15px 10px;
+}
+
+#top-customer-purchase {
+    float: right;
+}
+
+.customer-divider {
+    border-top: 1px solid;
+    border-image-source: linear-gradient(to right, transparent, #AA771C, rgb(195, 170, 30), #AA771C, transparent);
+    border-image-slice: 1;
 }

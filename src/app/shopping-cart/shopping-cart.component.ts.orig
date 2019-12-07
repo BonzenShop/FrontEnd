@@ -194,7 +194,11 @@ export class ShoppingCartComponent implements OnInit {
     this.priceFactorEs+="E";
     var start:number = Math.round(this.totalPriceCalc);
     var end:number = 0;
+<<<<<<< HEAD
+    for(let item of this.shopping_cart) {
+=======
     for(let item of this.shoppingCart) {
+>>>>>>> Nicolas
       item.item.price = Math.round(item.item.price*1.2);
       end = Math.round(end +
             item.item.price *

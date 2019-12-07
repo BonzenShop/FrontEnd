@@ -25,22 +25,22 @@ mat-list-item:hover {
     padding: 0!important;
 }
 
-.listBox{
+.list-box{
     height: auto !important;
     color: blanchedalmond;
 }
 
-#itemImg {
+#item-img {
     width: 150px;
     max-height: 150px;
 }
 
-.containerItem {
+.container-item {
     margin-left: 10px;
     overflow: hidden;
 }
 
-#itemName {
+#item-name {
     font-size: 23px;
     font-family: 'Courgette', cursive;
     background: linear-gradient(to bottom, #cfc09f 27%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 87%); 
@@ -52,30 +52,26 @@ mat-list-item:hover {
     margin-bottom: 10px;
 }
 
-#itemPrice {
+#item-price {
     margin-bottom: 10px;
 }
 
-#itemCategory {
+#item-category {
     margin-bottom: 10px;
 }
 
-#totalPrice {
+#total-price {
     padding-left: 5px;
     float: right;
     text-align: right;
 }
 
-#orderId {
-
-}
-
-#orderDate {
+#order-date {
     padding-right: 5px;
     float: left;
 }
 
-#orderInfo {
+#order-info {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -83,35 +79,35 @@ mat-list-item:hover {
     background-color: rgba(255,255,255,0.05);
 }
 
-#orderInfoLine {
+#order-info-line {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#productInfo {
+#product-info {
     width: 100%;
     display: flex;
     flex-direction: row;
     padding: 5px
 }
 
-@media (max-width:500px){
-    #itemImg {
+@media (max-width:600px){
+    #item-img {
         width: 100px;
         max-height: 100px;
     }
-    #itemPrice {
+    #item-price {
         margin-bottom: 0;
     }
-    #itemCategory {
+    #item-category {
         margin-bottom: 0;
     }
     
 }
 
-#orderWrapper {
+#order-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;

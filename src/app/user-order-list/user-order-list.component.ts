@@ -12,6 +12,9 @@ import { Image } from "../_models/image";
   templateUrl: './user-order-list.component.html',
   styleUrls: ['./user-order-list.component.css']
 })
+/**
+ * View for the Orders of a User
+ */
 export class UserOrderListComponent implements OnInit {
 
   orderList: Order[] = [];

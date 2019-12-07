@@ -13,7 +13,7 @@ h2 {
     font-family: 'Exo', sans-serif;
 }
 
-#contentWrapper {
+#content-wrapper {
     display: inline-block;
     position: relative;
     left: 50%;
@@ -22,26 +22,26 @@ h2 {
     max-width: 700px;
 }
 
-.leftSide, .rightSide {
+.left-side, .right-side {
   width: 50%;
 }
 
-.leftSide {
+.left-side {
   padding-right: 10px;
 }
 
-.rightSide {
+.right-side {
   padding-left: 10px;
 }
 
 @media(max-width: 500px){
-  .leftSide, .rightSide {
+  .left-side, .right-side {
       width: 100%;
       padding: 0;
   }
 }
 
-#registerbtn {
+#register-btn {
     border: 1px ridge goldenrod;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
@@ -49,7 +49,7 @@ h2 {
     float: right;
 }
 
-#registerbtn:disabled {
+#register-btn:disabled {
     border: none;
     background: transparent;
 }

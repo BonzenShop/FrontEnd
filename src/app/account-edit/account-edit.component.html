@@ -1,27 +1,27 @@
-<div id="contentWrapper">
+<div id="content-wrapper">
     <h2>Kontoinformationen bearbeiten</h2>
     <h3>Kontoinformationen bearbeiten</h3>
     <form [formGroup]="myForm">
-        <mat-form-field class="leftSide">
+        <mat-form-field class="left-side">
             <input matInput placeholder="Vorname" formControlName="firstName">
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Nachname" formControlName="lastName">
         </mat-form-field>
-        <mat-form-field class="leftSide">
+        <mat-form-field class="left-side">
             <mat-select placeholder="Land" formControlName="country">
                 <mat-option *ngFor="let key of objectKeys(countryService.countryData)" [value]="key">
                     {{countryService.getCountryName(key)}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Stadt" formControlName="city">
         </mat-form-field>
-        <mat-form-field  class="leftSide">
+        <mat-form-field  class="left-side">
             <input matInput placeholder="ZIP/PLZ" formControlName="postalCode">
         </mat-form-field>
-        <mat-form-field class="rightSide">
+        <mat-form-field class="right-side">
             <input matInput placeholder="Straße" formControlName="street">
         </mat-form-field>
         <mat-form-field>
@@ -34,13 +34,13 @@
             <input matInput placeholder="E-Mail" formControlName="email">
         </mat-form-field>
         <div>
-            <button *ngIf="!changePassword" id="changePasswordBtn" (click)="doChangePassword()" mat-raised-button >
+            <button *ngIf="!changePassword" id="change-password-btn" (click)="doChangePassword()" mat-raised-button >
                 Passwort ändern
                 <i class="material-icons">
                     arrow_drop_down
                 </i>
             </button>
-            <button *ngIf="changePassword" id="changePasswordBtn" (click)="doNotChangePassword()" mat-raised-button >
+            <button *ngIf="changePassword" id="change-password-btn" (click)="doNotChangePassword()" mat-raised-button >
                 Passwort nicht ändern
                 <i class="material-icons">
                     arrow_drop_up
@@ -57,8 +57,8 @@
             </mat-form-field>
         </form>
         <div style="margin-top: 10px;">
-            <button id="cancelBtn" routerLink="/Konto" mat-raised-button >Abbrechen</button>
-            <button [disabled]="valuesUnchanged() || myForm.invalid || (changePassword && passwordForm.invalid)" id="saveBtn" (click)="save()" mat-raised-button >Speichern</button>        
+            <button id="cancel-btn" routerLink="/Konto" mat-raised-button >Abbrechen</button>
+            <button [disabled]="valuesUnchanged() || myForm.invalid || (changePassword && passwordForm.invalid)" id="save-btn" (click)="save()" mat-raised-button >Speichern</button>        
         </div>
     </form>
     

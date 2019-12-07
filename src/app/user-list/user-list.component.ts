@@ -8,6 +8,9 @@ import { User } from '../_models/user';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
+/**
+ * A list of all users - admin view
+ */
 export class UserListComponent implements OnInit {
 
   userList: User[]

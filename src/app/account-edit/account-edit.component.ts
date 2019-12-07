@@ -14,6 +14,9 @@ import { CountryService } from '../_services/country.service';
   templateUrl: './account-edit.component.html',
   styleUrls: ['./account-edit.component.css']
 })
+/**
+ * account edit view
+ */
 export class AccountEditComponent implements OnInit {
 
   user = new User;

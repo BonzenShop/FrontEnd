@@ -1,4 +1,4 @@
-#welcomeAreaBG {
+#welcome-area-BG {
     width: 100%;
     height: 300px;
     background-image: url("/assets/blurredLight.jpg");
@@ -9,7 +9,7 @@
     background-size: cover;
 }
 
-#welcomeAreaText {
+#welcome-area-text {
     position: absolute;
     text-align: center;
     top: 50%;
@@ -40,19 +40,19 @@ p {
     color: blanchedalmond;
 }
 
-#btnPanel {
+#btn-panel {
     margin-top: 40px;
     margin-bottom: 20px;
 }
 
-.borderDiv {
+.border-div {
     background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-radius: 8px;
     height: 75px;
     margin: 0 auto;
 }
 
-.functionBtn {
+.function-btn {
     color: blanchedalmond;
     height: 100%;
     font-size: 26px;
@@ -64,17 +64,17 @@ p {
     background-clip: padding-box;
 }
 
-.btnText {
+.btn-text {
     margin: 0;
 }
 
-.functionBtn:hover .btnText{
+.function-btn:hover .btn-text{
     background: linear-gradient(to bottom, #BF953F, #FBF5B7, #B38728);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.secDivider {
+.sec-divider {
     border-top: 1px solid;
     border-image-source: linear-gradient(to right, transparent, transparent, #AA771C, rgb(195, 170, 30), #AA771C, transparent, transparent);
     border-image-slice: 1;
@@ -89,17 +89,17 @@ p {
         border: 2px solid transparent;
     }
 
-    #welcomeAreaText {
+    #welcome-area-text {
         width: 100%;
     }
 
-    .functionBtn {
+    .function-btn {
         width: 300px;
     }
 }
 
 @media(min-width:600px) {
-    #welcomeAreaText {
+    #welcome-area-text {
         width: 80%;
     }
 
@@ -108,53 +108,43 @@ p {
         height:176px;
     }
 
-    .iconTextLeft p {
+    .icon-text-left p {
         text-align: left;
         padding-right: 165px;
     }
 
-    .iconTextRight p {
+    .icon-text-Right p {
         text-align: right;
         padding-left: 165px;
     }
 
-    .functionBtn {
+    .function-btn {
         width: 100%;
     }
 }
 
-#sectionTitle {
+#section-title {
     margin-bottom: 15px;
 }
 
-.iconPanel { 
+.icon-panel { 
     margin-top: 50px;
     position: relative;
     width: 95%;
 }
 
-.iconTextHeader {
+.icon-text-header {
     font-size: 1.3em;
     color: rgb(155,135,80);
 }
 
-.iconTextMain {
+.icon-text-main {
     font-size: 17px;
     margin: 0;
     font-size: 18px;
 }
 
-.gridButton:hover {
-    background-color: rgba(255,255,255,0.05);
-}
-
-@media (max-width: 500px) {
-    .gridButton {
-        font-size: 14px;
-    }
-}
-
-#topCustomerList {
+#top-customer-list {
     max-width: 500px;
     width: 100%;
     position: relative;
@@ -162,25 +152,25 @@ p {
     transform: translate(-50%);
 }
 
-#topCustomerWrapper {
+#top-customer-wrapper {
     overflow: auto;
 }
 
-#topCustomerWrapper:hover {
+#top-customer-wrapper:hover {
     background-color: rgb(41,41,41);
 }
 
-#topCustomerName, #topCustomerPurchase {
+#top-customer-name, #top-customer-purchase {
     max-width: 50%;
     display: inline-block;
     margin: 15px 10px 15px 10px;
 }
 
-#topCustomerPurchase {
+#top-customer-purchase {
     float: right;
 }
 
-.customerDivider {
+.customer-divider {
     border-top: 1px solid;
     border-image-source: linear-gradient(to right, transparent, #AA771C, rgb(195, 170, 30), #AA771C, transparent);
     border-image-slice: 1;

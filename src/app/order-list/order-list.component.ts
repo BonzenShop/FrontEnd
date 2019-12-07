@@ -12,6 +12,9 @@ import { Image } from "../_models/image";
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
+/**
+ * shows all orders - adminView
+ */
 export class OrderListComponent implements OnInit {
 
   orderList: Order[] = [];

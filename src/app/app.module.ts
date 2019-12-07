@@ -47,13 +47,9 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
 import { LoginComponent } from './login/login.component';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 
 @NgModule({
-  entryComponents: [
-    SnackBarComponent
-  ],
   declarations: [
     AppComponent,
     ProductListComponent,
@@ -70,8 +66,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     AdminViewComponent,
     ProductEditComponent,
     AccountEditComponent,
-    LoginComponent,
-    SnackBarComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

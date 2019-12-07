@@ -42,21 +42,21 @@
     color: rgb(211, 179, 75);
 }
 
-.infoWrapper {
+.info-wrapper {
     margin: 10px 0 10px 0;
 }
 
-.infoWrapper > div {
+.info-wrapper > div {
     display: inline-block;
     vertical-align: top;
 }
 
-.infoWrapper > div:first-child {
+.info-wrapper > div:first-child {
     padding-right: 10px;
     min-width: 115px;
 }
 
-.functionBtn {
+.function-btn {
     color: blanchedalmond;
     width: 100%;
     height: 100%;
@@ -69,7 +69,7 @@
     background-clip: padding-box;
 }
 
-.borderDiv {
+.border-div {
     background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-radius: 16px;
     width: fit-content;
@@ -79,21 +79,21 @@
     margin-top: 5px;
 }
 
-.btnText {
+.btn-text {
     transition: color 2s;
     margin: 0;
 }
 
-.functionBtn:hover .btnText{
+.function-btn:hover .btn-Text{
     background: linear-gradient(to bottom, #BF953F, #FBF5B7, #B38728);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-#roleSelect {
+#role-select {
     width: 115px;
 }
 
-#resetPw {
+#reset-pw {
     margin-right: 10px;
 }

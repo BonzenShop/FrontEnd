@@ -1,8 +1,8 @@
-.btnPanels {
+.btn-panels {
     width: 100%;
     padding: 5px;
 }
-.functionBtn {
+.function-btn {
     color: blanchedalmond;
     width: 100%;
     height: 100%;
@@ -15,7 +15,7 @@
     background-clip: padding-box;
 }
 
-.borderDiv {
+.border-div {
     background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     border-radius: 16px;
     width: 200px;
@@ -23,12 +23,12 @@
     margin: 0 auto;
 }
 
-.btnText {
+.btn-text {
     transition: color 2s;
     margin: 0;
 }
 
-.functionBtn:hover .btnText{
+.function-btn:hover .btn-text{
     background: linear-gradient(to bottom, #BF953F, #FBF5B7, #B38728);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

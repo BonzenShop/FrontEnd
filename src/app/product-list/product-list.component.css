@@ -10,13 +10,13 @@ h2 {
     position: relative;
 }
 
-#listTitle {
+#list-title {
     display: inline-block;
     margin-bottom: 0;
     margin-right: 20px;
 }
 
-#addButton {
+#add-button {
     display: flex;
     padding: 2px;
     background: rgb(25,25,25);
@@ -29,11 +29,11 @@ h2 {
     top: 0;
 }
 
-#addButton:hover {
+#add-button:hover {
     background-color: rgb(41, 41, 41);
 }
 
-#addButton > i {
+#add-button > i {
     color: rgb(211, 179, 75);
 }
 
@@ -56,19 +56,19 @@ h2 {
     background-color: rgb(41, 41, 41);
 }
 
-#removeBtn {
+#remove-btn {
     background-color: transparent;
     border: transparent;
     color: dimgray;
     outline: none;
 }
 
-#removeBtn:hover {
+#remove-btn:hover {
     color: blanchedalmond;
     cursor: pointer;
 }
 
-#searchInput {
+#search-input {
     border-radius: 10px;
     padding: 2px 5px;
     background: transparent;
@@ -80,25 +80,25 @@ h2 {
     margin-bottom:2px;
     margin-right: 40px;
 }
-#searchInput:-webkit-autofill,
-#searchInput:-webkit-autofill:hover, 
-#searchInput:-webkit-autofill:focus, 
-#searchInput:-webkit-autofill:active  {
+#search-input:-webkit-autofill,
+#search-input:-webkit-autofill:hover, 
+#search-input:-webkit-autofill:focus, 
+#search-input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px rgb(25, 25, 25) inset !important;
     -webkit-text-fill-color: rgb(211, 179, 75) !important;
 }
-#searchInput::-webkit-search-cancel-button{
+#search-input::-webkit-search-cancel-button{
     /*-webkit-appearance: none;*/
 }
-#searchInput::-webkit-search-cancel-button:hover{
+#search-input::-webkit-search-cancel-button:hover{
     cursor: pointer;
 }
 
-#productListContainer {
+#product-list-container {
     margin-top: 10px;
 }
 
-.productContainer {
+.product-container {
     display: inline-block;
     width: 16.6%;
     padding: 10px;
@@ -117,11 +117,11 @@ h2 {
     background-color: rgb(41, 41, 41);
 }
 
-.productContainer:hover {
+.product-container:hover {
     padding: 0;
 }
 
-.productImage {
+.product-image {
     width: 100%;
     position: relative;
     left: 50%;
@@ -129,7 +129,7 @@ h2 {
     transform: translate(-50%);
 }
 
-.productTitle {
+.product-title {
     margin: 5px 0 20px 0;
     text-align: center;
     overflow: hidden; 
@@ -137,31 +137,31 @@ h2 {
     text-overflow: ellipsis;
 }
 
-.productPrice {
+.product-price {
     margin: 5px 0 5px 0;
     text-align: center;
 }
 
 @media(max-width:1250px){
-    .productContainer {
+    .product-container {
         width: 20%;
     }
 }
 
 @media(max-width:1000px){
-    .productContainer {
+    .product-container {
         width: 25%;
     }
 }
 
 @media(max-width:750px){
-    .productContainer {
+    .product-container {
         width: 33.3%;
     }
 }
 
 @media(max-width:600px){
-    .productContainer {
+    .product-container {
         width: 50%;
     }
 }
